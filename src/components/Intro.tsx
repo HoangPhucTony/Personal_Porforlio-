@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { profile } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
 import { useReducedMotion, useScrollLock } from "../hooks";
 import Motes from "./Motes";
 import Datasaurus from "./Datasaurus";
-import { Avatar, LangToggle, Magnetic } from "./ui";
+import { Avatar, LangToggle } from "./ui";
+
+// clicks on these keep their own job instead of entering the site
+const KEEP_CLICK = "button, a, [data-keep-click]";
 
 /**
  * Cover screen: Saigon at night (city lights as data points), floating motes,
@@ -28,6 +30,11 @@ export default function Intro({ onEnter }: { onEnter: () => void }) {
   const mpx = useSpring(useTransform(mx, (v) => v * 10), spring);
   const mpy = useSpring(useTransform(my, (v) => v * 8), spring);
 
+  // "Enter" ring trailing the mouse, hidden over controls
+  const cx = useSpring(-200, { stiffness: 350, damping: 30 });
+  const cy = useSpring(-200, { stiffness: 350, damping: 30 });
+  const [ring, setRing] = useState(false);
+
   const enter = () => {
     if (leaving) return;
     if (reduced) return onEnter();
@@ -35,10 +42,14 @@ export default function Intro({ onEnter }: { onEnter: () => void }) {
     setTimeout(onEnter, 700);
   };
 
-  // wheel / swipe / key also enters, like scrolling past a cover
+  // a click anywhere, wheel, swipe or key enters, like scrolling past a cover
   useEffect(() => {
     const onWheel = (e: WheelEvent) => e.deltaY > 20 && enter();
-    const onKey = (e: KeyboardEvent) => ["ArrowDown", "PageDown"].includes(e.key) && enter();
+    const onKey = (e: KeyboardEvent) => {
+      if (["ArrowDown", "PageDown"].includes(e.key)) return enter();
+      // Enter / Space on a focused control (language toggle, shape chips) stays with that control
+      if (["Enter", " "].includes(e.key) && !(document.activeElement as Element | null)?.closest?.(KEEP_CLICK)) enter();
+    };
     let startY = 0;
     const onTouchStart = (e: TouchEvent) => (startY = e.touches[0].clientY);
     const onTouchEnd = (e: TouchEvent) => startY - e.changedTouches[0].clientY > 60 && enter();
@@ -65,13 +76,19 @@ export default function Intro({ onEnter }: { onEnter: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 overflow-hidden bg-bg"
+      className="fixed inset-0 z-50 cursor-pointer overflow-hidden bg-bg"
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
+      onClick={(e) => !(e.target as Element).closest(KEEP_CLICK) && enter()}
       onPointerMove={(e) => {
         mx.set(e.clientX / window.innerWidth - 0.5);
         my.set(e.clientY / window.innerHeight - 0.5);
+        if (e.pointerType !== "mouse") return;
+        cx.set(e.clientX);
+        cy.set(e.clientY);
+        setRing(!(e.target as Element).closest(KEEP_CLICK));
       }}
+      onPointerLeave={() => setRing(false)}
     >
       {/* photo: slow Ken Burns drift + cursor parallax */}
       <motion.div aria-hidden className="absolute -inset-8" style={reduced ? undefined : { x: px, y: py }}>
@@ -108,12 +125,14 @@ export default function Intro({ onEnter }: { onEnter: () => void }) {
           <span className="text-da">Data</span> → Insight → <span className="text-ba">Requirement</span> → <span className="text-fg">Decision</span>
         </span>
         <span className="font-display text-lg font-semibold sm:hidden">{profile.initials}</span>
-        <LangToggle id="intro" />
+        <div data-keep-click className="cursor-auto">
+          <LangToggle id="intro" />
+        </div>
       </motion.div>
 
       <div className="relative flex h-full flex-col justify-end gap-6 px-5 pb-8 pt-20 sm:px-12 sm:pb-12 lg:justify-end">
         {/* Datasaurus panel */}
-        <motion.div {...fade(0.45)} className="w-full max-w-[28.75rem] self-end [@media(max-height:640px)]:hidden lg:absolute lg:right-12 lg:top-24 lg:max-w-[31.25rem]">
+        <motion.div {...fade(0.45)} data-keep-click className="w-full cursor-auto max-w-[28.75rem] self-end [@media(max-height:640px)]:hidden lg:absolute lg:right-12 lg:top-24 lg:max-w-[31.25rem]">
           <Datasaurus />
         </motion.div>
 
@@ -139,20 +158,28 @@ export default function Intro({ onEnter }: { onEnter: () => void }) {
           </motion.p>
 
           <motion.div {...fade(0.85)} className="flex flex-col items-start gap-2 md:items-end">
-            <Magnetic strength={0.35}>
-              <button
-                onClick={enter}
-                className="group relative inline-flex min-h-[3.25rem] cursor-pointer items-center gap-4 overflow-hidden rounded-full border border-fg/30 bg-bg/30 px-7 font-mono text-xs uppercase tracking-[0.25em] backdrop-blur transition-colors duration-500 hover:border-da hover:text-bg"
-              >
-                <span className="absolute inset-0 origin-left scale-x-0 rounded-full bg-da transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-x-100" />
-                <span className="relative">{t(ui.enter)}</span>
-                <ArrowRight size={16} className="relative transition-transform duration-500 group-hover:translate-x-1" />
-              </button>
-            </Magnetic>
+            <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em]">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inset-0 animate-ping rounded-full bg-da/60" />
+                <span className="relative h-2.5 w-2.5 rounded-full bg-da" />
+              </span>
+              {t(ui.clickAnywhere)}
+            </span>
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-muted-fg">{t(ui.scrollHint)}</span>
           </motion.div>
         </div>
       </div>
+
+      <motion.div
+        aria-hidden
+        className="pointer-events-none fixed left-0 top-0 z-20 -ml-[2.75rem] -mt-[2.75rem] hidden h-[5.5rem] w-[5.5rem] items-center justify-center rounded-full border border-da/70 bg-da/10 font-mono text-[0.625rem] uppercase tracking-[0.25em] text-fg backdrop-blur-sm lg:flex"
+        style={{ x: cx, y: cy }}
+        initial={false}
+        animate={{ scale: ring && !leaving ? 1 : 0, opacity: ring && !leaving ? 1 : 0 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {t(ui.enterShort)}
+      </motion.div>
     </motion.div>
   );
 }

@@ -25,7 +25,7 @@
 
 I'm a Management Information Systems student at the University of Transport Ho Chi Minh City (UTH, GPA 3.64/4.0), currently a **Business Analyst intern** at Saigon International General Hospital (SIG) and the Public Transport Management Center (MCPT).
 
-This site is my portfolio for **Data Analyst** and **Business Analyst** internships. Every page is built around one idea: a good analysis starts with the right question and ends with a decision someone can act on.
+This site is my portfolio for **Data Analyst** and **Business Analyst** roles at **Intern or Fresher** level. Every page is built around one idea: a good analysis starts with the right question and ends with a decision someone can act on.
 
 ## Highlights
 
@@ -126,14 +126,14 @@ The case studies come from real internship work, so no confidential figures are 
 **Do Hoang Phuc**, Ho Chi Minh City
 [dhp06062005@gmail.com](mailto:dhp06062005@gmail.com) · [LinkedIn](https://www.linkedin.com/in/do-hoang-phuc-303b53322/)
 
-Open to Data Analyst and Business Analyst internships.
+Open to Data Analyst and Business Analyst roles at Intern or Fresher level (on-site, hybrid or remote).
 
 ---
 
 <details>
 <summary><b>Tóm tắt tiếng Việt</b></summary>
 
-Portfolio song ngữ (Anh / Việt) của **Đỗ Hoàng Phúc**, sinh viên Hệ thống thông tin quản lý (UTH), dùng để ứng tuyển thực tập **Data Analyst** và **Business Analyst**.
+Portfolio song ngữ (Anh / Việt) của **Đỗ Hoàng Phúc**, sinh viên Hệ thống thông tin quản lý (UTH), dùng để ứng tuyển vị trí **Intern / Fresher** **Data Analyst** và **Business Analyst**.
 
 - **Chạy thử:** `npm install`, rồi `npm run dev` và mở http://localhost:5173.
 - **Sửa nội dung:** chỉ cần sửa `src/data/profile.ts`. Mỗi chuỗi có dạng `{ en, vi }`, không phải đụng tới component.

@@ -14,28 +14,36 @@ type Ctx = {
 
 const LangContext = createContext<Ctx | null>(null);
 
+// only a language the visitor picked is remembered (the old "lang" key also stored the browser default)
+const STORAGE_KEY = "langChoice";
+
+/** English unless the link says ?lang=vi or the visitor switched to Vietnamese before. */
 function initialLang(): Lang {
   const q = new URLSearchParams(window.location.search).get("lang");
   if (q === "en" || q === "vi") return q;
   try {
-    const s = localStorage.getItem("lang");
+    const s = localStorage.getItem(STORAGE_KEY);
     if (s === "en" || s === "vi") return s;
   } catch {
     /* storage unavailable */
   }
-  return navigator.language?.toLowerCase().startsWith("vi") ? "vi" : "en";
+  return "en";
 }
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(initialLang);
+  const [lang, setLangState] = useState<Lang>(initialLang);
 
-  useEffect(() => {
-    document.documentElement.lang = lang;
+  const setLang = useCallback((l: Lang) => {
+    setLangState(l);
     try {
-      localStorage.setItem("lang", lang);
+      localStorage.setItem(STORAGE_KEY, l);
     } catch {
       /* storage unavailable */
     }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
   }, [lang]);
 
   // a shared link carries ?lang=…: keep it in step with the toggle so a refresh doesn't switch back

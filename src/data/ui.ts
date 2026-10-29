@@ -11,7 +11,8 @@ export const ui = {
     contact: { en: "Contact", vi: "Liên hệ" },
   } satisfies Record<string, L>,
 
-  enter: { en: "Enter portfolio", vi: "Vào portfolio" },
+  clickAnywhere: { en: "Click anywhere to enter", vi: "Nhấn vào bất kỳ đâu để vào" },
+  enterShort: { en: "Enter", vi: "Vào" },
   scrollHint: { en: "or scroll to explore", vi: "hoặc cuộn để khám phá" },
   seeProjects: { en: "See projects", vi: "Xem dự án" },
   emailMe: { en: "Email me", vi: "Gửi email" },

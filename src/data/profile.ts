@@ -58,7 +58,7 @@ export const profile = {
     ba: "",
   } as Record<Role, string>,
 
-  status: { en: "Open to DA / BA internships", vi: "Đang tìm thực tập DA / BA" } as L,
+  status: { en: "Open to Intern / Fresher roles", vi: "Đang tìm việc Intern / Fresher" } as L,
   location: { en: "Ho Chi Minh City", vi: "TP. Hồ Chí Minh" } as L,
   locationNote: { en: "Open to on-site, hybrid or remote", vi: "Sẵn sàng onsite, hybrid hoặc remote" } as L,
 
@@ -84,8 +84,8 @@ export const profile = {
         vi: "Tôi thích cả hai mặt của cùng một câu hỏi: [[da:dữ liệu nói gì]], và [[ba:doanh nghiệp thực sự cần gì]]? Tôi làm sạch, mô hình hoá và trực quan hoá dữ liệu, rồi chuyển phát hiện thành yêu cầu, quy trình và quyết định.",
       },
       {
-        en: "I'm looking for a Data Analyst or Business Analyst internship where I can work close to real stakeholders and real data.",
-        vi: "Tôi đang tìm vị trí thực tập Data Analyst hoặc Business Analyst để được làm việc sát với dữ liệu thật và người dùng thật.",
+        en: "I'm looking for a Data Analyst or Business Analyst role at Intern or Fresher level, where I can work close to real stakeholders and real data. I'm happy to start small, learn fast and take on whatever the team needs.",
+        vi: "Tôi đang tìm vị trí Data Analyst hoặc Business Analyst ở cấp Intern hoặc Fresher, để được làm việc sát với dữ liệu thật và người dùng thật. Tôi sẵn sàng bắt đầu từ việc nhỏ, học nhanh và nhận bất kỳ việc gì đội cần.",
       },
     ] as L[],
     education: {
@@ -98,11 +98,33 @@ export const profile = {
       photo: "/images/uth-campus.webp",
     },
     locationPhoto: "/images/tile-skyline.webp",
+    // state "now" pulses, "open" is the role I'm applying for; the rest are later goals
     careerPath: [
-      { en: "Analyst Intern", vi: "Thực tập sinh Analyst" },
-      { en: "Data / Business Analyst", vi: "Data / Business Analyst" },
-      { en: "Product / Analytics Lead", vi: "Product / Analytics Lead" },
-    ] as L[],
+      {
+        state: "now",
+        stage: { en: "Now", vi: "Hiện tại" },
+        title: { en: "Business Analyst Intern", vi: "Thực tập sinh Business Analyst" },
+        note: { en: "SIG & MCPT · since 08/2026", vi: "SIG & MCPT · từ 08/2026" },
+      },
+      {
+        state: "open",
+        stage: { en: "Looking for", vi: "Đang tìm" },
+        title: { en: "DA / BA Intern or Fresher", vi: "Intern hoặc Fresher DA / BA" },
+        note: {
+          en: "Willing to start as an intern or a fresher · on-site, hybrid or remote",
+          vi: "Sẵn sàng bắt đầu ở vị trí Intern hoặc Fresher · onsite, hybrid hoặc remote",
+        },
+      },
+      {
+        stage: { en: "Next", vi: "Tiếp theo" },
+        title: { en: "Data / Business Analyst", vi: "Data / Business Analyst" },
+        note: { en: "Own analyses and requirements end to end", vi: "Tự đảm nhận phân tích và yêu cầu từ đầu đến cuối" },
+      },
+      {
+        stage: { en: "Long term", vi: "Dài hạn" },
+        title: { en: "Product / Analytics Lead", vi: "Product / Analytics Lead" },
+      },
+    ] as { state?: "now" | "open"; stage: L; title: L; note?: L }[],
   },
 
   // The question → decision pipeline (sections/Toolkit.tsx, not shown on the home page right now)
@@ -531,7 +553,7 @@ export const profile = {
   ] as Project[],
 
   contact: {
-    headline: { en: "Hiring a DA or BA intern? Let's talk.", vi: "Bạn đang tuyển thực tập DA hoặc BA? Hãy trò chuyện nhé." } as L,
+    headline: { en: "Hiring a DA or BA intern or fresher? Let's talk.", vi: "Bạn đang tuyển Intern hoặc Fresher DA / BA? Hãy trò chuyện nhé." } as L,
     note: {
       en: "Email is the fastest way to reach me. Happy to walk through any dashboard or requirements doc.",
       vi: "Email là cách nhanh nhất để liên hệ. Tôi sẵn sàng trình bày chi tiết bất kỳ dashboard hay tài liệu yêu cầu nào.",

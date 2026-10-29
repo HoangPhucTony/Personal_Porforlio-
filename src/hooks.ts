@@ -117,16 +117,21 @@ export function scrollToTarget(target: string | number, immediate = false) {
   else el.scrollIntoView();
 }
 
+// overlays can overlap (cover → dive), so the page unlocks only when the last one closes
+let scrollLocks = 0;
+
 /** Stops page scroll while an overlay (intro, lightbox) is open. */
 export function useScrollLock(locked: boolean) {
   useEffect(() => {
     if (!locked) return;
-    lenis?.stop();
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    if (scrollLocks++ === 0) {
+      lenis?.stop();
+      document.body.style.overflow = "hidden";
+    }
     return () => {
+      if (--scrollLocks > 0) return;
       lenis?.start();
-      document.body.style.overflow = prev;
+      document.body.style.overflow = "";
     };
   }, [locked]);
 }

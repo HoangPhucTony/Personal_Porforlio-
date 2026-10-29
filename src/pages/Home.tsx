@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Intro from "../components/Intro";
+import Dive from "../components/Dive";
 import Sidebar from "../components/Sidebar";
 import Backdrop from "../components/Backdrop";
 import About from "../sections/About";
 import Experience from "../sections/Experience";
 import Projects from "../sections/Projects";
 import Contact from "../sections/Contact";
-import { useRole } from "../hooks";
+import { useReducedMotion, useRole } from "../hooks";
+
+type Stage = "cover" | "dive" | "site";
 
 function introSeen() {
   try {
@@ -19,11 +22,12 @@ function introSeen() {
 
 export default function Home() {
   // recruiters following a deep link (#projects) skip straight to the content
-  const [entered, setEntered] = useState(() => introSeen() || !!window.location.hash);
+  const [stage, setStage] = useState<Stage>(() => (introSeen() || window.location.hash ? "site" : "cover"));
   const { role, setRole } = useRole();
+  const reduced = useReducedMotion();
 
   const enter = () => {
-    setEntered(true);
+    setStage("site");
     try {
       sessionStorage.setItem("introSeen", "1");
     } catch {
@@ -33,9 +37,13 @@ export default function Home() {
 
   return (
     <>
-      <AnimatePresence>{!entered && <Intro key="intro" onEnter={enter} />}</AnimatePresence>
+      {/* cover → dive → site (the dive is skipped when motion is reduced) */}
+      <AnimatePresence>
+        {stage === "cover" && <Intro key="intro" onEnter={() => (reduced ? enter() : setStage("dive"))} />}
+        {stage === "dive" && <Dive key="dive" onDone={enter} />}
+      </AnimatePresence>
 
-      {entered && (
+      {stage === "site" && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }} className="relative min-h-screen">
           <Backdrop />
           <Sidebar />

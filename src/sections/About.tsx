@@ -221,33 +221,40 @@ export default function About() {
             {/* track: lit from the current step downward, fading toward the goal */}
             <span aria-hidden className="absolute bottom-4 left-[0.5625rem] top-4 w-px bg-gradient-to-b from-accent via-line to-ba/60" />
             {about.careerPath.map((step, i) => {
-              const now = i === 0;
+              const now = step.state === "now";
+              const open = step.state === "open";
               const last = i === about.careerPath.length - 1;
               return (
                 <li
-                  key={step.en}
-                  className={`group/step relative flex items-center gap-4 rounded-xl py-2 pl-0 pr-3 transition-colors duration-300 hover:bg-fg/[0.04] ${
-                    now ? "bg-accent/[0.07]" : ""
+                  key={step.title.en}
+                  className={`group/step relative flex items-start gap-4 rounded-xl py-2 pl-0 pr-3 transition-colors duration-300 hover:bg-fg/[0.04] ${
+                    now ? "bg-accent/[0.07]" : open ? "bg-emerald-400/[0.07] ring-1 ring-emerald-400/40" : ""
                   }`}
                 >
-                  <span className="relative flex h-5 w-5 shrink-0 items-center justify-center">
+                  <span className="relative mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center">
                     {now && <span className="absolute inset-0 animate-ping rounded-full bg-accent/40" />}
                     <span
                       className={`relative h-3.5 w-3.5 rounded-full border-2 transition-transform duration-300 group-hover/step:scale-125 ${
                         now
                           ? "border-accent bg-accent shadow-[0_0_14px_hsl(var(--accent))]"
-                          : last
-                            ? "border-ba/70 bg-card"
-                            : "border-line bg-card"
+                          : open
+                            ? "border-emerald-400 bg-card shadow-[0_0_12px_theme(colors.emerald.400/60%)]"
+                            : last
+                              ? "border-ba/70 bg-card"
+                              : "border-line bg-card"
                       }`}
                     />
                   </span>
                   <div className="min-w-0">
-                    <span className={`font-mono text-[0.625rem] ${now ? "text-accent" : "text-muted-fg"}`}>
-                      0{i + 1}
-                      {now && ` · ${t(ui.now)}`}
+                    <span className={`font-mono text-[0.625rem] uppercase tracking-wider ${now ? "text-accent" : open ? "text-emerald-400" : "text-muted-fg"}`}>
+                      0{i + 1} · {t(step.stage)}
                     </span>
-                    <p className={`text-sm ${now ? "font-semibold text-fg" : "text-muted-fg group-hover/step:text-fg"} transition-colors`}>{t(step)}</p>
+                    <p
+                      className={`text-sm transition-colors ${now || open ? "font-semibold text-fg" : "text-muted-fg group-hover/step:text-fg"}`}
+                    >
+                      {t(step.title)}
+                    </p>
+                    {step.note && <p className="mt-0.5 text-xs leading-relaxed text-muted-fg">{t(step.note)}</p>}
                   </div>
                 </li>
               );
