@@ -8,6 +8,7 @@ export type Project = {
   slug: string; // URL: /projects/<slug>
   role: Role;
   featured?: boolean;
+  university?: boolean; // coursework: tagged "University Project" and listed in its own group under the role tab
   title: L;
   summary: L;
   /** Four short facts, matching ui.factLabels[role] (Question/Data/Insight/Impact or Problem/Stakeholders/Deliverables/Outcome). */
@@ -25,6 +26,7 @@ export type Project = {
   note?: L; // disclaimer shown above the cover, e.g. that screenshots use fake data
   source?: string;
   demo?: string;
+  demoLabel?: L; // overrides the role's default demo button text, e.g. "Live demo" for a running app
 };
 
 export type Experience = {
@@ -549,6 +551,250 @@ export const profile = {
         en: "A dashboard for a CEO is a process problem first: until every stage had an owner and a deadline, there was nothing to chart.",
         vi: "Dashboard cho CEO trước hết là bài toán quy trình: khi chưa khâu nào có người phụ trách và hạn chót, thì chưa có gì để vẽ biểu đồ.",
       },
+    },
+    {
+      slug: "uth-student-mental-health",
+      role: "da",
+      university: true,
+      title: { en: "Student mental health, from sensor data to decisions", vi: "Sức khỏe tinh thần sinh viên: từ dữ liệu cảm biến đến quyết định" },
+      summary: {
+        en: "A data warehouse and a four-page Power BI dashboard that show a university counselling team who is at risk, when, and what to do about it.",
+        vi: "Kho dữ liệu và dashboard Power BI 4 trang giúp bộ phận tư vấn tâm lý của trường thấy ai đang có nguy cơ, vào lúc nào, và nên làm gì.",
+      },
+      cover: "/images/projects/uth-mental-health-overview.webp",
+      facts: [
+        {
+          en: "How are students doing, which groups are at risk, and when should the school step in?",
+          vi: "Sinh viên đang ra sao, nhóm nào có nguy cơ, và nhà trường nên can thiệp vào lúc nào?",
+        },
+        {
+          en: "Dartmouth's public College Experience Dataset: phone sensing and mood surveys for 189 students over 8,809 observed days (2017–2022).",
+          vi: "College Experience Dataset công khai của Dartmouth: dữ liệu cảm biến điện thoại và khảo sát tâm lý của 189 sinh viên, 8.809 ngày quan sát (2017–2022).",
+        },
+        {
+          en: "26.5% of students had at least one day of severe anxiety or depression. Risk peaks in May and October, and students sleeping under six hours score 18% higher on PHQ-4.",
+          vi: "26,5% sinh viên có ít nhất một ngày lo âu hoặc trầm cảm ở mức nặng. Rủi ro đạt đỉnh tháng 5 và tháng 10, nhóm ngủ dưới 6 giờ có PHQ-4 cao hơn 18%.",
+        },
+        {
+          en: "Each dashboard page ends in a recommendation: seasonal support, a sleep campaign, social activation and an at-risk watch list.",
+          vi: "Mỗi trang dashboard kết thúc bằng một đề xuất: hỗ trợ theo mùa, chiến dịch ngủ sớm, kết nối xã hội và danh sách theo dõi nhóm nguy cơ.",
+        },
+      ],
+      stack: ["Power BI", "DAX", "Star schema", "SQL Server", "SSIS", "SSAS"],
+      period: { en: "11/2025 · UTH coursework (QA 10/2026)", vi: "11/2025 · Đồ án môn học tại UTH (rà soát 10/2026)" },
+      myRole: {
+        en: "Power BI developer in a team of 6 — data model, DAX, dashboards and insights",
+        vi: "Phụ trách Power BI trong nhóm 6 người — mô hình dữ liệu, DAX, dashboard và insight",
+      },
+      metrics: [
+        { value: "24", label: { en: "DAX measures, plus 11 calculated columns", vi: "measure DAX, cùng 11 calculated column" } },
+        { value: "15", label: { en: "report pages: 4 dashboards and 11 tooltip, insight and recommendation pages", vi: "trang báo cáo: 4 dashboard và 11 trang tooltip, insight, đề xuất" } },
+        { value: "6", label: { en: "data errors found and fixed in my own QA pass", vi: "lỗi số liệu tự phát hiện và sửa khi rà soát lại" } },
+      ],
+      context: {
+        en: "Students are a high-risk group for stress, anxiety and depression, yet universities rarely have a data-driven way to notice it. For the Data Warehousing & Decision Support Systems course, our team of six built a warehouse from five years of phone sensing and mood surveys. Teammates handled the Python cleaning, SSIS ETL and the SSAS cube; I built the Power BI layer that a counselling team would actually use.",
+        vi: "Sinh viên là nhóm có nguy cơ cao về stress, lo âu và trầm cảm, nhưng nhà trường hiếm khi có công cụ dựa trên dữ liệu để phát hiện sớm. Trong môn Kho dữ liệu và Hệ thống hỗ trợ ra quyết định, nhóm 6 người xây kho dữ liệu từ 5 năm dữ liệu cảm biến điện thoại và khảo sát tâm lý. Các bạn trong nhóm phụ trách làm sạch bằng Python, ETL bằng SSIS và cube SSAS; tôi xây lớp Power BI mà bộ phận tư vấn sẽ trực tiếp sử dụng.",
+      },
+      process: [
+        {
+          title: { en: "Model the warehouse in Power BI", vi: "Dựng mô hình trong Power BI" },
+          body: {
+            en: "Imported seven tables from SQL Server into a star schema (one fact, six dimensions and a date table) and split the measures into four tables so the model stays easy to maintain.",
+            vi: "Import 7 bảng từ SQL Server thành Star Schema (1 bảng Fact, 6 Dimension và bảng ngày), tách measure thành 4 bảng riêng để mô hình gọn và dễ bảo trì.",
+          },
+        },
+        {
+          title: { en: "Count every average over the fact table", vi: "Tính mọi trung bình qua bảng Fact" },
+          body: {
+            en: "The dimension tables hold 172,797 rows, but only 8,809 days have a survey. Measures use AVERAGEX and RELATED over the fact table, so days without a survey never leak into the KPIs.",
+            vi: "Các bảng Dimension có 172.797 dòng nhưng chỉ 8.809 ngày có khảo sát. Measure dùng AVERAGEX và RELATED qua bảng Fact để những ngày không có khảo sát không lẫn vào KPI.",
+          },
+        },
+        {
+          title: { en: "One page per business question", vi: "Mỗi trang trả lời một câu hỏi nghiệp vụ" },
+          body: {
+            en: "Overview, Sleep & Affect, Device Location and Audio Social, with synced slicers, page navigation and a Documentation page that explains the PHQ-4, SSE-3 and stress scales.",
+            vi: "Overview, Sleep & Affect, Device Location và Audio Social, có slicer đồng bộ, thanh điều hướng và trang Documentation giải thích thang đo PHQ-4, SSE-3 và Stress.",
+          },
+        },
+        {
+          title: { en: "From insight to recommendation", vi: "Từ insight đến đề xuất" },
+          body: {
+            en: "Eleven supporting pages follow a tooltip → insight → recommendation path, so a reader without a technical background can go from a chart to a decision.",
+            vi: "11 trang phụ đi theo mạch tooltip → insight → đề xuất, để người đọc không chuyên kỹ thuật đi được từ biểu đồ đến quyết định.",
+          },
+        },
+        {
+          title: { en: "Check my own numbers", vi: "Tự kiểm chứng số liệu" },
+          body: {
+            en: "After the course I queried the model with DAX and found six errors, including a percentage shown as 0.26, sleep counts inflated about 19× by the wrong grain, and a placeholder row that hid missing audio data. All fixed, and causal wording was changed to correlation.",
+            vi: "Sau khi kết thúc môn, tôi truy vấn lại mô hình bằng DAX và phát hiện 6 lỗi, trong đó có tỷ lệ % hiển thị thành 0.26, số đêm ngủ bị nhân lên khoảng 19 lần do sai độ chi tiết (grain), và một dòng giữ chỗ che mất dữ liệu âm thanh bị thiếu. Tất cả đã được sửa, các câu mang nghĩa nhân quả được đổi thành tương quan.",
+          },
+        },
+      ],
+      gallery: [
+        {
+          src: "/images/projects/uth-mental-health-overview.webp",
+          caption: { en: "Overview: wellbeing, stress and activity by month, with shared filters on the right.", vi: "Overview: sức khỏe tinh thần, stress và vận động theo tháng, bộ lọc chung ở bên phải." },
+        },
+        {
+          src: "/images/projects/uth-mental-health-sleep.webp",
+          caption: { en: "Sleep & Affect: bedtimes and wellbeing by sleep duration.", vi: "Sleep & Affect: giờ đi ngủ và sức khỏe tinh thần theo thời lượng ngủ." },
+        },
+        {
+          src: "/images/projects/uth-mental-health-location.webp",
+          caption: { en: "Device Location: where students spend their time, by social level and weekday.", vi: "Device Location: sinh viên dành thời gian ở đâu, theo mức độ xã hội và ngày trong tuần." },
+        },
+        {
+          src: "/images/projects/uth-mental-health-audio.webp",
+          caption: { en: "Audio Social: conversation time against anxiety and depression level.", vi: "Audio Social: thời lượng hội thoại theo mức lo âu và trầm cảm." },
+        },
+        {
+          src: "/images/projects/uth-mental-health-model.webp",
+          caption: { en: "The Power BI model: one fact table, six dimensions and four measure tables.", vi: "Mô hình Power BI: 1 bảng Fact, 6 Dimension và 4 bảng measure." },
+        },
+        {
+          src: "/images/projects/uth-mental-health-bedtime.webp",
+          caption: { en: "84.6% of nights start after 11 pm, more than half of them between midnight and 2 am.", vi: "84,6% số đêm bắt đầu ngủ sau 23h, hơn một nửa trong số đó rơi vào 0–2h sáng." },
+        },
+      ],
+      outcome: {
+        en: "A dashboard that answers who, when and what to do: support programmes timed for April–May and October, a sleep-hygiene campaign for students sleeping under six hours, social activation for the most isolated, and a watch list of the 50 students who had a severe day. Every finding is a correlation in observational data, not a cause.",
+        vi: "Một dashboard trả lời được ai, khi nào và làm gì: chương trình hỗ trợ tâm lý vào tháng 4–5 và tháng 10, chiến dịch ngủ đúng giờ cho nhóm ngủ dưới 6 giờ, hoạt động kết nối cho nhóm ít giao tiếp nhất, và danh sách theo dõi 50 sinh viên từng có ngày ở mức nặng. Mọi phát hiện đều là tương quan trên dữ liệu quan sát, không phải nhân quả.",
+      },
+      learnings: {
+        en: "A dashboard is only as right as its grain. Check what every number is counted over before you trust it.",
+        vi: "Dashboard chỉ đúng khi đếm đúng độ chi tiết. Hãy kiểm tra mỗi con số được đếm trên bảng nào trước khi tin nó.",
+      },
+    },
+    {
+      slug: "uth-mis-purchasing",
+      role: "ba",
+      university: true,
+      title: { en: "Retail purchasing, from store shortage to supplier order", vi: "Mua hàng bán lẻ: từ cửa hàng thiếu hàng đến đơn nhà cung cấp" },
+      summary: {
+        en: "Interviews with a multi-store retailer to find where purchasing breaks down, then BPMN, fit-gap and three custom Odoo 19 modules with a live demo.",
+        vi: "Phỏng vấn trực tiếp một chuỗi bán lẻ để tìm chỗ tắc trong quy trình mua hàng, rồi BPMN, fit-gap và 3 module Odoo 19 có demo trực tuyến.",
+      },
+      cover: "/images/projects/uth-purchasing-pr-fulfillment-options.webp",
+      note: {
+        en: "Academic prototype. The process analysis is based on a survey of Central Retail Vietnam's purchasing; the project is not affiliated with or endorsed by Central Retail. Screenshots use sample data.",
+        vi: "Prototype học thuật. Phần phân tích quy trình dựa trên khảo sát quy trình mua hàng tại Central Retail Vietnam; dự án không liên kết hay được bảo trợ bởi Central Retail. Ảnh chụp dùng dữ liệu mẫu.",
+      },
+      facts: [
+        {
+          en: "Stores, merchandising, the warehouse and suppliers worked through email and spreadsheets: data out of sync, no early warning for shortages or near-expiry stock, and budgets checked only after buying.",
+          vi: "Cửa hàng, Merchandise, kho và nhà cung cấp trao đổi qua e-mail và bảng tính: dữ liệu không đồng bộ, không có cảnh báo sớm hết hàng hay hàng cận date, ngân sách chỉ được kiểm tra sau khi đã mua.",
+        },
+        {
+          en: "Store staff, the merchandising team, warehouse QC and suppliers. Three of them work inside the system on the same purchase request.",
+          vi: "Nhân viên cửa hàng, bộ phận Merchandise, QC kho và nhà cung cấp. Ba vai trò trong số đó làm việc trực tiếp trên cùng một phiếu yêu cầu mua hàng.",
+        },
+        {
+          en: "Interview guide and pain-point list, BPMN AS-IS / TO-BE models, a fit-gap table against standard Odoo, business rules, and three custom modules deployed to a live demo.",
+          vi: "Bộ câu hỏi phỏng vấn và danh sách pain point, mô hình BPMN AS-IS / TO-BE, bảng fit-gap so với Odoo chuẩn, bộ quy tắc nghiệp vụ, và 3 module tự viết đã triển khai lên demo trực tuyến.",
+        },
+        {
+          en: "One purchase request carries the whole flow, from a store falling below its minimum to approval, supplier order, QC and restock, with budget control and exceptions built in.",
+          vi: "Một phiếu yêu cầu mua hàng đi xuyên suốt cả luồng, từ lúc cửa hàng xuống dưới mức tồn tối thiểu đến phê duyệt, đặt hàng NCC, QC và bổ sung hàng, có sẵn kiểm soát ngân sách và xử lý ngoại lệ.",
+        },
+      ],
+      stack: ["Stakeholder interviews", "BPMN", "Fit-gap analysis", "Odoo 19", "Python", "PostgreSQL"],
+      period: { en: "04–05/2026 · UTH coursework (public release 10/2026)", vi: "04–05/2026 · Đồ án môn học tại UTH (hoàn thiện public 10/2026)" },
+      myRole: {
+        en: "Business analyst & lead developer in a team of 6 — business interviews, pain points and requirements, then about 70% of the code and the deployment",
+        vi: "BA kiêm lập trình chính trong nhóm 6 người — phỏng vấn doanh nghiệp, xác định pain point và yêu cầu, rồi viết khoảng 70% mã nguồn và triển khai",
+      },
+      metrics: [
+        { value: "9", label: { en: "fit-gap areas covered: configured where Odoo fits, built where it doesn't", vi: "hạng mục fit-gap được đáp ứng: cấu hình khi Odoo có sẵn, tự xây khi còn thiếu" } },
+        { value: "3", label: { en: "custom modules, extending 14 standard Odoo models instead of forking", vi: "module tự viết, mở rộng 14 model chuẩn của Odoo thay vì sửa lõi" } },
+        { value: "~70%", label: { en: "of about 13,700 lines of code written by me", vi: "trong khoảng 13.700 dòng code do tôi viết" } },
+      ],
+      context: {
+        en: "Multi-store retail chains restock from two sources: the central warehouse and outside suppliers. For the MIS Practical Project course, I prepared the interview questions and interviewed people at a large retailer directly about how their purchasing really works. The pain points were clear: requests made by hand over email, no early warning for shortages or near-expiry stock, and budgets checked only after the money was spent. Standard Odoo covers purchasing and inventory, but not the store → merchandising → supplier flow.",
+        vi: "Chuỗi bán lẻ nhiều cửa hàng bổ sung hàng từ hai nguồn: kho tổng và nhà cung cấp bên ngoài. Trong môn Đồ án thực tế Hệ thống thông tin quản lý, tôi soạn bộ câu hỏi và trực tiếp phỏng vấn nhân sự của một nhà bán lẻ lớn về cách họ thực sự mua hàng. Pain point lộ rõ: phiếu yêu cầu lập thủ công qua e-mail, không có cảnh báo sớm hết hàng hay hàng cận date, ngân sách chỉ được kiểm tra sau khi đã chi. Odoo chuẩn có sẵn mua hàng và kho, nhưng không có luồng cửa hàng → Merchandise → nguồn cung.",
+      },
+      process: [
+        {
+          title: { en: "Interview the business", vi: "Phỏng vấn doanh nghiệp" },
+          body: {
+            en: "Wrote an interview guide, then met the retailer's staff in person to hear how a store's request really travels to merchandising, the warehouse and suppliers. Their answers became the requirements and the list of pain points: manual requests, email threads, out-of-sync data and late budget checks.",
+            vi: "Soạn bộ câu hỏi phỏng vấn, rồi gặp trực tiếp nhân sự doanh nghiệp để nghe một yêu cầu từ cửa hàng thực sự đi qua Merchandise, kho và nhà cung cấp như thế nào. Câu trả lời của họ trở thành danh sách yêu cầu và pain point: lập phiếu thủ công, trao đổi qua e-mail, dữ liệu lệch nhau, kiểm tra ngân sách quá muộn.",
+          },
+        },
+        {
+          title: { en: "Map the AS-IS process", vi: "Mô hình hoá quy trình AS-IS" },
+          body: {
+            en: "Drew the current flow in BPMN from the interview notes, marking where each pain point happens and who owns it.",
+            vi: "Vẽ quy trình hiện tại bằng BPMN từ ghi chép phỏng vấn, đánh dấu pain point xảy ra ở bước nào và thuộc về ai.",
+          },
+        },
+        {
+          title: { en: "Design the TO-BE in BPMN", vi: "Thiết kế quy trình TO-BE bằng BPMN" },
+          body: {
+            en: "Made one purchase request the central document that links store demand, merchandising's decision, purchase orders or internal transfers, QC and restock, so every department sees the same status.",
+            vi: "Đặt phiếu yêu cầu mua hàng (PR) làm chứng từ trung tâm nối nhu cầu cửa hàng, quyết định của Merchandise, đơn mua hoặc điều chuyển nội bộ, QC và bổ sung hàng, để mọi bộ phận nhìn cùng một trạng thái.",
+          },
+        },
+        {
+          title: { en: "Run a fit-gap against standard Odoo", vi: "Phân tích fit-gap với Odoo chuẩn" },
+          body: {
+            en: "Compared nine areas of the TO-BE process with what Odoo already does: configure what fits, extend what is partial, build only the real gaps.",
+            vi: "Đối chiếu 9 hạng mục của quy trình TO-BE với những gì Odoo đã có: phần phù hợp thì cấu hình, phần đáp ứng một phần thì mở rộng, chỉ tự xây những khoảng trống thật sự.",
+          },
+        },
+        {
+          title: { en: "Turn the rules into requirements", vi: "Biến quy tắc nghiệp vụ thành yêu cầu" },
+          body: {
+            en: "No duplicate requests for the same product and store, no approval over the category budget, three supply routes per line, a mandatory reason for every QC rejection, and automatic promotions for near-expiry stock.",
+            vi: "Không cho tạo PR trùng cho cùng sản phẩm và cửa hàng, chặn duyệt khi vượt ngân sách ngành hàng, 3 phương án cung ứng cho mỗi dòng, QC từ chối bắt buộc ghi lý do, và tự tạo khuyến mãi cho hàng cận date.",
+          },
+        },
+        {
+          title: { en: "Build and ship it", vi: "Xây dựng và triển khai" },
+          body: {
+            en: "Three custom Odoo 19 modules that extend standard models instead of forking them, role-based access for stores, merchandising and warehouse QC, and Docker with GitHub Actions deploying automatically to a live demo.",
+            vi: "3 module Odoo 19 mở rộng model chuẩn thay vì sửa lõi, phân quyền theo vai trò cho cửa hàng, Merchandise và QC kho, cùng Docker và GitHub Actions tự động triển khai lên bản demo trực tuyến.",
+          },
+        },
+      ],
+      gallery: [
+        {
+          src: "/images/projects/uth-purchasing-store-replenishment.webp",
+          caption: { en: "Store: min/max levels and a suggested restock quantity. One click creates the purchase request.", vi: "Cửa hàng: mức tồn min/max và số lượng đề xuất bổ sung. Một click là tạo phiếu yêu cầu mua hàng." },
+        },
+        {
+          src: "/images/projects/uth-purchasing-pr-fulfillment-options.webp",
+          caption: { en: "Merchandising picks a supply route per line: central warehouse, supplier to warehouse, or supplier direct to store.", vi: "Merchandise chọn nguồn cung cho từng dòng: kho tổng, NCC giao về kho tổng, hoặc NCC giao thẳng cửa hàng." },
+        },
+        {
+          src: "/images/projects/uth-purchasing-purchase-budget.webp",
+          caption: { en: "Purchase budget by category: spent, committed and remaining. Approval is blocked when a request goes over.", vi: "Ngân sách mua theo ngành hàng: đã chi, đã cam kết, còn lại. Phiếu vượt ngân sách sẽ bị chặn duyệt." },
+        },
+        {
+          src: "/images/projects/uth-purchasing-stock-by-lot-expiry.webp",
+          caption: { en: "Stock by lot and expiry date, carried through the warehouse-to-store transfer.", vi: "Tồn kho theo lô và hạn sử dụng, giữ nguyên xuyên suốt luồng kho tổng → cửa hàng." },
+        },
+        {
+          src: "/images/projects/uth-purchasing-expiry-promotion.webp",
+          caption: { en: "A daily job finds near-expiry lots and creates promotions automatically.", vi: "Job chạy hằng ngày tìm lô sắp hết hạn và tự tạo khuyến mãi." },
+        },
+        {
+          src: "/images/projects/uth-purchasing-store-sale-promo-price.webp",
+          caption: { en: "A store sale with the promotional price applied automatically.", vi: "Đơn bán tại cửa hàng tự áp giá khuyến mãi." },
+        },
+      ],
+      outcome: {
+        en: "A working end-to-end prototype with a live demo. Three roles work on one purchase request with clear states instead of email and spreadsheets, and all nine fit-gap areas are covered: by configuration where Odoo fits, by custom modules where it doesn't.",
+        vi: "Một prototype chạy được end-to-end, có demo trực tuyến. Ba vai trò làm việc trên cùng một phiếu yêu cầu với trạng thái rõ ràng thay cho e-mail và bảng tính, và cả 9 hạng mục fit-gap đều được đáp ứng: bằng cấu hình khi Odoo có sẵn, bằng module tự viết khi còn thiếu.",
+      },
+      learnings: {
+        en: "The happy path is the easy part. Most of the work is in the exceptions: shortages, damaged goods, near-expiry stock and budget overruns.",
+        vi: "Luồng chuẩn là phần dễ. Phần lớn công sức nằm ở ngoại lệ: thiếu hàng, hàng hỏng, hàng cận date và vượt ngân sách.",
+      },
+      source: "https://github.com/HoangPhucTony/Mis_Purchasing_OdooProject",
+      demo: "https://huggingface.co/spaces/IceMisha/OdooProject",
+      demoLabel: { en: "Live demo", vi: "Xem demo" },
     },
   ] as Project[],
 

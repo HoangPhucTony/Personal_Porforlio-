@@ -44,8 +44,10 @@ This site is my portfolio for **Data Analyst** and **Business Analyst** roles at
 | **What really moves imaging and lab revenue** | Data Analyst | Variance analysis by chain substitution: revenue split into six drivers, drilled down by specialty and doctor |
 | **Promotion analysis, hypothesis first** | Data Analyst | Structured, hypothesis-driven problem solving: audience first, MECE issue tree, then SQL and a Google Sheets dashboard |
 | **Corporate health checks, from contract to cash** | Business Analyst | End-to-end process across four departments, turned into a Google Apps Script web app for the CEO with email-based access |
+| **Student mental health, from sensor data to decisions** · *University Project* | Data Analyst | Team coursework at UTH: my Power BI layer (star schema, 24 DAX measures, four dashboards) on a SQL Server warehouse, plus a QA pass that fixed six data errors |
+| **Retail purchasing, from store shortage to supplier order** · *University Project* | Business Analyst | Team coursework at UTH: BPMN AS-IS / TO-BE and fit-gap for a retail chain's purchasing, turned into three Odoo 19 modules with a live demo |
 
-Each one lives at `/projects/<slug>` (`sig-revenue-drivers`, `sig-promotion-analysis`, `sig-kskdn-dashboard`).
+Each one lives at `/projects/<slug>` (`sig-revenue-drivers`, `sig-promotion-analysis`, `sig-kskdn-dashboard`, `uth-student-mental-health`, `uth-mis-purchasing`).
 
 ## Tech stack
 
@@ -89,7 +91,7 @@ public/images/           # photos, logos and case-study screenshots (WebP)
 
 All content lives in `src/data/profile.ts`; no component changes are needed. Every text is a pair `{ en: "...", vi: "..." }`.
 
-- **Add a project:** append an object to `profile.projects` with a `slug`, `role: "da" | "ba"`, four `facts`, the `process` steps, a `gallery` and an `outcome`. Put screenshots in `public/images/projects/`. A `note` field shows a disclaimer above the cover.
+- **Add a project:** append an object to `profile.projects` with a `slug`, `role: "da" | "ba"`, four `facts`, the `process` steps, a `gallery` and an `outcome`. Put screenshots in `public/images/projects/`. A `note` field shows a disclaimer above the cover. `university: true` tags coursework as a University Project and lists it in its own group under the role tab.
 - **Experience:** `profile.experience`. `highlights` appear in the "View details" pop-up and `caseStudies` lists the related project slugs.
 - **CV buttons** stay hidden until the PDFs are added to `public/cv/` and their paths set in `profile.cv`.
 

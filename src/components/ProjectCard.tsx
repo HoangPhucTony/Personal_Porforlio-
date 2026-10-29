@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useSpring } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GraduationCap } from "lucide-react";
 import type { Project } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
@@ -60,6 +60,11 @@ export default function ProjectCard({ project: p, index, wide = !!p.featured }: 
 
           <div className="flex flex-col p-6">
             {p.featured && <span className="label mb-2 !text-accent">{t(ui.featured)}</span>}
+            {p.university && (
+              <span className="label mb-2 inline-flex items-center gap-1.5 self-start rounded-full border border-fg/20 px-2.5 py-1 !text-fg/80">
+                <GraduationCap size={12} /> {t(ui.universityProject)}
+              </span>
+            )}
             <h3 className="font-display text-2xl font-semibold leading-tight transition-colors duration-300 group-hover:text-accent">{t(p.title)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-fg">{t(p.summary)}</p>
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Github, Info, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Github, GraduationCap, Info, X } from "lucide-react";
 import { profile, projectBySlug, projectsByRole } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
@@ -95,9 +95,16 @@ export default function ProjectPage() {
 
       <main className="relative mx-auto max-w-5xl px-4 pb-24 pt-12 sm:px-8 sm:pt-16">
         {/* hero */}
-        <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="label !text-accent">
-          {t(ui.caseStudy)} · {t(ui.roleLabel[p.role])}
-        </motion.p>
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-wrap items-center gap-3">
+          <span className="label !text-accent">
+            {t(ui.caseStudy)} · {t(ui.roleLabel[p.role])}
+          </span>
+          {p.university && (
+            <span className="label inline-flex items-center gap-1.5 rounded-full border border-fg/20 px-2.5 py-1 !text-fg/80">
+              <GraduationCap size={12} /> {t(ui.universityProject)}
+            </span>
+          )}
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -146,7 +153,7 @@ export default function ProjectPage() {
             {p.demo && (
               <Magnetic>
                 <a href={p.demo} target="_blank" rel="noreferrer" className="btn btn-accent">
-                  {t(ui.demo[p.role])} <ArrowUpRight size={14} />
+                  {t(p.demoLabel ?? ui.demo[p.role])} <ArrowUpRight size={14} />
                 </a>
               </Magnetic>
             )}

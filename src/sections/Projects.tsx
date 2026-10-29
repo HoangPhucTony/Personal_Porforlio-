@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { BarChart3, FileDown, Workflow } from "lucide-react";
-import { profile, projectsByRole, type Role } from "../data/profile";
+import { BarChart3, FileDown, GraduationCap, Workflow } from "lucide-react";
+import { profile, projectsByRole, type Project, type Role } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
 import { Magnetic, SectionHeader } from "../components/ui";
@@ -14,9 +14,16 @@ const TABS: { role: Role; Icon: typeof BarChart3 }[] = [
 export default function Projects({ role, setRole }: { role: Role; setRole: (r: Role) => void }) {
   const { t } = useLang();
   const list = projectsByRole(role);
-  // a lone non-featured card at the end stretches across the row instead of leaving a gap
-  const regular = list.filter((p) => !p.featured);
-  const lastRegular = regular.length % 2 === 1 ? regular[regular.length - 1] : null;
+  // work projects first; coursework gets its own group underneath
+  const work = list.filter((p) => !p.university);
+  const uni = list.filter((p) => p.university);
+  // a lone non-featured card at the end of a group stretches across the row instead of leaving a gap
+  const loneLast = (group: Project[]) => {
+    const regular = group.filter((p) => !p.featured);
+    return regular.length % 2 === 1 ? regular[regular.length - 1] : null;
+  };
+  const lastWork = loneLast(work);
+  const lastUni = loneLast(uni);
 
   return (
     <section id="projects" data-role={role} className="scroll-mt-24">
@@ -81,8 +88,20 @@ export default function Projects({ role, setRole }: { role: Role; setRole: (r: R
                 <p className="max-w-md text-sm leading-relaxed text-muted-fg">{t(ui.projectsSoon)}</p>
               </div>
             )}
-            {list.map((p, i) => (
-              <ProjectCard key={p.slug} project={p} index={i} wide={!!p.featured || p === lastRegular} />
+            {work.map((p, i) => (
+              <ProjectCard key={p.slug} project={p} index={i} wide={!!p.featured || p === lastWork} />
+            ))}
+
+            {uni.length > 0 && (
+              <div className="mt-8 flex flex-wrap items-end justify-between gap-2 border-t border-line pt-6 md:col-span-2">
+                <p className="flex items-center gap-2 font-display text-xl font-semibold">
+                  <GraduationCap size={18} className="text-accent" /> {t(ui.universityProjects)}
+                </p>
+                <span className="label">{t(ui.universityHint)}</span>
+              </div>
+            )}
+            {uni.map((p, i) => (
+              <ProjectCard key={p.slug} project={p} index={work.length + i} wide={!!p.featured || p === lastUni} />
             ))}
           </motion.div>
         </AnimatePresence>
