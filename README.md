@@ -6,7 +6,7 @@
 
 ### [dohoangphuc.vercel.app](https://dohoangphuc.vercel.app/)
 
-[LinkedIn](https://www.linkedin.com/in/do-hoang-phuc-303b53322/) · [Email](mailto:dhp06062005@gmail.com) · [GitHub](https://github.com/HoangPhucTony)
+[LinkedIn](https://www.linkedin.com/in/dohoangphuc0606/) · [Email](mailto:dhp06062005@gmail.com) · [GitHub](https://github.com/HoangPhucTony)
 
 [![Live site](https://img.shields.io/badge/Live_site-dohoangphuc.vercel.app-14b8a6?logo=vercel&logoColor=white)](https://dohoangphuc.vercel.app/)
 ![React](https://img.shields.io/badge/React-18-20232A?logo=react&logoColor=61DAFB)
@@ -124,7 +124,7 @@ The case studies come from real internship work, so no confidential figures are 
 ## Contact
 
 **Do Hoang Phuc**, Ho Chi Minh City
-[dhp06062005@gmail.com](mailto:dhp06062005@gmail.com) · [LinkedIn](https://www.linkedin.com/in/do-hoang-phuc-303b53322/)
+[dhp06062005@gmail.com](mailto:dhp06062005@gmail.com) · [LinkedIn](https://www.linkedin.com/in/dohoangphuc0606/)
 
 Open to Data Analyst and Business Analyst roles at Intern or Fresher level (on-site, hybrid or remote).
 

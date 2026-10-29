@@ -49,7 +49,7 @@ export const profile = {
   initials: "HP",
   photo: "/images/avatar.webp", // initials are shown when empty
   email: "dhp06062005@gmail.com",
-  linkedin: "https://www.linkedin.com/in/do-hoang-phuc-303b53322/",
+  linkedin: "https://www.linkedin.com/in/dohoangphuc0606/",
   github: "https://github.com/HoangPhucTony",
   // CV download buttons stay hidden until the PDF is in public/cv/ and its path is set here,
   // e.g. "/cv/CV_DoHoangPhuc_DA.pdf" (a missing file would download the site's HTML instead).
