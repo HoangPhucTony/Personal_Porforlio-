@@ -51,7 +51,7 @@ export const ui = {
   featured: { en: "Featured", vi: "Nổi bật" },
   universityProject: { en: "University Project", vi: "Đồ án đại học" },
   universityProjects: { en: "University Projects", vi: "Đồ án đại học" },
-  universityHint: { en: "Coursework at UTH, built in a team", vi: "Đồ án môn học tại UTH, làm theo nhóm" },
+  universityHint: { en: "Coursework at UTH, solo and in teams", vi: "Đồ án môn học tại UTH, cá nhân và theo nhóm" },
   viewCase: { en: "View case study", vi: "Xem chi tiết" },
   viewDetails: { en: "View details", vi: "Xem chi tiết" },
   whatIDid: { en: "What I did", vi: "Công việc đã làm" },

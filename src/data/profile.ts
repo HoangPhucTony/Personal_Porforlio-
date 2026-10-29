@@ -338,8 +338,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "Instead of one number going up or down, management could see how much came from patient volume, how much from prices and how much from order rates — and which specialties to talk to next.",
-        vi: "Thay vì chỉ thấy một con số tăng hay giảm, ban lãnh đạo thấy được bao nhiêu đến từ lượng bệnh nhân, bao nhiêu từ đơn giá, bao nhiêu từ tỷ lệ chỉ định — và nên trao đổi tiếp với chuyên khoa nào.",
+        en: "The total said revenue fell; the breakdown said why. Patient volume alone did not explain the drop: imaging and lab order rates moved too, and the change sat in a few specialties and doctors rather than across the whole hospital. So the next step was not a campaign to bring in more patients, but a short list of specialties to review ordering with, plus a formula the team can re-run each month to see which lever moved.",
+        vi: "Con số tổng chỉ nói doanh thu giảm; phần tách yếu tố mới nói vì sao. Lượng bệnh nhân không giải thích hết mức giảm: tỷ lệ chỉ định CLS và xét nghiệm cũng thay đổi, và thay đổi tập trung ở một vài chuyên khoa, bác sĩ chứ không dàn đều toàn viện. Vì vậy bước tiếp theo không phải là chiến dịch kéo thêm bệnh nhân, mà là danh sách chuyên khoa cần rà soát cách chỉ định, cùng một công thức để team chạy lại hằng tháng xem yếu tố nào đã thay đổi.",
       },
       learnings: {
         en: "A flat total can hide two forces pulling in opposite directions. Decompose before you conclude.",
@@ -424,8 +424,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "A report that answers the question its reader actually has, built on hypotheses agreed with the people closest to the work.",
-        vi: "Một báo cáo trả lời đúng câu hỏi người đọc thực sự cần, dựa trên các giả thuyết đã thống nhất với những người trực tiếp làm việc.",
+        en: "Promotion cost was measured as a share of gross sales for every policy × customer group, which changed the question from “are promotions working?” to “which policy discounts which customers, and by how much?”. Hypotheses the data did not support were dropped before they reached the report; the ones it did support became the dashboard's headline, each tied back to a pain point a team raised in the interviews.",
+        vi: "Chi phí khuyến mãi được đo bằng tỷ lệ trên doanh thu gộp (KM / GrossSale) cho từng cặp chính sách × nhóm khách hàng, nhờ đó câu hỏi đổi từ “khuyến mãi có hiệu quả không?” thành “chính sách nào đang giảm giá cho nhóm khách nào, và bao nhiêu?”. Giả thuyết nào dữ liệu không ủng hộ thì bị loại trước khi vào báo cáo; giả thuyết được xác nhận trở thành nội dung chính của dashboard, mỗi cái gắn với một pain point mà các team đã nêu khi phỏng vấn.",
       },
       learnings: {
         en: "The most useful query is the one you know why you're writing.",
@@ -460,8 +460,8 @@ export const profile = {
           vi: "Bản đồ quy trình end-to-end (5 khâu) và web app Apps Script phân quyền theo email, gồm bốn màn hình.",
         },
         {
-          en: "One shared view for the board and each department: what's overdue, who owns it, and what to do first.",
-          vi: "Một góc nhìn chung cho ban giám đốc và từng phòng ban: việc gì quá hạn, ai phụ trách, việc nào làm trước.",
+          en: "Overdue items ranked by amount × days late, so the biggest money at risk comes first — for the board and for each department, from the same data.",
+          vi: "Việc quá hạn được xếp theo giá trị × số ngày trễ, để khoản tiền rủi ro lớn nhất luôn lên đầu — cho ban giám đốc và từng phòng ban, từ cùng một nguồn dữ liệu.",
         },
       ],
       stack: ["Google Apps Script", "Google Sheets", "JavaScript", "Process mapping", "AI-assisted coding"],
@@ -544,8 +544,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "The board gets a one-screen answer to “where is the money”, and each department gets its own prioritised to-do list from the same data.",
-        vi: "Ban giám đốc có câu trả lời trên một màn hình cho câu hỏi “tiền đang ở đâu”, còn mỗi phòng ban có danh sách việc cần làm theo thứ tự ưu tiên — từ cùng một nguồn dữ liệu.",
+        en: "“Where is the money?” now has a stage-level answer: the cash waterfall shows how much is still waiting at fee sheet, invoice or payment, not just one outstanding total. Ranking by amount × days late means one large late contract outranks many small ones, which a plain overdue count would hide. And the eleven data-quality checks surface errors at the source — missing due dates, duplicate IDs, contracts paid but never closed — instead of letting them quietly distort the charts.",
+        vi: "Câu hỏi “tiền đang ở đâu?” giờ có câu trả lời đến từng khâu: biểu đồ thác nước cho thấy bao nhiêu tiền còn kẹt ở bảng phí, hoá đơn hay thanh toán, thay vì chỉ một con số tồn đọng. Xếp ưu tiên theo giá trị × số ngày trễ giúp một hợp đồng lớn bị trễ được xử lý trước nhiều hợp đồng nhỏ — điều mà chỉ đếm số việc quá hạn sẽ che mất. Còn mười một nhóm kiểm tra chất lượng dữ liệu làm lộ lỗi ngay tại file gốc — thiếu hạn, trùng mã, đã thu đủ tiền nhưng chưa đóng — thay vì để chúng âm thầm làm sai biểu đồ.",
       },
       learnings: {
         en: "A dashboard for a CEO is a process problem first: until every stage had an owner and a deadline, there was nothing to chart.",
@@ -659,8 +659,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "A dashboard that answers who, when and what to do: support programmes timed for April–May and October, a sleep-hygiene campaign for students sleeping under six hours, social activation for the most isolated, and a watch list of the 50 students who had a severe day. Every finding is a correlation in observational data, not a cause.",
-        vi: "Một dashboard trả lời được ai, khi nào và làm gì: chương trình hỗ trợ tâm lý vào tháng 4–5 và tháng 10, chiến dịch ngủ đúng giờ cho nhóm ngủ dưới 6 giờ, hoạt động kết nối cho nhóm ít giao tiếp nhất, và danh sách theo dõi 50 sinh viên từng có ngày ở mức nặng. Mọi phát hiện đều là tương quan trên dữ liệu quan sát, không phải nhân quả.",
+        en: "Risk is concentrated, not spread evenly. 26.5% of students had at least one severe day, and those days cluster in May and October, so support should be timed rather than year-round. Sleep is the clearest lever: 84.6% of nights start after 11 pm, and students sleeping under six hours score 18% higher on PHQ-4. That became four actions: counselling capacity in April–May and October, a sleep campaign for the under-six-hours group, social activation for the most isolated, and a watch list of the 50 students who had a severe day. All of these are correlations in observational data, not causes.",
+        vi: "Rủi ro tập trung chứ không dàn đều. 26,5% sinh viên có ít nhất một ngày ở mức nặng, và những ngày đó dồn vào tháng 5 và tháng 10 — nên hỗ trợ cần đúng thời điểm thay vì rải đều cả năm. Giấc ngủ là đòn bẩy rõ nhất: 84,6% số đêm bắt đầu ngủ sau 23h, nhóm ngủ dưới 6 giờ có PHQ-4 cao hơn 18%. Từ đó ra bốn hành động: tăng tư vấn vào tháng 4–5 và tháng 10, chiến dịch ngủ sớm cho nhóm dưới 6 giờ, hoạt động kết nối cho nhóm ít giao tiếp nhất, và danh sách theo dõi 50 sinh viên từng có ngày ở mức nặng. Tất cả là tương quan trên dữ liệu quan sát, không phải nhân quả.",
       },
       learnings: {
         en: "A dashboard is only as right as its grain. Check what every number is counted over before you trust it.",
@@ -695,11 +695,11 @@ export const profile = {
           vi: "Bộ câu hỏi phỏng vấn và danh sách pain point, mô hình BPMN AS-IS / TO-BE, bảng fit-gap so với Odoo chuẩn, bộ quy tắc nghiệp vụ, và 3 module tự viết đã triển khai lên demo trực tuyến.",
         },
         {
-          en: "One purchase request carries the whole flow, from a store falling below its minimum to approval, supplier order, QC and restock, with budget control and exceptions built in.",
-          vi: "Một phiếu yêu cầu mua hàng đi xuyên suốt cả luồng, từ lúc cửa hàng xuống dưới mức tồn tối thiểu đến phê duyệt, đặt hàng NCC, QC và bổ sung hàng, có sẵn kiểm soát ngân sách và xử lý ngoại lệ.",
+          en: "The budget check moved from after the spend to before approval, and one purchase request replaces the email chain between three roles.",
+          vi: "Kiểm tra ngân sách chuyển từ sau khi chi sang trước khi duyệt, và một phiếu yêu cầu mua hàng thay cho chuỗi e-mail giữa ba vai trò.",
         },
       ],
-      stack: ["Stakeholder interviews", "BPMN", "Fit-gap analysis", "Odoo 19", "Python", "PostgreSQL"],
+      stack: ["Stakeholder interviews", "BPMN", "Fit-gap analysis", "ERP", "Odoo 19", "Python", "PostgreSQL"],
       period: { en: "04–05/2026 · UTH coursework (public release 10/2026)", vi: "04–05/2026 · Đồ án môn học tại UTH (hoàn thiện public 10/2026)" },
       myRole: {
         en: "Business analyst & lead developer in a team of 6 — business interviews, pain points and requirements, then about 70% of the code and the deployment",
@@ -785,8 +785,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "A working end-to-end prototype with a live demo. Three roles work on one purchase request with clear states instead of email and spreadsheets, and all nine fit-gap areas are covered: by configuration where Odoo fits, by custom modules where it doesn't.",
-        vi: "Một prototype chạy được end-to-end, có demo trực tuyến. Ba vai trò làm việc trên cùng một phiếu yêu cầu với trạng thái rõ ràng thay cho e-mail và bảng tính, và cả 9 hạng mục fit-gap đều được đáp ứng: bằng cấu hình khi Odoo có sẵn, bằng module tự viết khi còn thiếu.",
+        en: "The fit-gap showed the problem was not missing purchasing features — standard Odoo already has them — but the handoffs between store, merchandising, warehouse and supplier. So the custom work went only there: one purchase request that carries the flow end to end, a budget check moved from after the purchase to before approval, a supply route chosen per line (central warehouse, supplier to warehouse, or supplier direct to store), and near-expiry lots turned into promotions automatically instead of being written off. Everything else was configuration, which kept the build to three modules extending 14 standard models, running on a live demo.",
+        vi: "Fit-gap cho thấy vấn đề không nằm ở việc thiếu chức năng mua hàng — Odoo chuẩn đã có — mà ở các điểm bàn giao giữa cửa hàng, Merchandise, kho và nhà cung cấp. Vì vậy phần tự xây chỉ tập trung vào đó: một phiếu yêu cầu đi xuyên suốt cả luồng, kiểm tra ngân sách chuyển từ sau khi mua sang trước khi duyệt, chọn nguồn cung cho từng dòng (kho tổng, NCC giao về kho, hoặc NCC giao thẳng cửa hàng), và lô cận date tự chuyển thành khuyến mãi thay vì phải huỷ bỏ. Phần còn lại là cấu hình, nhờ đó chỉ cần 3 module mở rộng 14 model chuẩn, chạy trên bản demo trực tuyến.",
       },
       learnings: {
         en: "The happy path is the easy part. Most of the work is in the exceptions: shortages, damaged goods, near-expiry stock and budget overruns.",
@@ -795,6 +795,302 @@ export const profile = {
       source: "https://github.com/HoangPhucTony/Mis_Purchasing_OdooProject",
       demo: "https://huggingface.co/spaces/IceMisha/OdooProject",
       demoLabel: { en: "Live demo", vi: "Xem demo" },
+    },
+    {
+      slug: "uth-aqi-anomaly",
+      role: "da",
+      university: true,
+      title: { en: "Air quality in 8 cities, checked every hour", vi: "Chất lượng không khí 8 thành phố, theo dõi từng giờ" },
+      summary: {
+        en: "A serverless pipeline scrapes AQI every hour, flags anomalies with Z-score and Isolation Forest, and feeds a Power BI dashboard straight from GitHub. I built the dashboard and the alerts.",
+        vi: "Pipeline serverless cào AQI mỗi giờ, phát hiện bất thường bằng Z-score và Isolation Forest, rồi đổ thẳng vào dashboard Power BI từ GitHub. Tôi phụ trách dashboard và hệ thống cảnh báo.",
+      },
+      cover: "/images/projects/uth-aqi-unhealthy-hours.webp",
+      facts: [
+        {
+          en: "Which cities and hours are really polluted, and when does a reading deserve an alert?",
+          vi: "Thành phố nào, giờ nào thực sự ô nhiễm, và khi nào một số đo đáng để cảnh báo?",
+        },
+        {
+          en: "67,450 hourly AQI and weather records for 8 Vietnamese cities (01/2025 – 03/2026), scraped from IQAir by GitHub Actions.",
+          vi: "67.450 bản ghi AQI và thời tiết theo giờ của 8 thành phố Việt Nam (01/2025 – 03/2026), cào từ IQAir bằng GitHub Actions.",
+        },
+        {
+          en: "Hanoi is above AQI 100 for 48.8% of hours, yet Z-score flagged its AQI only 13 times: when pollution is normal, “unusual” and “dangerous” stop meaning the same thing.",
+          vi: "Hà Nội có AQI > 100 trong 48,8% số giờ, nhưng Z-score chỉ gắn cờ AQI 13 lần: khi ô nhiễm là chuyện thường ngày, “bất thường” và “nguy hiểm” không còn là một.",
+        },
+        {
+          en: "Alerts should pair an absolute threshold with a one-sided z > 3, and warnings belong at 7–9 am, when all 8 cities peak.",
+          vi: "Cảnh báo nên kết hợp ngưỡng tuyệt đối với Z-score một phía (z > 3), và nên phát lúc 7–9 giờ sáng — khi cả 8 thành phố cùng đạt đỉnh.",
+        },
+      ],
+      stack: ["Power BI", "DAX", "Power Query", "Python", "Isolation Forest", "GitHub Actions"],
+      period: { en: "2025 · UTH coursework, Artificial Intelligence", vi: "2025 · Đồ án môn Trí tuệ nhân tạo tại UTH" },
+      myRole: {
+        en: "Power BI and alerting in a team of 4 — live data connection, model, DAX and the automatic alert workflow",
+        vi: "Phụ trách Power BI và cảnh báo trong nhóm 4 người — kết nối dữ liệu trực tiếp, mô hình, DAX và workflow cảnh báo tự động",
+      },
+      metrics: [
+        { value: "67,450", label: { en: "hourly records across 8 cities", vi: "bản ghi theo giờ của 8 thành phố" } },
+        { value: "24", label: { en: "CSV files read live by Power Query from GitHub, no gateway", vi: "file CSV được Power Query đọc trực tiếp từ GitHub, không cần gateway" } },
+        { value: "90%", label: { en: "of Z-score flags also caught by Isolation Forest", vi: "điểm Z-score cũng được Isolation Forest phát hiện" } },
+      ],
+      context: {
+        en: "Public AQI sites only show “right now”: nothing keeps the history, compares cities or raises a flag when a reading breaks the usual pattern. For the Artificial Intelligence course, our team of four built a pipeline that runs entirely on GitHub Actions at zero cost. Teammates built the Playwright crawler, the cleaning step and the two detection notebooks; I built the Power BI dashboard and the alerting that tells people when something is off.",
+        vi: "Các trang AQI công khai chỉ cho biết “bây giờ”: không lưu lịch sử, không so sánh giữa các thành phố, không báo khi số liệu lệch khỏi quy luật. Trong môn Trí tuệ nhân tạo, nhóm 4 người xây pipeline chạy hoàn toàn trên GitHub Actions với chi phí 0 đồng. Các bạn phụ trách crawler Playwright, bước làm sạch và hai notebook phát hiện bất thường; tôi xây dashboard Power BI và hệ thống cảnh báo khi có điều bất thường.",
+      },
+      process: [
+        {
+          title: { en: "Use the repo as the data lake", vi: "Dùng chính repo làm kho dữ liệu" },
+          body: {
+            en: "Each workflow commits its output and triggers the next: scrape every hour → clean and resample to one row per hour → detect anomalies → analyse. No server, no database.",
+            vi: "Mỗi workflow commit kết quả rồi kích hoạt bước tiếp theo: cào mỗi giờ → làm sạch, resample về 1 dòng mỗi giờ → phát hiện bất thường → phân tích. Không máy chủ, không database.",
+          },
+        },
+        {
+          title: { en: "Connect Power BI to live files", vi: "Kết nối Power BI với dữ liệu sống" },
+          body: {
+            en: "Power Query reads 24 CSV files (8 cities × 3 result types) from GitHub with Web.Contents and combines them into three fact tables, so one Refresh brings in the latest hour.",
+            vi: "Power Query đọc 24 file CSV (8 thành phố × 3 loại kết quả) từ GitHub bằng Web.Contents và gộp thành 3 bảng fact, chỉ cần bấm Refresh là có số liệu giờ mới nhất.",
+          },
+        },
+        {
+          title: { en: "Model it for comparison", vi: "Dựng mô hình để so sánh" },
+          body: {
+            en: "An hourly date-time table, a city table, the six US EPA AQI levels, and a method selector so readers can switch between Z-score and Isolation Forest; anomaly counts and rates follow the selection.",
+            vi: "Bảng thời gian theo giờ, bảng thành phố, 6 mức AQI theo chuẩn US EPA, và bộ chọn phương pháp để người xem chuyển giữa Z-score và Isolation Forest; số và tỷ lệ bất thường thay đổi theo lựa chọn.",
+          },
+        },
+        {
+          title: { en: "Alert without spamming", vi: "Cảnh báo mà không gây spam" },
+          body: {
+            en: "A script reads every anomaly file, detects column names on its own so it works for both methods, keeps only the latest hour in Vietnam time and merges duplicates. The workflow updates one “Live feed” GitHub Issue and sends an email, instead of opening a new issue each time.",
+            vi: "Script đọc mọi file bất thường, tự nhận diện tên cột nên chạy được cho cả hai phương pháp, chỉ lấy mốc giờ mới nhất theo giờ Việt Nam và gộp cảnh báo trùng. Workflow cập nhật một Issue “Live feed” duy nhất và gửi email, thay vì mở issue mới mỗi lần.",
+          },
+        },
+        {
+          title: { en: "Read the results critically", vi: "Đọc kết quả một cách phản biện" },
+          body: {
+            en: "Compared the two methods city by city and checked where their flags disagreed — which is how the gap between “unusual” and “dangerous” showed up.",
+            vi: "So sánh hai phương pháp theo từng thành phố và kiểm tra chỗ chúng gắn cờ khác nhau — chính từ đây lộ ra khoảng cách giữa “bất thường” và “nguy hiểm”.",
+          },
+        },
+      ],
+      gallery: [
+        {
+          src: "/images/projects/uth-aqi-unhealthy-hours.webp",
+          caption: { en: "Share of hours with AQI above 100: Hanoi 48.8%, Nha Trang never.", vi: "Tỷ lệ số giờ có AQI > 100: Hà Nội 48,8%, Nha Trang chưa lần nào." },
+        },
+        {
+          src: "/images/projects/uth-aqi-anomaly-methods.webp",
+          caption: { en: "Z-score flags 2.3% of hours, Isolation Forest 8.6%, covering 90% of the Z-score flags.", vi: "Z-score gắn cờ 2,3% số giờ, Isolation Forest 8,6% và bao trùm 90% điểm của Z-score." },
+        },
+      ],
+      outcome: {
+        en: "Three findings changed how the alerts should work. First, statistical outliers are not the same as danger: Hanoi is polluted almost half the time, so its spread is so wide that only AQI above about 231 looks unusual — an absolute threshold (e.g. AQI > 150) has to sit next to anomaly detection. Second, a two-sided Z-score also flags unusually clean air: 186 of Nha Trang's 189 AQI flags were low readings, so pollution alerts should use z > 3 only. Third, timing is predictable: all 8 cities peak at 7–9 am, and all 8 had their cleanest month in the rainy season, July–September. With no labelled data, Isolation Forest's flag count is set mostly by its contamination parameter, so Z-score served as the reference rather than the truth.",
+        vi: "Ba phát hiện làm thay đổi cách cảnh báo nên hoạt động. Một, bất thường thống kê không đồng nghĩa với nguy hiểm: Hà Nội ô nhiễm gần nửa thời gian nên độ phân tán lớn đến mức chỉ AQI trên khoảng 231 mới bị coi là lạ — cần đặt một ngưỡng tuyệt đối (ví dụ AQI > 150) bên cạnh phát hiện bất thường. Hai, Z-score hai phía còn gắn cờ cả không khí sạch bất thường: 186/189 cờ AQI ở Nha Trang là giờ AQI thấp, nên cảnh báo ô nhiễm chỉ nên dùng z > 3. Ba, thời điểm có thể đoán trước: cả 8 thành phố đạt đỉnh lúc 7–9 giờ sáng, và cả 8 đều có tháng sạch nhất rơi vào mùa mưa tháng 7–9. Vì không có nhãn, số cờ của Isolation Forest phụ thuộc chủ yếu vào tham số contamination, nên Z-score được dùng làm mốc tham chiếu chứ không phải đáp án đúng.",
+      },
+      learnings: {
+        en: "An anomaly detector answers “is this unusual?”, not “is this dangerous?”. A useful alert needs both questions.",
+        vi: "Mô hình phát hiện bất thường trả lời “có lạ không?”, chứ không trả lời “có nguy hiểm không?”. Cảnh báo hữu ích cần cả hai câu hỏi.",
+      },
+      source: "https://github.com/heydaisyilu/Automatic-Anomaly-Detection-System",
+    },
+    {
+      slug: "uth-timeseries-forecasting",
+      role: "da",
+      university: true,
+      title: { en: "Seven forecasting models, one fair comparison", vi: "7 mô hình dự báo, một phép so sánh công bằng" },
+      summary: {
+        en: "ARIMA to LSTM on five real datasets, and an audit that caught four evaluation errors — including a “perfect” RMSE of 0 caused by data leakage.",
+        vi: "Từ ARIMA đến LSTM trên 5 bộ dữ liệu thực tế, cùng một lần rà soát phát hiện 4 lỗi đánh giá — trong đó có RMSE “hoàn hảo” bằng 0 do rò rỉ dữ liệu.",
+      },
+      cover: "/images/projects/uth-timeseries-results.webp",
+      facts: [
+        {
+          en: "For each kind of time series, which model actually fits — and can the test scores be trusted?",
+          vi: "Với từng loại chuỗi thời gian, mô hình nào thực sự phù hợp — và có tin được điểm số trên tập test không?",
+        },
+        {
+          en: "Five public datasets: monthly retail sales and air passengers, daily temperature, hourly electricity load (~143,000 hours) and load with weather (8,779 hours).",
+          vi: "5 bộ dữ liệu công khai: doanh số bán lẻ và hành khách hàng không theo tháng, nhiệt độ theo ngày, điện năng theo giờ (~143.000 giờ) và điện năng kèm thời tiết (8.779 giờ).",
+        },
+        {
+          en: "No model wins everywhere: SARIMA cut error 58–67% on seasonal monthly data, Linear Regression beat XGBoost on hourly lags, and LSTM's 30,113 parameters bought only ~2% over VAR.",
+          vi: "Không có mô hình thắng mọi bài: SARIMA giảm 58–67% sai số trên dữ liệu tháng có mùa vụ, Linear Regression thắng XGBoost trên lag theo giờ, còn LSTM với 30.113 tham số chỉ hơn VAR khoảng 2%.",
+        },
+        {
+          en: "Re-running every notebook exposed four methodology errors; fixing the leakage reversed the conclusion of one comparison.",
+          vi: "Chạy lại toàn bộ code phát hiện 4 lỗi phương pháp; sửa lỗi rò rỉ dữ liệu làm đảo ngược kết luận của một phép so sánh.",
+        },
+      ],
+      stack: ["Python", "statsmodels", "scikit-learn", "XGBoost", "TensorFlow / Keras", "pandas"],
+      period: { en: "2026 · UTH coursework, Time Series Analysis (audited 10/2026)", vi: "2026 · Đồ án môn Phân tích chuỗi thời gian tại UTH (rà soát 10/2026)" },
+      myRole: { en: "Individual project — every model, the evaluation and the audit", vi: "Dự án cá nhân — toàn bộ mô hình, đánh giá và rà soát" },
+      metrics: [
+        { value: "7", label: { en: "models benchmarked on 5 datasets", vi: "mô hình được so sánh trên 5 bộ dữ liệu" } },
+        { value: "1.84%", label: { en: "MAPE forecasting hourly electricity with XGBoost", vi: "MAPE khi dự báo điện năng theo giờ bằng XGBoost" } },
+        { value: "4", label: { en: "evaluation errors found and fixed in my own re-run", vi: "lỗi đánh giá tự phát hiện và sửa khi chạy lại" } },
+      ],
+      context: {
+        en: "Most forecasting exercises run one model and report one number. This course project asked a harder question: for each kind of data, which model fits and why — checked against held-out test data in time order, not by eye on a chart.",
+        vi: "Phần lớn bài tập dự báo chỉ chạy một mô hình và báo một con số. Đồ án này đặt câu hỏi khó hơn: với từng loại dữ liệu, mô hình nào phù hợp và vì sao — kiểm chứng trên tập test theo đúng thứ tự thời gian, không nhìn bằng mắt trên biểu đồ.",
+      },
+      process: [
+        {
+          title: { en: "Understand the series first", vi: "Hiểu chuỗi dữ liệu trước" },
+          body: {
+            en: "STL decomposition, ACF/PACF against a white-noise baseline, missing-value and outlier handling — to see trend and seasonality before choosing a model.",
+            vi: "Phân rã STL, ACF/PACF so với chuỗi nhiễu trắng, xử lý giá trị thiếu và ngoại lai — để thấy xu hướng và mùa vụ trước khi chọn mô hình.",
+          },
+        },
+        {
+          title: { en: "Box–Jenkins, not p-values alone", vi: "Box–Jenkins, không chỉ nhìn p-value" },
+          body: {
+            en: "Second-order differencing passed the ADF test (p ≈ 3.5e-18) but distorted the ACF/PACF — a sign of over-differencing. Chose d = 1 with seasonal D = 1 instead.",
+            vi: "Sai phân bậc 2 qua kiểm định ADF (p ≈ 3.5e-18) nhưng làm ACF/PACF méo bất thường — dấu hiệu over-differencing. Chọn d = 1 kết hợp sai phân mùa vụ D = 1.",
+          },
+        },
+        {
+          title: { en: "Forecasting as regression", vi: "Biến dự báo thành hồi quy" },
+          body: {
+            en: "Lag and rolling features for ~143,000 hours of load, tuned with TimeSeriesSplit. The previous hour carried 95% of the importance, and error nearly tripled from 1 to 3 hours ahead.",
+            vi: "Đặc trưng lag và rolling cho ~143.000 giờ điện năng, tune bằng TimeSeriesSplit. Giờ liền trước chiếm 95% mức quan trọng, và sai số tăng gần gấp 3 khi dự báo xa từ 1 lên 3 giờ.",
+          },
+        },
+        {
+          title: { en: "One pipeline for every model", vi: "Một quy trình chung cho mọi mô hình" },
+          body: {
+            en: "VAR, XGBoost (99 features) and a stacked LSTM share one 70/15/15 split, one scaler fitted on train only, and a 1,317-step walk-forward test.",
+            vi: "VAR, XGBoost (99 đặc trưng) và LSTM xếp chồng dùng chung một cách chia 70/15/15, một scaler chỉ fit trên tập train, và walk-forward 1.317 bước.",
+          },
+        },
+        {
+          title: { en: "Audit my own numbers", vi: "Tự rà soát số liệu" },
+          body: {
+            en: "A rolling feature that contained the target (RMSE = 0), LSTM inverse scaling on the year column instead of load, VAR undifferenced from the wrong point, and models compared on different test sets. All four fixed and re-run.",
+            vi: "Đặc trưng rolling chứa chính giá trị cần dự báo (RMSE = 0), LSTM đảo chuẩn hoá nhầm cột năm thay vì cột tải, VAR đảo sai phân từ sai mốc, và các mô hình được so trên những tập test khác nhau. Cả 4 lỗi đã được sửa và chạy lại.",
+          },
+        },
+      ],
+      gallery: [
+        {
+          src: "/images/projects/uth-timeseries-results.webp",
+          caption: { en: "Test RMSE across four problems — the best model (blue) is different every time.", vi: "RMSE trên tập test qua 4 bài toán — mô hình tốt nhất (màu xanh) khác nhau ở mỗi bài." },
+        },
+        {
+          src: "/images/projects/uth-timeseries-arima.webp",
+          caption: { en: "ARIMA(1,1,1) only follows the trend.", vi: "ARIMA(1,1,1) chỉ bắt được xu hướng." },
+        },
+        {
+          src: "/images/projects/uth-timeseries-sarima.webp",
+          caption: { en: "SARIMA(1,1,1)(1,1,1,12) also captures the 12-month season.", vi: "SARIMA(1,1,1)(1,1,1,12) bắt được cả mùa vụ 12 tháng." },
+        },
+        {
+          src: "/images/projects/uth-timeseries-horizon.webp",
+          caption: { en: "Error nearly triples as the forecast moves from 1 to 3 hours ahead.", vi: "Sai số tăng gần gấp 3 khi dự báo xa từ 1 lên 3 giờ." },
+        },
+        {
+          src: "/images/projects/uth-timeseries-lstm.webp",
+          caption: { en: "LSTM, actual vs forecast over 1,317 walk-forward hours.", vi: "LSTM, thực tế và dự báo trên 1.317 giờ walk-forward." },
+        },
+      ],
+      outcome: {
+        en: "The data decides the model, not the model's reputation. SARIMA won on monthly seasonal data (RMSE 4.62 → 1.95 on retail, 97.50 → 31.79 on passengers) because it models the 12-month cycle. On hourly load, plain Linear Regression (118 MW) beat tuned XGBoost (137 MW), because the features were just recent past values. With weather added, LSTM was best at 7.30 MW, but only ~2% ahead of VAR — not worth 30,113 parameters if a simpler model has to be explained. The audit mattered most: the leakage fix flipped the Linear Regression vs XGBoost result, so the first version would have reported the wrong winner.",
+        vi: "Dữ liệu quyết định mô hình, không phải danh tiếng của mô hình. SARIMA thắng trên dữ liệu tháng có mùa vụ (RMSE 4,62 → 1,95 với bán lẻ, 97,50 → 31,79 với hành khách) vì mô hình hoá được chu kỳ 12 tháng. Với điện năng theo giờ, Linear Regression đơn giản (118 MW) thắng XGBoost đã tune (137 MW), vì đặc trưng chỉ là giá trị gần nhất trong quá khứ. Khi thêm thời tiết, LSTM tốt nhất với 7,30 MW nhưng chỉ hơn VAR khoảng 2% — không đáng 30.113 tham số nếu cần giải thích mô hình. Quan trọng nhất là lần rà soát: sửa lỗi rò rỉ dữ liệu làm đảo kết quả Linear Regression và XGBoost, nghĩa là bản đầu tiên đã chọn sai mô hình thắng.",
+      },
+      learnings: {
+        en: "A result that looks too good is a bug report. RMSE = 0 wasn't a great model; it was the answer leaking into the features.",
+        vi: "Kết quả đẹp quá mức là một báo lỗi. RMSE = 0 không phải mô hình xuất sắc, mà là đáp án đã lọt vào đặc trưng.",
+      },
+      source: "https://github.com/HoangPhucTony/Mis_TimeSeries_Lesson",
+    },
+    {
+      slug: "uth-badminton-odoo",
+      role: "ba",
+      university: true,
+      title: { en: "Running a badminton club, from court booking to POS", vi: "Vận hành sân cầu lông: từ đặt sân đến thanh toán POS" },
+      summary: {
+        en: "Surveyed how a badminton court business runs, turned its rules into requirements, then designed and built a three-module Odoo 19 ERP on my own.",
+        vi: "Tự khảo sát cách một doanh nghiệp sân cầu lông vận hành, chuyển quy tắc kinh doanh thành yêu cầu, rồi tự thiết kế và xây dựng hệ thống ERP 3 module trên Odoo 19.",
+      },
+      facts: [
+        {
+          en: "A court business sells time that can't overlap, priced by court type, peak hours and student status, and settles court fees together with drinks, shuttles and rentals at the counter.",
+          vi: "Sân cầu lông bán thời gian không được phép trùng, giá thay đổi theo loại sân, giờ cao điểm và đối tượng HSSV, và tiền sân được thu chung với nước, cầu, thuê vợt tại quầy.",
+        },
+        {
+          en: "Players, counter (POS) staff and the club manager — each with their own module and access rules.",
+          vi: "Người chơi, nhân viên quầy POS và quản lý sân — mỗi vai trò có module và quyền truy cập riêng.",
+        },
+        {
+          en: "Business survey, booking lifecycle and rules, fit-gap against standard Odoo, three custom modules plus PayPal payment and a Power BI export.",
+          vi: "Khảo sát nghiệp vụ, vòng đời booking và quy tắc nghiệp vụ, fit-gap với Odoo chuẩn, 3 module tự viết cùng thanh toán PayPal và xuất dữ liệu cho Power BI.",
+        },
+        {
+          en: "Double booking is blocked at the database level, and several courts and hours go into one booking order paid with a single POS order.",
+          vi: "Đặt trùng sân bị chặn ngay ở tầng database, và nhiều sân, nhiều giờ được gộp vào một phiếu đặt, thanh toán bằng một đơn POS duy nhất.",
+        },
+      ],
+      stack: ["Business survey", "Requirements", "Fit-gap analysis", "ERP", "Odoo 19", "Python", "OWL", "PostgreSQL"],
+      period: { en: "06–07/2026 · UTH coursework", vi: "06–07/2026 · Đồ án môn học tại UTH" },
+      myRole: { en: "Solo — business survey, requirements, design and the whole build", vi: "Cá nhân — khảo sát doanh nghiệp, yêu cầu, thiết kế và toàn bộ phần xây dựng" },
+      metrics: [
+        { value: "6", label: { en: "booking states, from request to paid", vi: "trạng thái booking, từ yêu cầu đến đã thanh toán" } },
+        { value: "3 + 1", label: { en: "custom modules, plus a PayPal payment add-on", vi: "module tự viết, cùng module thanh toán PayPal" } },
+        { value: "~23,000", label: { en: "lines of Python, JavaScript and XML, written solo", vi: "dòng Python, JavaScript và XML, tự viết" } },
+      ],
+      context: {
+        en: "A badminton club lives on its schedule: every court-hour is sold once, prices change with the court and the time of day, and most visits end at the counter with drinks or shuttles on the same bill. I surveyed how a court business handles bookings, walk-ins, pricing and counter sales, then built the system end to end on Odoo 19. Instead of Odoo's Appointments or Website Booking, it uses its own booking models and a visual schedule grid, because those apps don't fit court-and-slot selling.",
+        vi: "Sân cầu lông sống nhờ lịch đặt: mỗi giờ sân chỉ bán được một lần, giá thay đổi theo loại sân và khung giờ, và hầu hết lượt chơi kết thúc ở quầy với nước, cầu trên cùng hoá đơn. Tôi tự khảo sát cách một doanh nghiệp sân xử lý đặt sân, khách vãng lai, bảng giá và bán hàng tại quầy, rồi xây toàn bộ hệ thống trên Odoo 19. Thay vì dùng Appointments hay Website Booking của Odoo, hệ thống dùng model đặt sân riêng và lưới lịch trực quan, vì các app đó không hợp với kiểu bán theo sân và khung giờ.",
+      },
+      process: [
+        {
+          title: { en: "Survey the business", vi: "Khảo sát doanh nghiệp" },
+          body: {
+            en: "Followed how a booking really happens: booked ahead or walk-in, who confirms it, what happens on a no-show, how peak and student prices apply, and what else gets sold at the counter.",
+            vi: "Tìm hiểu một lượt đặt sân thực sự diễn ra thế nào: đặt trước hay đến trực tiếp, ai xác nhận, xử lý khách không đến ra sao, giá giờ cao điểm và giá HSSV áp dụng thế nào, và quầy còn bán thêm gì.",
+          },
+        },
+        {
+          title: { en: "Define roles and the booking lifecycle", vi: "Xác định vai trò và vòng đời booking" },
+          body: {
+            en: "Request → confirmed → checked in, no-show or cancelled → paid, with walk-ins entering straight at checked in. Each role sees only its own part: players can't read POS, revenue or price rules.",
+            vi: "Yêu cầu mới → đã xác nhận → check-in, không đến hoặc huỷ → đã thanh toán; khách vãng lai vào thẳng bước check-in. Mỗi vai trò chỉ thấy phần của mình: người chơi không đọc được POS, doanh thu hay bảng giá.",
+          },
+        },
+        {
+          title: { en: "Turn the rules into requirements", vi: "Biến quy tắc thành yêu cầu" },
+          body: {
+            en: "One court, one time, one customer; bookings only within opening hours; price by court type (standard / VIP) and peak hours; a configurable student discount (10% by default); consecutive slots on the same court merged into one booking.",
+            vi: "Một sân, một khung giờ, một khách; chỉ đặt trong giờ mở cửa; giá theo loại sân (thường / VIP) và giờ cao điểm; giảm giá HSSV cấu hình được (mặc định 10%); các ô liên tiếp cùng sân được gộp thành một booking.",
+          },
+        },
+        {
+          title: { en: "Fit-gap against standard Odoo", vi: "Fit-gap với Odoo chuẩn" },
+          body: {
+            en: "Reused POS, Inventory and Contacts for counter sales and stock; built only what was missing — courts, price rules, bookings, booking orders and a schedule grid.",
+            vi: "Tận dụng POS, Inventory và Contacts cho bán hàng tại quầy và tồn kho; chỉ tự xây phần còn thiếu — sân, bảng giá, booking, phiếu đặt sân và lưới lịch.",
+          },
+        },
+        {
+          title: { en: "Build it", vi: "Xây dựng" },
+          body: {
+            en: "A core manager module with an OWL schedule grid (30/60/90/120-minute slots), a staff module for check-in and walk-ins, and a player module with a multi-court cart. Overlaps are checked and the rows locked, so two people clicking the same slot at once can't both succeed. Added multi-branch staff accounts, PayPal payment and a CSV export package for Power BI.",
+            vi: "Module quản lý lõi có lưới lịch OWL (ô 30/60/90/120 phút), module nhân viên cho check-in và khách vãng lai, và module người chơi với giỏ chọn nhiều sân. Trùng lịch được kiểm tra và khoá dòng dữ liệu, nên hai người bấm cùng một ô cùng lúc không thể cùng đặt thành công. Bổ sung tài khoản nhân viên theo chi nhánh, thanh toán PayPal và gói xuất CSV cho Power BI.",
+          },
+        },
+      ],
+      gallery: [],
+      outcome: {
+        en: "The central rule — one court, one time, one customer — holds even when two bookings arrive at the same moment, because it is enforced with a database row lock rather than only a form check. Players can pick several courts and hours in one cart, which becomes one booking order paid with one POS order, so the counter no longer splits a group's bill by court. The manager sees players on court, unpaid bookings and the busiest hours, and can export bookings, payments and POS lines for Power BI. One known gap is left: the student discount is shown on the booking but still applied by hand in POS.",
+        vi: "Quy tắc cốt lõi — một sân, một khung giờ, một khách — vẫn đúng kể cả khi hai lượt đặt đến cùng lúc, vì được đảm bảo bằng khoá dòng ở database chứ không chỉ kiểm tra trên form. Người chơi chọn nhiều sân, nhiều giờ trong một giỏ, gộp thành một phiếu đặt và thanh toán bằng một đơn POS, nên quầy không phải tách hoá đơn của một nhóm theo từng sân. Quản lý thấy khách đang chơi, booking chưa thanh toán và khung giờ đông khách, và có thể xuất booking, thanh toán, dòng POS sang Power BI. Còn một điểm chưa xong: giảm giá HSSV hiển thị trên booking nhưng vẫn phải áp thủ công trong POS.",
+      },
+      learnings: {
+        en: "A booking rule is only real if it holds when two people click at the same time. Write the requirement for the race, not just the form.",
+        vi: "Quy tắc đặt sân chỉ có ý nghĩa khi vẫn đúng lúc hai người bấm cùng lúc. Hãy viết yêu cầu cho tình huống tranh chấp, không chỉ cho form nhập liệu.",
+      },
+      source: "https://github.com/HoangPhucTony/Mis_Badminton_OdooProject",
     },
   ] as Project[],
 
