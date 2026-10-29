@@ -1,0 +1,7 @@
+node_modules
+dist
+*.local
+*.tsbuildinfo
+# private notes and local tool config — never publish
+thong-tin/
+.claude/
