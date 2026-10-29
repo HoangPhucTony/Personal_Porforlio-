@@ -4,8 +4,11 @@
 
 **From question to decision.** A bilingual (EN / VI) portfolio built to show how I find the numbers — and the needs behind them.
 
+### [dohoangphuc.vercel.app](https://dohoangphuc.vercel.app/)
+
 [LinkedIn](https://www.linkedin.com/in/do-hoang-phuc-303b53322/) · [Email](mailto:dhp06062005@gmail.com) · [GitHub](https://github.com/HoangPhucTony)
 
+[![Live site](https://img.shields.io/badge/Live_site-dohoangphuc.vercel.app-14b8a6?logo=vercel&logoColor=white)](https://dohoangphuc.vercel.app/)
 ![React](https://img.shields.io/badge/React-18-20232A?logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
@@ -101,8 +104,9 @@ The site is a static Vite build, deployed on Vercel:
 
 **Links for applications:**
 
-- Data Analyst view: `https://<domain>/?role=da&lang=en#projects`
-- Business Analyst view: `https://<domain>/?role=ba&lang=en#projects`
+- Data Analyst view: [dohoangphuc.vercel.app/?role=da&lang=en#projects](https://dohoangphuc.vercel.app/?role=da&lang=en#projects)
+- Business Analyst view: [dohoangphuc.vercel.app/?role=ba&lang=en#projects](https://dohoangphuc.vercel.app/?role=ba&lang=en#projects)
+- One case study: [dohoangphuc.vercel.app/projects/sig-kskdn-dashboard](https://dohoangphuc.vercel.app/projects/sig-kskdn-dashboard)
 
 ## Data & privacy
 
