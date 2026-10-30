@@ -222,8 +222,33 @@ export const profile = {
       short: "MCPT",
       period: { en: "Aug – Nov 2026", vi: "T8 – T11/2026" },
       current: true,
-      desc: { en: "Business analyst internship in the public transport sector.", vi: "Thực tập vị trí Business Analyst trong lĩnh vực giao thông công cộng." },
-      tags: ["Business Analysis", "Public transport"],
+      desc: {
+        en: "Lead Business Analyst and Project Manager for Ho Chi Minh City's citizen bus card issuance system (from multi-channel application intake to batch Excel export for card printing), directing a 40-member team and collaborating directly with MCPT leadership.",
+        vi: "Lead Business Analyst kiêm Quản lý dự án cho hệ thống cấp phát thẻ xe buýt cho người dân TP.HCM (từ tiếp nhận hồ sơ đa kênh đến xuất file Excel cho đơn vị in thẻ), trực tiếp điều phối đội ngũ 40 thành viên và làm việc chặt chẽ với Ban Lãnh đạo MCPT.",
+      },
+      highlights: [
+        {
+          en: "Managed a 40-member cross-functional team divided into 4 squads (BA, Frontend/Mobile, Backend, QA), working directly with squad leaders to break down tasks, track milestones, and ensure deliverable quality.",
+          vi: "Quản trị và điều phối đội ngũ 40 thành viên chia thành 4 nhóm (BA, Frontend/Mobile, Backend, QA), làm việc trực tiếp với các trưởng nhóm để phân rã nhiệm vụ, theo dõi tiến độ và kiểm soát chất lượng bàn giao.",
+        },
+        {
+          en: "Served as the primary bridge between the student project team and MCPT leadership: gathered initial business requirements, designed on-site interview questionnaires to uncover operational pain points, and modeled BPMN AS-IS to TO-BE workflows.",
+          vi: "Làm cầu nối giữa nhóm dự án sinh viên và Ban Lãnh đạo MCPT: tiếp nhận yêu cầu nghiệp vụ ban đầu, soạn bộ câu hỏi phỏng vấn khảo sát thực tế để xác định pain point, và mô hình hóa quy trình nghiệp vụ BPMN từ AS-IS sang TO-BE.",
+        },
+        {
+          en: "Facilitated the initial client demo with MCPT leadership, defining the project baseline and aligning deliverables by establishing clear boundaries between in-scope and out-of-scope features.",
+          vi: "Chủ trì xây dựng nội dung và điều phối buổi demo đầu tiên với Ban Lãnh đạo MCPT nhằm thống nhất phạm vi dự án, xác định rõ các tính năng bàn giao (in-scope) và ngoài phạm vi (out-of-scope).",
+        },
+        {
+          en: "Collaborated with a co-lead BA to review and refine SRS and PRD specifications; contributed directly to database and data model design for citizen identity verification and card pool management.",
+          vi: "Cùng một BA leader rà soát và hoàn thiện tài liệu SRS, PRD; trực tiếp tham gia một phần thiết kế cơ sở dữ liệu và mô hình dữ liệu (data model) phục vụ xác thực thông tin công dân và quản lý kho số thẻ.",
+        },
+        {
+          en: "Held full ownership of the project documentation suite (SRS, PRD, Data Dictionary, UML diagrams, Use Cases, User Stories, interview guides, and UAT test scripts), managing project workflows and stakeholder communications across all phases without writing code.",
+          vi: "Chịu trách nhiệm toàn diện bộ tài liệu dự án (SRS, PRD, Data Dictionary, sơ đồ UML, Use Case, User Story, câu hỏi phỏng vấn, kịch bản UAT test), quản lý dự án và duy trì kết nối giữa các bên liên quan xuyên suốt các giai đoạn mà không trực tiếp can thiệp code.",
+        },
+      ] as L[],
+      tags: ["Business Analysis", "Project Management", "BPMN", "SRS", "PRD", "UML", "UAT", "Public transport"],
       logo: "/images/work/mcpt-logo.png",
       photo: "/images/work/mcpt-cover.webp",
     },
