@@ -11,9 +11,9 @@ export const ui = {
     contact: { en: "Contact", vi: "Liên hệ" },
   } satisfies Record<string, L>,
 
-  clickAnywhere: { en: "Click anywhere to enter", vi: "Nhấn vào bất kỳ đâu để vào" },
+  clickAnywhere: { en: "Click anywhere to enter", vi: "Nhấn vào bất kỳ vị trí nào để truy cập" },
   enterShort: { en: "Enter", vi: "Vào" },
-  scrollHint: { en: "or scroll to explore", vi: "hoặc cuộn để khám phá" },
+  scrollHint: { en: "or scroll down to explore", vi: "hoặc cuộn xuống để khám phá" },
   seeProjects: { en: "See projects", vi: "Xem dự án" },
   emailMe: { en: "Email me", vi: "Gửi email" },
   copyEmail: { en: "Copy email", vi: "Sao chép email" },
@@ -26,7 +26,7 @@ export const ui = {
 
   about: { en: "About", vi: "Giới thiệu" },
   education: { en: "Education", vi: "Học vấn" },
-  location: { en: "Location", vi: "Nơi ở" },
+  location: { en: "Location", vi: "Địa điểm" },
   currently: { en: "Currently", vi: "Hiện tại" },
   now: { en: "Now", vi: "Hiện tại" },
   certificate: { en: "Certificate", vi: "Chứng chỉ" },
@@ -34,10 +34,10 @@ export const ui = {
   careerPath: { en: "Career path", vi: "Lộ trình" },
 
   toolkitTitle: { en: "From question to decision", vi: "Từ câu hỏi đến quyết định" },
-  toolkitFig: { en: "Fig. 1 · How I work", vi: "Hình 1 · Cách tôi làm việc" },
+  toolkitFig: { en: "Fig. 1 · How I work", vi: "Hình 1 · Phương pháp làm việc" },
   toolkitNote: {
-    en: "BA work frames the question and turns findings into something buildable. DA work finds the evidence in between.",
-    vi: "BA đặt đúng câu hỏi và biến phát hiện thành thứ có thể xây dựng. DA tìm bằng chứng ở giữa.",
+    en: "BA work defines the question and turns findings into something the team can build. DA work finds the evidence in between.",
+    vi: "BA xác định đúng câu hỏi và chuyển các phát hiện thành giải pháp có thể triển khai; DA tìm kiếm bằng chứng ở giữa hai bước đó.",
   },
   stage: { en: "Stage", vi: "Bước" },
   usedIn: { en: "Used in", vi: "Dùng trong" },
@@ -47,14 +47,14 @@ export const ui = {
 
   projectsTitle: { en: "Selected projects", vi: "Dự án tiêu biểu" },
   projectsCount: { en: "{n} projects", vi: "{n} dự án" },
-  projectsSoon: { en: "Case studies are on the way — check back soon.", vi: "Các dự án đang được cập nhật — quay lại sau nhé." },
+  projectsSoon: { en: "Case studies are coming soon. Please check back later.", vi: "Các dự án đang được cập nhật, vui lòng quay lại sau." },
   featured: { en: "Featured", vi: "Nổi bật" },
   universityProject: { en: "University Project", vi: "Đồ án đại học" },
   universityProjects: { en: "University Projects", vi: "Đồ án đại học" },
   universityHint: { en: "Coursework at UTH, solo and in teams", vi: "Đồ án môn học tại UTH, cá nhân và theo nhóm" },
   viewCase: { en: "View case study", vi: "Xem chi tiết" },
   viewDetails: { en: "View details", vi: "Xem chi tiết" },
-  whatIDid: { en: "What I did", vi: "Công việc đã làm" },
+  whatIDid: { en: "What I did", vi: "Công việc đảm nhận" },
   relatedCases: { en: "Case studies", vi: "Dự án liên quan" },
 
   caseStudy: { en: "Case study", vi: "Chi tiết dự án" },
@@ -71,12 +71,12 @@ export const ui = {
   source: { en: "Source", vi: "Mã nguồn" },
   demo: { da: { en: "Live dashboard", vi: "Xem dashboard" }, ba: { en: "Documents", vi: "Xem tài liệu" } } as Record<Role, L>,
   close: { en: "Close", vi: "Đóng" },
-  notFound: { en: "This project doesn't exist.", vi: "Không tìm thấy dự án này." },
+  notFound: { en: "This project does not exist.", vi: "Không tìm thấy dự án này." },
 
   roleLabel: { da: { en: "Data Analyst", vi: "Data Analyst" }, ba: { en: "Business Analyst", vi: "Business Analyst" } } as Record<Role, L>,
   roleHint: {
     da: { en: "Dashboards · SQL · Python", vi: "Dashboard · SQL · Python" },
-    ba: { en: "Requirements · BPMN · UX", vi: "Yêu cầu · BPMN · UX" },
+    ba: { en: "Requirements · BPMN · UX", vi: "Yêu cầu nghiệp vụ · BPMN · UX" },
   } as Record<Role, L>,
 
   /** Labels for project.facts, in order. */
@@ -90,7 +90,7 @@ export const ui = {
     ba: [
       { en: "Problem", vi: "Vấn đề" },
       { en: "Stakeholders", vi: "Các bên liên quan" },
-      { en: "Deliverables", vi: "Sản phẩm" },
+      { en: "Deliverables", vi: "Sản phẩm bàn giao" },
       { en: "Outcome", vi: "Kết quả" },
     ],
   } as Record<Role, L[]>,
@@ -109,6 +109,6 @@ export const ui = {
     pickShape: { en: "Pick a shape", vi: "Chọn hình" },
   },
 
-  footerBuilt: { en: "Built with React, Vite & Tailwind CSS", vi: "Xây dựng bằng React, Vite & Tailwind CSS" },
-  photoCredits: { en: "Photos: Unsplash", vi: "Ảnh: Unsplash" },
+  footerBuilt: { en: "Built with React, Vite & Tailwind CSS", vi: "Xây dựng bằng React, Vite và Tailwind CSS" },
+  photoCredits: { en: "Photos: Unsplash", vi: "Hình ảnh: Unsplash" },
 };
