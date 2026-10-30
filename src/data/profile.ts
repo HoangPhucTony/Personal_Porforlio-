@@ -83,11 +83,11 @@ export const profile = {
     // [[da:…]] / [[ba:…]] highlight a phrase in that role's colour
     paragraphs: [
       {
-        en: "I enjoy approaching every question from two angles: [[da:what does the data show]], and [[ba:what does the business actually need]]? I clean, model and visualise data, then translate the findings into requirements, processes and decisions.",
+        en: "I approach every problem from two angles: [[da:what the data shows]] and [[ba:what the business actually needs]]. I clean, model and visualise data, then translate my findings into clear requirements, processes and decisions.",
         vi: "Tôi tiếp cận mỗi vấn đề từ hai góc độ: [[da:dữ liệu cho thấy điều gì]] và [[ba:doanh nghiệp thực sự cần gì]]. Tôi làm sạch, mô hình hóa và trực quan hóa dữ liệu, sau đó chuyển các phát hiện thành yêu cầu nghiệp vụ, quy trình và quyết định.",
       },
       {
-        en: "I am looking for a Data Analyst or Business Analyst position at Intern or Fresher level, where I can work closely with real stakeholders and real data. I am willing to start with small tasks, learn quickly and contribute wherever the team needs support.",
+        en: "I am currently seeking an Intern or Fresher position as a Data Analyst or Business Analyst, where I can work closely with real stakeholders and real data. I am eager to learn, comfortable starting with small tasks, and ready to support the team wherever I can add value.",
         vi: "Tôi đang tìm kiếm vị trí Data Analyst hoặc Business Analyst ở cấp độ Thực tập sinh hoặc Fresher, nơi tôi có thể làm việc trực tiếp với dữ liệu và người dùng thực tế. Tôi sẵn sàng bắt đầu từ những công việc nhỏ, chủ động học hỏi và hỗ trợ đội ngũ ở bất kỳ vị trí nào cần thiết.",
       },
     ] as L[],
