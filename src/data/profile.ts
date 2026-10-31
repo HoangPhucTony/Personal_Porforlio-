@@ -199,8 +199,8 @@ export const profile = {
       },
       highlights: [
         {
-          en: "Promotion analysis (first task): explored the data with SQL, broke promotion spend down with a MECE issue tree, found that it is concentrated in B2C consultations, and used ANOVA and regression to show only a weak link with revenue; presented in a Google Sheets dashboard.",
-          vi: "Phân tích khuyến mãi (nhiệm vụ đầu tiên): khai phá dữ liệu bằng SQL, phân tách chi phí khuyến mãi bằng cây vấn đề MECE, chỉ ra chi phí tập trung ở mảng khám bệnh B2C và dùng ANOVA, hồi quy để kiểm định mối liên hệ với doanh thu (chỉ ở mức yếu); trình bày trên dashboard Google Sheets.",
+          en: "Promotion analysis (first task): explored the data with SQL, broke promotion spend down with a MECE issue tree to find where it is concentrated, and used ANOVA and regression to show only a weak link with revenue; presented in a Google Sheets dashboard.",
+          vi: "Phân tích khuyến mãi (nhiệm vụ đầu tiên): khai phá dữ liệu bằng SQL, phân tách chi phí khuyến mãi bằng cây vấn đề MECE để tìm nơi chi phí tập trung nhiều nhất, và dùng ANOVA, hồi quy để kiểm định mối liên hệ với doanh thu (chỉ ở mức yếu); trình bày trên dashboard Google Sheets.",
         },
         {
           en: "Revenue driver analysis for consultations, imaging and lab tests: broke net revenue down into visits × price × order rate and measured how much each driver added to the change, down to specialty and doctor level.",
@@ -404,8 +404,8 @@ export const profile = {
           vi: "Dữ liệu khuyến mãi và doanh thu được khai phá bằng SQL; bối cảnh nghiệp vụ thu thập qua trao đổi với các bộ phận liên quan.",
         },
         {
-          en: "Promotion spend is concentrated in B2C consultations, but ANOVA and regression showed only a weak relationship between promotions and revenue.",
-          vi: "Chi phí khuyến mãi tập trung ở mảng khám bệnh B2C, nhưng ANOVA và hồi quy cho thấy khuyến mãi và doanh thu chỉ liên quan yếu.",
+          en: "Most promotion spend sits in one clear block, but ANOVA and regression showed only a weak relationship between promotions and revenue.",
+          vi: "Phần lớn chi phí khuyến mãi dồn vào một khối rõ ràng, nhưng ANOVA và hồi quy cho thấy khuyến mãi và doanh thu chỉ liên quan yếu.",
         },
         {
           en: "Instead of changing the whole promotion program, the hospital only needs to review the few named policies that patients use most.",
@@ -420,7 +420,7 @@ export const profile = {
       contributions: [
         { en: "Explored the promotion data with SQL to learn its structure and business meaning.", vi: "Khai phá dữ liệu khuyến mãi bằng SQL để nắm cấu trúc và ý nghĩa nghiệp vụ." },
         { en: "Built a MECE issue tree that breaks promotion spend down by policy, customer group and service.", vi: "Xây dựng cây vấn đề MECE, phân tách chi phí khuyến mãi theo chính sách, nhóm khách hàng và dịch vụ." },
-        { en: "Measured each named policy's share of promotion spend and found the biggest block: B2C consultations.", vi: "Tính tỷ trọng chi phí của từng chính sách khuyến mãi và tìm ra khối lớn nhất: khám bệnh B2C." },
+        { en: "Measured each named policy's share of promotion spend to find the biggest block.", vi: "Tính tỷ trọng chi phí của từng chính sách khuyến mãi để tìm ra khối lớn nhất." },
         { en: "Tested the relationship between promotions and revenue with ANOVA and regression.", vi: "Kiểm định mối liên hệ giữa khuyến mãi và doanh thu bằng ANOVA và hồi quy." },
         { en: "Presented the findings in a Google Sheets dashboard that the team can update.", vi: "Trình bày kết quả trên dashboard Google Sheets mà đội ngũ có thể tự cập nhật." },
       ],
@@ -452,15 +452,15 @@ export const profile = {
         {
           title: { en: "Find the biggest block", vi: "Tìm khối lớn nhất" },
           body: {
-            en: "Measured each policy's share of promotion spend (promotion cost as a percentage of gross sales) for every customer group and service. Spend was concentrated in B2C consultations: many patients use these promotions, so a lot of money is discounted there.",
-            vi: "Tính tỷ trọng chi phí khuyến mãi (tiền khuyến mãi / doanh thu gộp) của từng chính sách theo nhóm khách hàng và dịch vụ. Chi phí tập trung ở mảng khám bệnh B2C: nhiều bệnh nhân dùng khuyến mãi nên số tiền giảm giá ở đây rất lớn.",
+            en: "Measured each policy's share of promotion spend (promotion cost as a percentage of gross sales) for every customer group and service. Most of the spend sat in one segment, where many patients use promotions, so a lot of money is discounted there.",
+            vi: "Tính tỷ trọng chi phí khuyến mãi (tiền khuyến mãi / doanh thu gộp) của từng chính sách theo nhóm khách hàng và dịch vụ. Phần lớn chi phí dồn vào một phân khúc — nơi nhiều bệnh nhân dùng khuyến mãi nên số tiền giảm giá rất lớn.",
           },
         },
         {
           title: { en: "Test whether promotions move revenue", vi: "Kiểm định tác động đến doanh thu" },
           body: {
-            en: "Focused on B2C, since the goal was to improve this segment, and used ANOVA and regression to check whether promotions really affect revenue. The relationship turned out to be weak.",
-            vi: "Tập trung vào mảng B2C vì mục tiêu là cải thiện mảng này, rồi dùng ANOVA và hồi quy để kiểm tra khuyến mãi có thực sự ảnh hưởng đến doanh thu. Kết quả: mối liên hệ giữa hai yếu tố này yếu.",
+            en: "Focused on that segment, since the goal was to improve it, and used ANOVA and regression to check whether promotions really affect revenue. The relationship turned out to be weak.",
+            vi: "Tập trung vào phân khúc đó vì mục tiêu là cải thiện nó, rồi dùng ANOVA và hồi quy để kiểm tra khuyến mãi có thực sự ảnh hưởng đến doanh thu. Kết quả: mối liên hệ giữa hai yếu tố này yếu.",
           },
         },
         {
@@ -478,8 +478,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "The analysis showed where the biggest block is: promotion spend is concentrated in B2C consultations, where many patients use named policies. However, ANOVA and regression found only a weak relationship between promotions and revenue, so more or bigger discounts are unlikely to bring in more revenue. The practical answer was therefore narrow: review and improve the few named policies that patients use most, instead of changing the whole promotion program. As my first task, it also taught me to explore the data and measure the size of a problem before trying to solve it.",
-        vi: "Phân tích đã chỉ ra khối lớn nhất: chi phí khuyến mãi tập trung ở mảng khám bệnh B2C, nơi nhiều bệnh nhân sử dụng các chính sách có tên. Tuy nhiên, ANOVA và hồi quy cho thấy khuyến mãi và doanh thu chỉ liên quan yếu, nên tăng thêm khuyến mãi khó mang lại thêm doanh thu. Vì vậy, giải pháp được thu hẹp: chỉ cần rà soát và cải thiện một số chính sách đang được dùng nhiều nhất, thay vì thay đổi toàn bộ chương trình khuyến mãi. Là nhiệm vụ đầu tiên, dự án cũng giúp tôi học cách khai phá dữ liệu và đo độ lớn của vấn đề trước khi tìm cách giải quyết.",
+        en: "The analysis showed where the biggest block is: most promotion spend sits in one segment, where many patients use named policies. However, ANOVA and regression found only a weak relationship between promotions and revenue, so more or bigger discounts are unlikely to bring in more revenue. The practical answer was therefore narrow: review and improve the few named policies that patients use most, instead of changing the whole promotion program. As my first task, it also taught me to explore the data and measure the size of a problem before trying to solve it.",
+        vi: "Phân tích đã chỉ ra khối lớn nhất: phần lớn chi phí khuyến mãi dồn vào một phân khúc, nơi nhiều bệnh nhân sử dụng các chính sách có tên. Tuy nhiên, ANOVA và hồi quy cho thấy khuyến mãi và doanh thu chỉ liên quan yếu, nên tăng thêm khuyến mãi khó mang lại thêm doanh thu. Vì vậy, giải pháp được thu hẹp: chỉ cần rà soát và cải thiện một số chính sách đang được dùng nhiều nhất, thay vì thay đổi toàn bộ chương trình khuyến mãi. Là nhiệm vụ đầu tiên, dự án cũng giúp tôi học cách khai phá dữ liệu và đo độ lớn của vấn đề trước khi tìm cách giải quyết.",
       },
       learnings: {
         en: "My first lesson as an analyst: explore the data before answering, find the biggest block before solving anything, and test a relationship before assuming it.",
