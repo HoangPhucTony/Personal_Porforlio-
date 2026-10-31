@@ -199,16 +199,16 @@ export const profile = {
       },
       highlights: [
         {
-          en: "Hypothesis-driven promotion analysis: defined the question and the target audience, interviewed the teams involved and structured their pain points into a MECE issue tree, then tested each hypothesis with SQL and presented the results in a Google Sheets dashboard.",
-          vi: "Phân tích khuyến mãi theo hướng giả thuyết: xác định câu hỏi và người đọc báo cáo, phỏng vấn các bộ phận liên quan để xây dựng cây vấn đề theo nguyên tắc MECE, kiểm chứng từng giả thuyết bằng SQL và trình bày kết quả trên dashboard Google Sheets.",
+          en: "Promotion analysis (first task): explored the data with SQL, broke promotion spend down with a MECE issue tree, found that it is concentrated in B2C consultations, and used ANOVA and regression to show only a weak link with revenue; presented in a Google Sheets dashboard.",
+          vi: "Phân tích khuyến mãi (nhiệm vụ đầu tiên): khai phá dữ liệu bằng SQL, phân tách chi phí khuyến mãi bằng cây vấn đề MECE, chỉ ra chi phí tập trung ở mảng khám bệnh B2C và dùng ANOVA, hồi quy để kiểm định mối liên hệ với doanh thu (chỉ ở mức yếu); trình bày trên dashboard Google Sheets.",
         },
         {
           en: "Revenue driver analysis for consultations, imaging and lab tests: broke net revenue down into visits × price × order rate and measured how much each driver added to the change, down to specialty and doctor level.",
           vi: "Phân tích yếu tố tác động đến doanh thu khám bệnh, cận lâm sàng (CLS) và xét nghiệm: tách doanh thu thuần thành lượt khám × đơn giá × tỷ lệ chỉ định, đo mức đóng góp của từng yếu tố vào biến động, chi tiết đến cấp chuyên khoa và bác sĩ.",
         },
         {
-          en: "Built an end-to-end corporate health check dashboard for the CEO with AI-assisted coding: an Apps Script web app with email-based access that tracks each contract from signing to payment across Sales, medical secretaries, doctors and Accounting, with overdue alerts, stage aging and a cash-flow waterfall.",
-          vi: "Xây dựng dashboard Khám sức khỏe doanh nghiệp end-to-end cho CEO với sự hỗ trợ của AI: web app Apps Script phân quyền theo email, theo dõi từng hợp đồng từ lúc ký đến lúc thu tiền qua các bộ phận Kinh doanh, Thư ký y khoa, Bác sĩ và Kế toán; có cảnh báo quá hạn, thời gian tồn đọng ở từng khâu và biểu đồ thác nước dòng tiền.",
+          en: "Built the first corporate health check dashboard from scratch (none existed before) for the CEO and FP&A, with AI-assisted coding: an Apps Script web app with email-based access that tracks each contract from signing to payment across Sales, medical secretaries, doctors and Accounting, with overdue alerts, stage aging and a cash-flow waterfall.",
+          vi: "Tự xây dựng từ đầu dashboard Khám sức khỏe doanh nghiệp đầu tiên (trước đó chưa có) cho CEO và FP&A, với sự hỗ trợ của AI: web app Apps Script phân quyền theo email, theo dõi từng hợp đồng từ lúc ký đến lúc thu tiền qua các bộ phận Kinh doanh, Thư ký y khoa, Bác sĩ và Kế toán; có cảnh báo quá hạn, thời gian tồn đọng ở từng khâu và biểu đồ thác nước dòng tiền.",
         },
         {
           en: "Automation and reporting: an Apps Script tool that extracts data from PDF files into the data-entry sheet, a Looker Studio report on surgery and inpatient activity, and weekly AMC contract updates for the management report.",
@@ -316,6 +316,7 @@ export const profile = {
       methods: ["Variance analysis", "Chain substitution method", "Drill-down analysis"],
       period: { en: "2026 · SIG internship", vi: "2026 · Thực tập tại SIG" },
       myRole: { en: "Business Analyst Intern", vi: "Thực tập sinh Business Analyst" },
+      team: { en: "Individual work", vi: "Thực hiện độc lập" },
       contributions: [
         { en: "Wrote net revenue as a six-driver formula: visits, prices and order rates.", vi: "Biểu diễn doanh thu thuần thành công thức sáu yếu tố: lượt khám, đơn giá và tỷ lệ chỉ định." },
         { en: "Built one long-format table with filters for period, branch, B2B/B2C and service group.", vi: "Xây dựng một bảng dữ liệu dạng dài với bộ lọc kỳ, chi nhánh, B2B/B2C và nhóm dịch vụ." },
@@ -387,94 +388,102 @@ export const profile = {
     {
       slug: "sig-promotion-analysis",
       role: "da",
-      title: { en: "Promotion analysis, starting with hypotheses", vi: "Phân tích khuyến mãi: bắt đầu từ giả thuyết" },
+      title: { en: "Promotion analysis: where does the discount money go?", vi: "Phân tích khuyến mãi: tiền khuyến mãi đang chi về đâu?" },
       cover: "/images/projects/sig-promotion-analysis.webp",
       summary: {
-        en: "Before writing any query: who is the report for, what decision do they need to make, and which hypotheses are worth testing?",
-        vi: "Trước khi viết câu truy vấn đầu tiên: báo cáo dành cho ai, họ cần ra quyết định gì, và giả thuyết nào đáng kiểm chứng?",
+        en: "My first task at SIG: explore the promotion data, find where most of the discount money goes, then test whether promotions really move revenue.",
+        vi: "Nhiệm vụ đầu tiên tại SIG: khai phá dữ liệu khuyến mãi, tìm nơi tiền khuyến mãi chi ra nhiều nhất, rồi kiểm định xem khuyến mãi có thực sự tác động đến doanh thu.",
       },
       facts: [
         {
-          en: "What is really driving promotion results, and what decision does the reader need to make?",
-          vi: "Yếu tố nào thực sự quyết định hiệu quả khuyến mãi, và người đọc cần ra quyết định gì?",
+          en: "Which named promotion policies take the biggest share of promotion spend, and in which customer group and service?",
+          vi: "Chính sách khuyến mãi nào chiếm tỷ trọng chi phí lớn nhất, và tập trung ở nhóm khách hàng, dịch vụ nào?",
         },
         {
-          en: "Promotion and revenue data explored with SQL, plus business context from interviews with the teams involved.",
-          vi: "Dữ liệu khuyến mãi và doanh thu được khai thác bằng SQL; bối cảnh nghiệp vụ thu thập qua phỏng vấn các bộ phận liên quan.",
+          en: "Promotion and revenue records explored with SQL, plus business context from talks with the teams involved.",
+          vi: "Dữ liệu khuyến mãi và doanh thu được khai phá bằng SQL; bối cảnh nghiệp vụ thu thập qua trao đổi với các bộ phận liên quan.",
         },
         {
-          en: "A MECE issue tree narrowed many possible causes down to a few testable hypotheses before the analysis started.",
-          vi: "Cây vấn đề MECE thu hẹp nhiều nguyên nhân tiềm năng xuống còn vài giả thuyết kiểm chứng được, trước khi bắt tay vào phân tích.",
+          en: "Promotion spend is concentrated in B2C consultations, but ANOVA and regression showed only a weak relationship between promotions and revenue.",
+          vi: "Chi phí khuyến mãi tập trung ở mảng khám bệnh B2C, nhưng ANOVA và hồi quy cho thấy khuyến mãi và doanh thu chỉ liên quan yếu.",
         },
         {
-          en: "A Google Sheets dashboard designed for its reader, with a level of detail that matches how comfortable they are with numbers.",
-          vi: "Dashboard Google Sheets thiết kế theo người đọc, với mức độ chi tiết phù hợp khả năng tiếp nhận số liệu của họ.",
+          en: "Instead of changing the whole promotion program, the hospital only needs to review the few named policies that patients use most.",
+          vi: "Thay vì thay đổi toàn bộ chương trình khuyến mãi, bệnh viện chỉ cần rà soát một số chính sách đang được bệnh nhân dùng nhiều nhất.",
         },
       ],
-      stack: ["SQL", "Google Sheets", "XLOOKUP", "Pivot tables"],
-      methods: ["Hypothesis-driven analysis", "MECE issue tree", "Stakeholder interviews"],
-      period: { en: "2026 · SIG internship", vi: "2026 · Thực tập tại SIG" },
+      stack: ["SQL", "Google Sheets", "Pivot tables"],
+      methods: ["Exploratory data analysis", "MECE issue tree", "ANOVA", "Regression analysis"],
+      period: { en: "2026 · SIG internship (first task)", vi: "2026 · Thực tập tại SIG (nhiệm vụ đầu tiên)" },
       myRole: { en: "Business Analyst Intern", vi: "Thực tập sinh Business Analyst" },
+      team: { en: "Individual work", vi: "Thực hiện độc lập" },
       contributions: [
-        { en: "Defined the business question and the report's reader before any analysis.", vi: "Xác định câu hỏi kinh doanh và người đọc báo cáo trước khi phân tích." },
-        { en: "Interviewed the teams involved and built a MECE issue tree from their pain points.", vi: "Phỏng vấn các bộ phận liên quan và xây dựng cây vấn đề MECE từ những vấn đề họ nêu." },
-        { en: "Turned the tree into testable hypotheses and tested each one with SQL.", vi: "Chuyển cây vấn đề thành giả thuyết và kiểm chứng từng giả thuyết bằng SQL." },
-        { en: "Built a Google Sheets dashboard that the team can update on their own.", vi: "Xây dựng dashboard Google Sheets để đội ngũ tự cập nhật." },
+        { en: "Explored the promotion data with SQL to learn its structure and business meaning.", vi: "Khai phá dữ liệu khuyến mãi bằng SQL để nắm cấu trúc và ý nghĩa nghiệp vụ." },
+        { en: "Built a MECE issue tree that breaks promotion spend down by policy, customer group and service.", vi: "Xây dựng cây vấn đề MECE, phân tách chi phí khuyến mãi theo chính sách, nhóm khách hàng và dịch vụ." },
+        { en: "Measured each named policy's share of promotion spend and found the biggest block: B2C consultations.", vi: "Tính tỷ trọng chi phí của từng chính sách khuyến mãi và tìm ra khối lớn nhất: khám bệnh B2C." },
+        { en: "Tested the relationship between promotions and revenue with ANOVA and regression.", vi: "Kiểm định mối liên hệ giữa khuyến mãi và doanh thu bằng ANOVA và hồi quy." },
+        { en: "Presented the findings in a Google Sheets dashboard that the team can update.", vi: "Trình bày kết quả trên dashboard Google Sheets mà đội ngũ có thể tự cập nhật." },
+      ],
+      // no figures can be published for this task, so the key results are the skills it built
+      metrics: [
+        { value: "SQL", label: { en: "first hands-on exploration of real hospital data", vi: "lần đầu khai phá dữ liệu thực tế của bệnh viện" } },
+        { value: "MECE", label: { en: "issue tree that breaks promotion spend down by policy, customer group and service", vi: "cây vấn đề phân tách chi phí khuyến mãi theo chính sách, nhóm khách hàng và dịch vụ" } },
+        { value: "ANOVA", label: { en: "and regression to test whether promotions really affect revenue", vi: "và hồi quy để kiểm định khuyến mãi có thực sự ảnh hưởng đến doanh thu" } },
       ],
       context: {
-        en: "The hospital runs promotions across its services and wanted a clearer view of the results. Instead of starting from the data, I used a structured, hypothesis-driven approach: frame the question, break it down, then test only what matters.",
-        vi: "Bệnh viện triển khai nhiều chương trình khuyến mãi cho các dịch vụ và cần đánh giá rõ hơn hiệu quả của chúng. Thay vì bắt đầu từ dữ liệu, tôi giải quyết vấn đề có cấu trúc theo hướng giả thuyết: xác định đúng câu hỏi, phân tách vấn đề, rồi chỉ kiểm chứng những gì thực sự quan trọng.",
+        en: "This was my first task at SIG, and its goal was to learn how to read and explore the hospital's data. The hospital runs many named promotion policies across its services. The question was simple: where does most of the promotion money go, and what share does each policy take? In other words, in which customer group and service do patients use promotions the most? Finding that biggest block first means the largest part of the problem can be solved first.",
+        vi: "Đây là nhiệm vụ đầu tiên của tôi tại SIG, với mục tiêu học cách đọc hiểu và khai phá dữ liệu của bệnh viện. Bệnh viện áp dụng nhiều chính sách khuyến mãi có tên cho các dịch vụ. Câu hỏi đặt ra: tiền khuyến mãi đang được chi nhiều nhất ở đâu, và mỗi chính sách chiếm bao nhiêu phần trăm? Nói cách khác, bệnh nhân dùng khuyến mãi nhiều nhất ở nhóm khách hàng và dịch vụ nào? Tìm ra khối lớn nhất trước thì sẽ giải quyết được phần lớn vấn đề trước.",
       },
       process: [
         {
-          title: { en: "Define the goal and the reader", vi: "Xác định mục tiêu và người đọc" },
+          title: { en: "Explore the data first", vi: "Khai phá dữ liệu trước" },
           body: {
-            en: "What is the topic, who will read the report, and how comfortable are they with numbers? The answers decided the report format before any analysis began.",
-            vi: "Chủ đề là gì, ai sẽ đọc báo cáo, và họ quen với số liệu đến đâu? Câu trả lời quyết định hình thức báo cáo ngay từ trước khi phân tích.",
+            en: "Queried the promotion and revenue tables with SQL to understand the columns, the policy names and how each discount is recorded.",
+            vi: "Truy vấn các bảng khuyến mãi và doanh thu bằng SQL để hiểu các cột dữ liệu, tên chính sách và cách ghi nhận từng khoản giảm giá.",
           },
         },
         {
           title: { en: "Break the problem down", vi: "Phân tách vấn đề" },
           body: {
-            en: "Talked directly with the teams involved to learn how promotions work day to day, collected their pain points and organized them into a MECE issue tree.",
-            vi: "Trao đổi trực tiếp với các bộ phận liên quan để hiểu khuyến mãi vận hành thực tế ra sao, ghi nhận các vấn đề họ gặp phải và sắp xếp thành cây vấn đề theo nguyên tắc MECE.",
+            en: "Talked with the teams involved to learn how promotions work day to day, then built a MECE issue tree: promotion spend by policy, customer group (B2B / B2C) and service.",
+            vi: "Trao đổi với các bộ phận liên quan để hiểu khuyến mãi vận hành thực tế, rồi xây dựng cây vấn đề MECE: chi phí khuyến mãi theo chính sách, nhóm khách hàng (B2B / B2C) và dịch vụ.",
           },
         },
         {
-          title: { en: "Form hypotheses", vi: "Đặt giả thuyết" },
+          title: { en: "Find the biggest block", vi: "Tìm khối lớn nhất" },
           body: {
-            en: "Turned each branch of the tree into a specific, testable hypothesis, so the analysis could go deep on a few questions instead of covering everything thinly.",
-            vi: "Chuyển mỗi nhánh của cây vấn đề thành một giả thuyết cụ thể, kiểm chứng được, để phân tích đi sâu vào vài câu hỏi thay vì dàn trải.",
+            en: "Measured each policy's share of promotion spend (promotion cost as a percentage of gross sales) for every customer group and service. Spend was concentrated in B2C consultations: many patients use these promotions, so a lot of money is discounted there.",
+            vi: "Tính tỷ trọng chi phí khuyến mãi (tiền khuyến mãi / doanh thu gộp) của từng chính sách theo nhóm khách hàng và dịch vụ. Chi phí tập trung ở mảng khám bệnh B2C: nhiều bệnh nhân dùng khuyến mãi nên số tiền giảm giá ở đây rất lớn.",
           },
         },
         {
-          title: { en: "Explore and test with SQL", vi: "Khai thác và kiểm chứng bằng SQL" },
+          title: { en: "Test whether promotions move revenue", vi: "Kiểm định tác động đến doanh thu" },
           body: {
-            en: "Queried the data first to understand its structure, then to confirm or reject each hypothesis.",
-            vi: "Truy vấn dữ liệu để nắm cấu trúc trước, sau đó xác nhận hoặc bác bỏ từng giả thuyết.",
+            en: "Focused on B2C, since the goal was to improve this segment, and used ANOVA and regression to check whether promotions really affect revenue. The relationship turned out to be weak.",
+            vi: "Tập trung vào mảng B2C vì mục tiêu là cải thiện mảng này, rồi dùng ANOVA và hồi quy để kiểm tra khuyến mãi có thực sự ảnh hưởng đến doanh thu. Kết quả: mối liên hệ giữa hai yếu tố này yếu.",
           },
         },
         {
           title: { en: "Build the dashboard", vi: "Xây dựng dashboard" },
           body: {
-            en: "Presented the findings in Google Sheets with SUMIFS, XLOOKUP, IFERROR and pivot tables — simple enough for the team to update the report themselves.",
-            vi: "Trình bày kết quả trên Google Sheets bằng SUMIFS, XLOOKUP, IFERROR và pivot table — đủ đơn giản để đội ngũ tự cập nhật báo cáo.",
+            en: "Presented the findings in Google Sheets with SUMIFS, XLOOKUP and pivot tables — simple enough for the team to update the report themselves.",
+            vi: "Trình bày kết quả trên Google Sheets bằng SUMIFS, XLOOKUP và pivot table — đủ đơn giản để đội ngũ tự cập nhật báo cáo.",
           },
         },
       ],
       gallery: [
         {
           src: "/images/projects/sig-promotion-analysis.webp",
-          caption: { en: "The problem broken down by promotion policy and customer group, with figures blurred for confidentiality.", vi: "Phân tách vấn đề theo chính sách khuyến mãi và nhóm khách hàng — số liệu đã được làm mờ để bảo mật." },
+          caption: { en: "Promotion spend broken down by policy and customer group, with figures blurred for confidentiality.", vi: "Chi phí khuyến mãi phân tách theo chính sách và nhóm khách hàng — số liệu đã được làm mờ để bảo mật." },
         },
       ],
       outcome: {
-        en: "Promotion cost was measured as a share of gross sales for each pair of policy and customer group. This changed the question from “Are promotions working?” to “Which policy gives discounts to which customers, and how much?”. Hypotheses that the data did not support were dropped before the report. The confirmed ones became the main messages of the dashboard, and each one links back to a pain point raised in the interviews.",
-        vi: "Chi phí khuyến mãi được đo bằng tỷ lệ trên doanh thu gộp (Gross Sales) cho từng cặp chính sách × nhóm khách hàng. Nhờ đó, câu hỏi chuyển từ “Khuyến mãi có hiệu quả không?” sang “Chính sách nào đang giảm giá cho nhóm khách hàng nào, và giảm bao nhiêu?”. Giả thuyết không được dữ liệu ủng hộ bị loại trước khi vào báo cáo; giả thuyết được xác nhận trở thành thông điệp chính của dashboard, mỗi thông điệp đều gắn với một vấn đề các bộ phận đã nêu khi phỏng vấn.",
+        en: "The analysis showed where the biggest block is: promotion spend is concentrated in B2C consultations, where many patients use named policies. However, ANOVA and regression found only a weak relationship between promotions and revenue, so more or bigger discounts are unlikely to bring in more revenue. The practical answer was therefore narrow: review and improve the few named policies that patients use most, instead of changing the whole promotion program. As my first task, it also taught me to explore the data and measure the size of a problem before trying to solve it.",
+        vi: "Phân tích đã chỉ ra khối lớn nhất: chi phí khuyến mãi tập trung ở mảng khám bệnh B2C, nơi nhiều bệnh nhân sử dụng các chính sách có tên. Tuy nhiên, ANOVA và hồi quy cho thấy khuyến mãi và doanh thu chỉ liên quan yếu, nên tăng thêm khuyến mãi khó mang lại thêm doanh thu. Vì vậy, giải pháp được thu hẹp: chỉ cần rà soát và cải thiện một số chính sách đang được dùng nhiều nhất, thay vì thay đổi toàn bộ chương trình khuyến mãi. Là nhiệm vụ đầu tiên, dự án cũng giúp tôi học cách khai phá dữ liệu và đo độ lớn của vấn đề trước khi tìm cách giải quyết.",
       },
       learnings: {
-        en: "The most useful query is one whose purpose you understand before you write it.",
-        vi: "Câu truy vấn hữu ích nhất là câu mà bạn hiểu rõ mục đích trước khi viết.",
+        en: "My first lesson as an analyst: explore the data before answering, find the biggest block before solving anything, and test a relationship before assuming it.",
+        vi: "Bài học đầu tiên khi làm phân tích: khai phá dữ liệu trước khi trả lời, tìm khối lớn nhất trước khi giải quyết, và kiểm định một mối liên hệ trước khi mặc định nó đúng.",
       },
     },
     {
@@ -488,46 +497,48 @@ export const profile = {
         vi: "Toàn bộ dữ liệu trên trang này là dữ liệu giả lập, đã được xáo trộn và làm mờ, không phải báo cáo thực tế.",
       },
       summary: {
-        en: "Mapped a process that runs across four departments, then built a web app that shows the CEO where every contract, and every payment, is waiting.",
-        vi: "Mô hình hóa quy trình đi qua bốn phòng ban, rồi xây dựng web app cho CEO thấy từng hợp đồng và từng khoản thanh toán đang nằm ở khâu nào.",
+        en: "Mapped a process that runs across four departments, then built its first dashboard from scratch: a web app that shows the CEO and FP&A where every contract, and every payment, is waiting.",
+        vi: "Mô hình hóa quy trình đi qua bốn phòng ban, rồi tự xây dựng từ đầu dashboard đầu tiên cho quy trình này: web app cho CEO và FP&A thấy từng hợp đồng và từng khoản thanh toán đang nằm ở khâu nào.",
       },
       facts: [
         {
-          en: "Each corporate health check contract passes through four departments, but nobody could see where it was stuck or how much money was still outstanding.",
-          vi: "Mỗi hợp đồng khám sức khỏe doanh nghiệp đi qua bốn phòng ban, nhưng không ai biết hợp đồng đang tắc ở đâu và còn bao nhiêu tiền chưa thu.",
+          en: "Each corporate health check contract passes through four departments, but there was no dashboard: nobody could see where a contract was stuck or how much money was still outstanding.",
+          vi: "Mỗi hợp đồng khám sức khỏe doanh nghiệp đi qua bốn phòng ban nhưng chưa có dashboard nào: không ai biết hợp đồng đang tắc ở đâu và còn bao nhiêu tiền chưa thu.",
         },
         {
-          en: "CEO and senior management, Sales, medical secretaries and doctors, Accounting.",
-          vi: "CEO và Ban Giám đốc, Kinh doanh, Thư ký y khoa và Bác sĩ, Kế toán.",
+          en: "Sales, medical secretaries and doctors, Accounting (fee sheets, invoices, payments) and FP&A. The main readers are the CEO and FP&A.",
+          vi: "Kinh doanh, Thư ký y khoa và Bác sĩ, Kế toán (bảng phí, hóa đơn, thanh toán) và FP&A. Người xem chính là CEO và FP&A.",
         },
         {
           en: "An end-to-end process map (5 stages) and an Apps Script web app with four screens and email-based access.",
           vi: "Bản đồ quy trình end-to-end (5 khâu) và web app Apps Script gồm bốn màn hình, phân quyền theo email.",
         },
         {
-          en: "Overdue items are ranked by amount × days late, so the largest sums at risk come first — for senior management and for each department, from one data source.",
-          vi: "Hạng mục quá hạn được xếp theo giá trị × số ngày trễ, nên khoản tiền rủi ro lớn nhất luôn lên đầu — cho cả Ban Giám đốc lẫn từng phòng ban, trên cùng một nguồn dữ liệu.",
+          en: "The first dashboard for this process: staff only enter the new data each week, and the CEO and FP&A see the update at once, with overdue items ranked by amount × days late.",
+          vi: "Dashboard đầu tiên cho quy trình này: mỗi tuần nhân viên chỉ cần nhập số liệu mới, CEO và FP&A thấy ngay bản cập nhật, với hạng mục quá hạn được xếp theo giá trị × số ngày trễ.",
         },
       ],
       stack: ["Google Apps Script", "Google Sheets", "JavaScript"],
       methods: ["Process mapping", "Requirements elicitation", "Dashboard design", "AI-assisted coding"],
       period: { en: "2026 · SIG internship", vi: "2026 · Thực tập tại SIG" },
       myRole: { en: "Business Analyst Intern", vi: "Thực tập sinh Business Analyst" },
+      team: { en: "Individual work", vi: "Thực hiện độc lập" },
       contributions: [
         { en: "Mapped the 5-stage process across Sales, medical secretaries, doctors and Accounting.", vi: "Mô hình hóa quy trình 5 khâu qua Kinh doanh, Thư ký y khoa, Bác sĩ và Kế toán." },
         { en: "Agreed on an owner and a deadline for each stage with every department.", vi: "Thống nhất người phụ trách và thời hạn từng khâu với các phòng ban." },
-        { en: "Turned each user group's key question into requirements for four screens.", vi: "Chuyển câu hỏi chính của từng nhóm người dùng thành yêu cầu cho bốn màn hình." },
-        { en: "Built the Apps Script web app with AI-assisted coding and email-based access.", vi: "Phát triển web app Apps Script với sự hỗ trợ của AI, phân quyền theo email." },
-        { en: "Set up 11 data-quality checks and updated the AMC data every week.", vi: "Thiết lập 11 nhóm kiểm tra chất lượng dữ liệu và cập nhật số liệu AMC hằng tuần." },
+        { en: "Turned each user group's key question (CEO, FP&A, department heads, staff) into requirements for four screens.", vi: "Chuyển câu hỏi chính của từng nhóm người dùng (CEO, FP&A, trưởng bộ phận, nhân viên) thành yêu cầu cho bốn màn hình." },
+        { en: "Built the first dashboard for this process from scratch: an Apps Script web app with AI-assisted coding and email-based access.", vi: "Tự xây dựng từ đầu dashboard đầu tiên cho quy trình này: web app Apps Script với sự hỗ trợ của AI, phân quyền theo email." },
+        { en: "Set up 11 data-quality checks and a weekly data-entry routine that replaced manual counting.", vi: "Thiết lập 11 nhóm kiểm tra chất lượng dữ liệu và quy trình nhập số liệu hằng tuần thay cho thống kê thủ công." },
       ],
       metrics: [
+        { value: "0 → 1", label: { en: "from no dashboard at all to the first one for this process, built from scratch", vi: "từ chưa có dashboard nào đến dashboard đầu tiên cho quy trình này, tự xây dựng từ đầu" } },
         { value: "5", label: { en: "stages tracked end to end", vi: "khâu được theo dõi end-to-end" } },
         { value: "4", label: { en: "departments on one screen", vi: "phòng ban trên cùng một màn hình" } },
         { value: "11", label: { en: "automated data-quality checks", vi: "nhóm kiểm tra chất lượng dữ liệu tự động" } },
       ],
       context: {
-        en: "Corporate health checks (KSKDN) are a B2B service. A company signs an annual contract (AMC), its employees are examined, doctors complete the medical conclusions, and Accounting sends the fee sheet, issues the invoice and collects payment. Progress was tracked in a shared sheet that was hard to read at a glance, especially for the CEO.",
-        vi: "Khám sức khỏe doanh nghiệp (KSKDN) là dịch vụ B2B: doanh nghiệp ký hợp đồng hằng năm (AMC), nhân viên đi khám, bác sĩ hoàn tất hồ sơ kết luận, Kế toán gửi bảng phí, xuất hóa đơn và thu tiền. Tiến độ được theo dõi trên một file dùng chung, khó nắm nhanh, nhất là với CEO.",
+        en: "Corporate health checks (KSKDN) are a B2B service. A company signs an annual contract (AMC), its employees are examined, doctors complete the medical conclusions, and Accounting sends the fee sheet, issues the invoice and collects payment. Progress was only tracked by hand in a shared sheet. There was no dashboard, so any numbers for management had to be counted manually.",
+        vi: "Khám sức khỏe doanh nghiệp (KSKDN) là dịch vụ B2B: doanh nghiệp ký hợp đồng hằng năm (AMC), nhân viên đi khám, bác sĩ hoàn tất hồ sơ kết luận, Kế toán gửi bảng phí, xuất hóa đơn và thu tiền. Tiến độ chỉ được theo dõi thủ công trên một file dùng chung. Chưa có dashboard nào, nên mọi số liệu báo cáo cho cấp quản lý đều phải thống kê bằng tay.",
       },
       process: [
         {
@@ -540,8 +551,8 @@ export const profile = {
         {
           title: { en: "Start from each user's question", vi: "Bắt đầu từ câu hỏi của từng người dùng" },
           body: {
-            en: "CEO: Where is the money, and what is stuck? Department heads: What comes first, and who is overloaded? Staff: What is on my list today?",
-            vi: "CEO: Tiền đang nằm ở đâu, khâu nào đang tắc? Trưởng bộ phận: Việc nào cần ưu tiên, ai đang quá tải? Nhân viên: Hôm nay tôi cần xử lý gì?",
+            en: "CEO and FP&A: Where is the money, and what is stuck? Department heads: What comes first, and who is overloaded? Staff: What is on my list today?",
+            vi: "CEO và FP&A: Tiền đang nằm ở đâu, khâu nào đang tắc? Trưởng bộ phận: Việc nào cần ưu tiên, ai đang quá tải? Nhân viên: Hôm nay tôi cần xử lý gì?",
           },
         },
         {
@@ -568,8 +579,8 @@ export const profile = {
         {
           title: { en: "Keep it up to date", vi: "Duy trì số liệu cập nhật" },
           body: {
-            en: "Updated the AMC contract data every week so the management report was always ready on time.",
-            vi: "Cập nhật số liệu hợp đồng AMC hằng tuần để báo cáo cho Ban Giám đốc luôn kịp tiến độ.",
+            en: "Each week, the AMC contract data is entered once and the dashboard updates itself, so the management report no longer needs manual counting.",
+            vi: "Mỗi tuần chỉ cần nhập số liệu hợp đồng AMC một lần, dashboard tự cập nhật; báo cáo quản trị không còn phải thống kê thủ công.",
           },
         },
       ],
@@ -597,8 +608,8 @@ export const profile = {
         },
       ],
       outcome: {
-        en: "“Where is the money?” now has an answer for each stage. The cash waterfall shows how much is still waiting at the fee sheet, invoice or payment stage, instead of one outstanding total. Ranking by amount × days late makes sure that one large overdue contract is handled before many small ones — a priority that a simple count of overdue items would hide. The eleven data-quality checks also expose errors at the source, such as missing due dates, duplicate IDs and contracts paid but never closed, so they no longer distort the charts without anyone noticing.",
-        vi: "Câu hỏi “Tiền đang nằm ở đâu?” giờ đã có câu trả lời cho từng khâu: biểu đồ thác nước cho thấy bao nhiêu tiền còn chờ ở khâu bảng phí, hóa đơn hay thanh toán, thay vì chỉ một con số tổng. Xếp ưu tiên theo giá trị × số ngày trễ giúp một hợp đồng lớn bị trễ được xử lý trước nhiều hợp đồng nhỏ — điều mà cách đếm số hạng mục quá hạn sẽ bỏ sót. Mười một nhóm kiểm tra chất lượng dữ liệu cũng làm lộ lỗi ngay tại file gốc, như thiếu thời hạn, trùng mã hay đã thu đủ tiền nhưng chưa đóng hợp đồng, thay vì để chúng âm thầm làm sai lệch biểu đồ.",
+        en: "“Where is the money?” now has an answer for each stage. The cash waterfall shows how much is still waiting at the fee sheet, invoice or payment stage, instead of one outstanding total. Ranking by amount × days late makes sure that one large overdue contract is handled before many small ones — a priority that a simple count of overdue items would hide. The eleven data-quality checks also expose errors at the source, such as missing due dates, duplicate IDs and contracts paid but never closed, so they no longer distort the charts without anyone noticing. Most importantly, the process now has a dashboard for the first time: staff enter the new data each week, and the CEO and FP&A always see the latest picture without anyone counting by hand.",
+        vi: "Câu hỏi “Tiền đang nằm ở đâu?” giờ đã có câu trả lời cho từng khâu: biểu đồ thác nước cho thấy bao nhiêu tiền còn chờ ở khâu bảng phí, hóa đơn hay thanh toán, thay vì chỉ một con số tổng. Xếp ưu tiên theo giá trị × số ngày trễ giúp một hợp đồng lớn bị trễ được xử lý trước nhiều hợp đồng nhỏ — điều mà cách đếm số hạng mục quá hạn sẽ bỏ sót. Mười một nhóm kiểm tra chất lượng dữ liệu cũng làm lộ lỗi ngay tại file gốc, như thiếu thời hạn, trùng mã hay đã thu đủ tiền nhưng chưa đóng hợp đồng, thay vì để chúng âm thầm làm sai lệch biểu đồ. Quan trọng nhất, quy trình này lần đầu tiên có dashboard: mỗi tuần nhân viên chỉ nhập số liệu mới, CEO và FP&A luôn thấy bức tranh cập nhật nhất mà không ai phải thống kê bằng tay.",
       },
       learnings: {
         en: "A CEO dashboard is a process problem first: until every stage had an owner and a deadline, there was nothing useful to chart.",
@@ -969,7 +980,7 @@ export const profile = {
       slug: "uth-timeseries-forecasting",
       role: "da",
       university: true,
-      title: { en: "Seven forecasting models, one fair comparison", vi: "Bảy mô hình dự báo, một phép so sánh công bằng" },
+      title: { en: "Time series forecasting: the right model for each type of data", vi: "Dự báo chuỗi thời gian: chọn đúng mô hình cho từng loại dữ liệu" },
       summary: {
         en: "From ARIMA to LSTM on five real datasets, plus an audit that found four evaluation errors — including a “perfect” RMSE of 0 caused by data leakage.",
         vi: "Từ ARIMA đến LSTM trên năm bộ dữ liệu thực tế, kèm một lần rà soát phát hiện bốn lỗi đánh giá — trong đó có RMSE “hoàn hảo” bằng 0 do rò rỉ dữ liệu (data leakage).",
@@ -995,9 +1006,9 @@ export const profile = {
       ],
       stack: ["Python", "pandas", "statsmodels", "scikit-learn", "XGBoost", "TensorFlow / Keras"],
       methods: ["Box–Jenkins", "Feature engineering", "Walk-forward validation"],
-      period: { en: "2026 · UTH coursework, Time Series Analysis (audited 10/2026)", vi: "2026 · Đồ án học phần Phân tích chuỗi thời gian tại UTH (rà soát lại 10/2026)" },
-      myRole: { en: "Sole analyst", vi: "Thực hiện toàn bộ" },
-      team: { en: "Individual project", vi: "Dự án cá nhân" },
+      period: { en: "2026 · UTH coursework, Time Series Analysis and Forecasting (audited 10/2026)", vi: "2026 · Đồ án học phần Phân tích chuỗi thời gian và dự báo tại UTH (rà soát lại 10/2026)" },
+      myRole: { en: "Modeling, evaluation and audit", vi: "Mô hình hóa, đánh giá và rà soát" },
+      team: { en: "Team project", vi: "Dự án nhóm" },
       contributions: [
         { en: "Explored five datasets with STL decomposition and ACF/PACF.", vi: "Khám phá năm bộ dữ liệu bằng phân rã STL và ACF/PACF." },
         { en: "Built and tuned 7 models, from ARIMA to LSTM.", vi: "Xây dựng và tinh chỉnh 7 mô hình, từ ARIMA đến LSTM." },
@@ -1007,7 +1018,7 @@ export const profile = {
       metrics: [
         { value: "7", label: { en: "models compared on 5 datasets", vi: "mô hình được so sánh trên 5 bộ dữ liệu" } },
         { value: "1.84%", label: { en: "MAPE for hourly electricity load forecasting with XGBoost", vi: "MAPE khi dự báo phụ tải điện theo giờ bằng XGBoost" } },
-        { value: "4", label: { en: "evaluation errors found and fixed when I re-ran my own work", vi: "lỗi đánh giá tự phát hiện và sửa khi chạy lại" } },
+        { value: "4", label: { en: "evaluation errors found and fixed when I re-ran the notebooks", vi: "lỗi đánh giá được phát hiện và sửa khi tôi chạy lại notebook" } },
       ],
       context: {
         en: "Most forecasting exercises run one model and report one number. This course project asked a harder question: for each type of data, which model fits, and why? Every answer was checked on held-out test data in time order, not judged by eye from a chart.",
@@ -1043,7 +1054,7 @@ export const profile = {
           },
         },
         {
-          title: { en: "Audit my own numbers", vi: "Tự rà soát số liệu" },
+          title: { en: "Audit the results", vi: "Rà soát kết quả" },
           body: {
             en: "Found four errors: a rolling feature that included the target value (RMSE = 0), LSTM inverse scaling applied to the year column instead of the load column, VAR differencing inverted from the wrong starting value, and models compared on different test sets. All four were fixed and re-run.",
             vi: "Phát hiện bốn lỗi: đặc trưng rolling chứa chính giá trị mục tiêu (RMSE = 0), LSTM đảo ngược chuẩn hóa (inverse scaling) nhầm vào cột năm thay vì cột phụ tải, VAR khôi phục sai phân từ sai giá trị gốc, và các mô hình được so sánh trên những tập kiểm tra khác nhau. Cả bốn lỗi đã được sửa và chạy lại.",

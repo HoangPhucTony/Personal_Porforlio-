@@ -206,7 +206,7 @@ export default function ProjectPage() {
         <Reveal className="mt-10">
           <h2 className="label">{t(ui.keyResults)}</h2>
           {p.metrics && p.metrics.length > 0 && (
-            <div className="mt-3 grid gap-4 sm:grid-cols-3">
+            <div className={`mt-3 grid gap-4 ${p.metrics.length === 2 ? "sm:grid-cols-2" : p.metrics.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3"}`}>
               {p.metrics.map((m) => (
                 <div key={m.value} className="tile p-5">
                   <p className="heading text-4xl text-accent sm:text-5xl">{m.value}</p>

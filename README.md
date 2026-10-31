@@ -42,8 +42,8 @@ This site is my portfolio for **Data Analyst** and **Business Analyst** roles at
 | Case study | Track | What it shows |
 |---|---|---|
 | **What really drives imaging and lab revenue** | Data Analyst | Variance analysis with the chain substitution method: revenue split into six drivers, drilled down by specialty and doctor |
-| **Promotion analysis, starting with hypotheses** | Data Analyst | Structured, hypothesis-driven problem solving: audience first, MECE issue tree, then SQL and a Google Sheets dashboard |
-| **Corporate health checks, from contract to payment** | Business Analyst | End-to-end process across four departments, turned into a Google Apps Script web app for the CEO with email-based access |
+| **Promotion analysis: where does the discount money go?** | Data Analyst | First task at SIG: SQL exploration and a MECE issue tree to find where promotion spend is concentrated, then ANOVA and regression on its link with revenue |
+| **Corporate health checks, from contract to payment** | Business Analyst | End-to-end process across four departments, turned into a Google Apps Script web app for the CEO and FP&A with email-based access |
 | **Student mental health, from sensor data to decisions** · *University Project* | Data Analyst | Team coursework at UTH: my Power BI layer (star schema, 24 DAX measures, four dashboards) on a SQL Server warehouse, plus a QA pass that fixed six data errors |
 | **Retail purchasing, from store shortage to supplier order** · *University Project* | Business Analyst | Team coursework at UTH: BPMN AS-IS / TO-BE and fit-gap for a retail chain's purchasing, turned into three Odoo 19 modules with a live demo |
 
