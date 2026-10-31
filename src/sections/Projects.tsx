@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { BarChart3, FileDown, GraduationCap, Workflow } from "lucide-react";
-import { profile, projectsByRole, type Project, type Role } from "../data/profile";
+import { BarChart3, FileText, GraduationCap, Workflow } from "lucide-react";
+import { projectsByRole, type Project, type Role } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
 import { Magnetic, SectionHeader } from "../components/ui";
+import { CvButton } from "../components/Cv";
 import ProjectCard from "../components/ProjectCard";
 
 const TABS: { role: Role; Icon: typeof BarChart3 }[] = [
@@ -63,13 +64,11 @@ export default function Projects({ role, setRole }: { role: Role; setRole: (r: R
           })}
         </div>
 
-        {profile.cv[role] && (
-          <Magnetic>
-            <a href={profile.cv[role]} download className="btn btn-accent w-full sm:w-auto">
-              <FileDown size={15} /> {t(ui.downloadCv, { role: role.toUpperCase() })}
-            </a>
-          </Magnetic>
-        )}
+        <Magnetic>
+          <CvButton role={role} className="btn btn-accent w-full sm:w-auto" wrapClassName="w-full sm:w-auto">
+            <FileText size={15} /> {t(ui.viewCv, { role: role.toUpperCase() })}
+          </CvButton>
+        </Magnetic>
       </div>
 
       <div id="project-panel" role="tabpanel" aria-labelledby={`tab-${role}`}>

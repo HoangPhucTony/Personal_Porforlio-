@@ -34,6 +34,14 @@ export type Project = {
   demoLabel?: L; // overrides the role's default demo button text, e.g. "Live demo" for a running app
 };
 
+export type CoverLetter = {
+  pdf: { en: string; vi: string };
+  date: L;
+  greeting: L;
+  paragraphs: L[];
+  closing: L;
+};
+
 export type Experience = {
   title: L;
   org?: L;
@@ -56,14 +64,48 @@ export const profile = {
   initials: "HP",
   photo: "/images/avatar.webp", // initials are shown when empty
   email: "dhp06062005@gmail.com",
+  phone: "+84 768 854 220", // shown in the CV preview only
+  zalo: "https://zalo.me/0768854220",
   linkedin: "https://www.linkedin.com/in/dohoangphuc0606/",
   github: "https://github.com/HoangPhucTony",
   // CV download buttons stay hidden until the PDF is in public/cv/ and its path is set here,
   // e.g. "/cv/CV_DoHoangPhuc_DA.pdf" (a missing file would download the site's HTML instead).
   cv: {
     da: "",
-    ba: "",
+    ba: "/cv/CV_BA_DoHoangPhuc.pdf",
   } as Record<Role, string>,
+  // page images for the CV preview (rendered from the PDF at 150 dpi)
+  cvPreview: {
+    da: [],
+    ba: ["/cv/CV_BA_DoHoangPhuc-1.webp", "/cv/CV_BA_DoHoangPhuc-2.webp"],
+  } as Record<Role, string[]>,
+  // shown in the CV preview next to the CV; same text as public/cv/CoverLetter_DoHoangPhuc_{EN,VI}.pdf
+  coverLetter: {
+    ba: {
+      pdf: { en: "/cv/CoverLetter_DoHoangPhuc_EN.pdf", vi: "/cv/CoverLetter_DoHoangPhuc_VI.pdf" },
+      date: { en: "Ho Chi Minh City, 1 November 2026", vi: "TP. Hồ Chí Minh, ngày 01 tháng 11 năm 2026" },
+      greeting: { en: "Dear Hiring Manager,", vi: "Kính gửi Anh/Chị phụ trách tuyển dụng," },
+      paragraphs: [
+        {
+          en: "I am writing to apply for the Business Analyst position. I am a final-year Management Information Systems student at the University of Transport Ho Chi Minh City (GPA 3.64/4.0), and I am currently a Business Analyst intern at Saigon International General Hospital and the Public Transport Management Center (MCPT).",
+          vi: "Em xin ứng tuyển vị trí Business Analyst. Em là sinh viên năm cuối ngành Hệ thống thông tin quản lý, Trường Đại học Giao thông Vận tải TP.HCM (GPA 3.64/4.0), hiện đang thực tập Business Analyst tại Bệnh viện Đa khoa Quốc tế Sài Gòn và Trung tâm Quản lý Giao thông Công cộng (MCPT).",
+        },
+        {
+          en: "At MCPT, I led a 40-member student team to build a bus pass issuance system for citizens. I interviewed MCPT staff, modeled the processes in BPMN, wrote the SRS and user stories with acceptance criteria, and coordinated UAT before handover. At the hospital, I built the first dashboard for corporate health check contracts from scratch, so the CEO and the FP&A team can see where each contract and payment is waiting. These experiences taught me that a good Business Analyst listens carefully, asks the right questions and checks every detail.",
+          vi: "Tại MCPT, em dẫn dắt nhóm 40 sinh viên xây dựng hệ thống cấp thẻ xe buýt cho người dân. Em trực tiếp phỏng vấn cán bộ MCPT, mô hình hóa quy trình bằng BPMN, viết SRS và user story kèm tiêu chí chấp nhận, rồi điều phối UAT trước khi bàn giao. Tại bệnh viện, em tự xây dựng từ đầu dashboard đầu tiên theo dõi hợp đồng khám sức khỏe doanh nghiệp, giúp CEO và bộ phận FP&A thấy từng hợp đồng, từng khoản thanh toán đang nằm ở khâu nào. Những trải nghiệm này giúp em hiểu rằng một Business Analyst tốt cần biết lắng nghe, đặt đúng câu hỏi và cẩn thận đến từng chi tiết.",
+        },
+        {
+          en: "I know that I still have a lot to learn, and that is exactly why I am applying. I hope to learn from experienced analysts, work on real products and real problems, and grow step by step. I learn quickly, I am happy to start with small tasks, and I always try to finish what I start with care.",
+          vi: "Em biết mình vẫn còn nhiều điều phải học, và đó cũng chính là lý do em ứng tuyển. Em mong được học hỏi từ các anh chị đi trước, được làm việc với sản phẩm và bài toán thực tế, và trưởng thành từng bước. Em học nhanh, sẵn sàng bắt đầu từ những việc nhỏ và luôn cố gắng hoàn thành chu đáo những gì mình đã nhận.",
+        },
+        {
+          en: "If I am given the chance, I will do my very best to contribute to the team and to improve every day. My case studies are available at dohoangphuc.vercel.app. Thank you sincerely for your time and consideration. I would be grateful for the opportunity to talk with you.",
+          vi: "Nếu có cơ hội, em sẽ cố gắng hết sức để đóng góp cho đội ngũ và tiến bộ mỗi ngày. Anh/Chị có thể xem chi tiết các dự án của em tại dohoangphuc.vercel.app. Em xin chân thành cảm ơn Anh/Chị đã dành thời gian đọc thư và rất mong có dịp được trao đổi thêm.",
+        },
+      ],
+      closing: { en: "Sincerely,", vi: "Trân trọng," },
+    },
+  } as Partial<Record<Role, CoverLetter>>,
 
   status: { en: "Open to Intern / Fresher roles", vi: "Đang tìm vị trí Thực tập sinh / Fresher" } as L,
   location: { en: "Ho Chi Minh City", vi: "TP. Hồ Chí Minh" } as L,

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy, FileDown } from "lucide-react";
+import { ArrowUpRight, Check, Copy, FileText } from "lucide-react";
 import { profile } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
 import { Magnetic, Reveal } from "../components/ui";
+import { CvButton } from "../components/Cv";
 
 export default function Contact() {
   const { t } = useLang();
@@ -46,10 +47,10 @@ export default function Contact() {
               {l.label} <ArrowUpRight size={14} />
             </a>
           ))}
-          {(["da", "ba"] as const).filter((r) => profile.cv[r]).map((r) => (
-            <a key={r} data-role={r} href={profile.cv[r]} download className="btn border border-accent/50 text-accent hover:bg-accent/10">
-              <FileDown size={14} /> {t(ui.cvFor, { role: t(ui.roleLabel[r]) })}
-            </a>
+          {(["da", "ba"] as const).map((r) => (
+            <CvButton key={r} role={r} className="btn border border-accent/50 text-accent hover:bg-accent/10">
+              <FileText size={14} /> {t(ui.cvFor, { role: t(ui.roleLabel[r]) })}
+            </CvButton>
           ))}
         </div>
 

@@ -93,7 +93,7 @@ All content lives in `src/data/profile.ts`; no component changes are needed. Eve
 
 - **Add a project:** append an object to `profile.projects` with a `slug`, `role: "da" | "ba"`, four `facts`, the `process` steps, a `gallery` and an `outcome`. Put screenshots in `public/images/projects/`. A `note` field shows a disclaimer above the cover. `university: true` tags coursework as a University Project and lists it in its own group under the role tab.
 - **Experience:** `profile.experience`. `highlights` appear in the "View details" pop-up and `caseStudies` lists the related project slugs.
-- **CV buttons** stay hidden until the PDFs are added to `public/cv/` and their paths set in `profile.cv`.
+- **CV and cover letter:** files live in `public/cv/`. `profile.cv` holds each role's PDF, `profile.cvPreview` the page images shown in the preview pop-up, and `profile.coverLetter` the letter text (EN / VI) with its PDFs. A role without a CV keeps its button, which says the CV is not ready yet.
 
 ## Deployment
 
@@ -139,6 +139,7 @@ Portfolio song ngữ (Anh / Việt) của **Đỗ Hoàng Phúc**, sinh viên H�
 
 - **Chạy thử:** `npm install`, rồi `npm run dev` và mở http://localhost:5173.
 - **Sửa nội dung:** chỉ cần sửa `src/data/profile.ts`. Mỗi chuỗi có dạng `{ en, vi }`, không phải đụng tới component.
+- **CV & thư xin việc:** file đặt trong `public/cv/`; khai báo đường dẫn ở `profile.cv`, ảnh xem trước ở `profile.cvPreview`, nội dung thư ở `profile.coverLetter`. Role chưa có CV vẫn hiện nút, bấm vào sẽ báo "Chưa có CV".
 - **Thêm dự án:** thêm một object vào `profile.projects`, ảnh đặt trong `public/images/projects/`.
 - **Deploy:** import repo vào Vercel, framework Vite. Mỗi lần push lên `main` web tự cập nhật.
 - **Bảo mật:** không công bố số liệu thật của SIG. Ảnh Sheet đã làm mờ; ảnh dashboard chụp từ dữ liệu giả lập và đã che số tiền.

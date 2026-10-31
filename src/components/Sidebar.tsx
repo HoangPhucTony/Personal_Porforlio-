@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { FileText, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { profile } from "../data/profile";
 import { ui } from "../data/ui";
-import { useActiveSection } from "../hooks";
+import { useActiveSection, useRole } from "../hooks";
 import { useLang } from "../i18n";
 import { Avatar, LangToggle } from "./ui";
+import { CvButton, cvRole } from "./Cv";
 
 const IDS = ["about", "experience", "projects", "contact"] as const;
 
@@ -38,6 +39,12 @@ export default function Sidebar() {
   const active = useActiveSection(IDS as unknown as string[]);
   const [open, setOpen] = useState(false);
   const name = t(profile.name);
+  const { role } = useRole();
+  const cv = (
+    <CvButton role={cvRole(role)} className="btn btn-ghost !px-4 !py-2 text-xs">
+      <FileText size={14} /> {t(ui.viewCv, { role: cvRole(role).toUpperCase() })}
+    </CvButton>
+  );
 
   const nav = (
     <nav aria-label="Sections">
@@ -86,7 +93,8 @@ export default function Sidebar() {
             </span>
             {t(profile.status)}
           </p>
-          <div className="mt-12">{nav}</div>
+          <div className="mt-5">{cv}</div>
+          <div className="mt-10">{nav}</div>
         </div>
         <div className="space-y-5">
           <div>
@@ -127,6 +135,7 @@ export default function Sidebar() {
             >
               <div className="space-y-6 px-4 pb-6 pt-4">
                 {nav}
+                {cv}
                 <Socials />
               </div>
             </motion.div>

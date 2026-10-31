@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Check, Github, GraduationCap, Info, TrendingUp, X } from "lucide-react";
-import { profile, projectBySlug, projectsByRole } from "../data/profile";
+import { ArrowLeft, ArrowUpRight, Check, FileText, Github, GraduationCap, Info, TrendingUp, X } from "lucide-react";
+import { projectBySlug, projectsByRole } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
 import { useScrollLock } from "../hooks";
 import Backdrop from "../components/Backdrop";
 import Figure from "../components/Figure";
 import { LangToggle, Magnetic, Reveal } from "../components/ui";
+import { CvButton } from "../components/Cv";
 
 function Lightbox({ src, caption, onClose }: { src: string; caption: string; onClose: () => void }) {
   const { t } = useLang();
@@ -183,8 +184,7 @@ export default function ProjectPage() {
                 </dd>
               </div>
             )}
-            {(p.source || p.demo) && (
-              <div className="flex flex-wrap gap-3 pt-1">
+            <div className="flex flex-wrap gap-3 pt-1">
                 {p.demo && (
                   <Magnetic>
                     <a href={p.demo} target="_blank" rel="noreferrer" className="btn btn-accent">
@@ -197,8 +197,10 @@ export default function ProjectPage() {
                     <Github size={14} /> {t(ui.source)}
                   </a>
                 )}
+                <CvButton role={p.role} className="btn btn-ghost">
+                  <FileText size={14} /> {t(ui.viewCvShort)}
+                </CvButton>
               </div>
-            )}
           </dl>
         </motion.section>
 
@@ -332,11 +334,9 @@ export default function ProjectPage() {
           <Link to={back} className="link-arrow">
             <ArrowLeft size={14} /> {t(ui.allProjects)}
           </Link>
-          {profile.cv[p.role] && (
-            <a href={profile.cv[p.role]} download className="btn btn-ghost">
-              {t(ui.downloadCv, { role: p.role.toUpperCase() })}
-            </a>
-          )}
+          <CvButton role={p.role} className="btn btn-ghost">
+            <FileText size={14} /> {t(ui.viewCv, { role: p.role.toUpperCase() })}
+          </CvButton>
         </div>
       </main>
 
