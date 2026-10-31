@@ -11,7 +11,7 @@ export const ui = {
     contact: { en: "Contact", vi: "Liên hệ" },
   } satisfies Record<string, L>,
 
-  clickAnywhere: { en: "Click anywhere to enter", vi: "Nhấn vào bất kỳ vị trí nào để truy cập" },
+  clickAnywhere: { en: "Click anywhere to enter", vi: "Nhấn vào bất kỳ đâu để bắt đầu" },
   enterShort: { en: "Enter", vi: "Vào" },
   scrollHint: { en: "or scroll down to explore", vi: "hoặc cuộn xuống để khám phá" },
   seeProjects: { en: "See projects", vi: "Xem dự án" },
@@ -36,8 +36,8 @@ export const ui = {
   toolkitTitle: { en: "From question to decision", vi: "Từ câu hỏi đến quyết định" },
   toolkitFig: { en: "Fig. 1 · How I work", vi: "Hình 1 · Phương pháp làm việc" },
   toolkitNote: {
-    en: "BA work defines the question and turns findings into something the team can build. DA work finds the evidence in between.",
-    vi: "BA xác định đúng câu hỏi và chuyển các phát hiện thành giải pháp có thể triển khai; DA tìm kiếm bằng chứng ở giữa hai bước đó.",
+    en: "BA work defines the question and turns the findings into something the team can build. DA work finds the evidence in between.",
+    vi: "BA xác định đúng câu hỏi và biến phát hiện thành giải pháp có thể triển khai; DA tìm bằng chứng ở giữa hai bước đó.",
   },
   stage: { en: "Stage", vi: "Bước" },
   usedIn: { en: "Used in", vi: "Dùng trong" },
@@ -47,21 +47,25 @@ export const ui = {
 
   projectsTitle: { en: "Selected projects", vi: "Dự án tiêu biểu" },
   projectsCount: { en: "{n} projects", vi: "{n} dự án" },
-  projectsSoon: { en: "Case studies are coming soon. Please check back later.", vi: "Các dự án đang được cập nhật, vui lòng quay lại sau." },
+  projectsSoon: { en: "Case studies are coming soon. Please check back later.", vi: "Dự án đang được cập nhật, mời bạn quay lại sau." },
   featured: { en: "Featured", vi: "Nổi bật" },
   universityProject: { en: "University Project", vi: "Đồ án đại học" },
   universityProjects: { en: "University Projects", vi: "Đồ án đại học" },
-  universityHint: { en: "Coursework at UTH, solo and in teams", vi: "Đồ án môn học tại UTH, cá nhân và theo nhóm" },
+  universityHint: { en: "UTH coursework, individual and team projects", vi: "Đồ án môn học tại UTH, cá nhân và nhóm" },
   viewCase: { en: "View case study", vi: "Xem chi tiết" },
   viewDetails: { en: "View details", vi: "Xem chi tiết" },
   whatIDid: { en: "What I did", vi: "Công việc đảm nhận" },
-  relatedCases: { en: "Case studies", vi: "Dự án liên quan" },
+  relatedCases: { en: "Related case studies", vi: "Dự án liên quan" },
 
   caseStudy: { en: "Case study", vi: "Chi tiết dự án" },
   allProjects: { en: "All projects", vi: "Tất cả dự án" },
   myRole: { en: "My role", vi: "Vai trò" },
   timeline: { en: "Timeline", vi: "Thời gian" },
   tools: { en: "Tools", vi: "Công cụ" },
+  team: { en: "Team", vi: "Quy mô" },
+  methods: { da: { en: "Methods", vi: "Phương pháp" }, ba: { en: "Methods & deliverables", vi: "Phương pháp & tài liệu" } } as Record<Role, L>,
+  keyResults: { en: "Key results", vi: "Kết quả nổi bật" },
+  overview: { en: "Overview", vi: "Tổng quan" },
   context: { en: "Context", vi: "Bối cảnh" },
   process: { en: "Process", vi: "Quy trình" },
   gallery: { en: "Gallery", vi: "Hình ảnh" },
@@ -96,7 +100,7 @@ export const ui = {
   } as Record<Role, L[]>,
 
   intro: {
-    sameStats: { en: "Same stats. Different shape.", vi: "Cùng thống kê. Khác hình dạng." },
+    sameStats: { en: "Same stats. Different shape.", vi: "Cùng chỉ số. Khác hình dạng." },
     credit: { en: "Datasaurus Dozen · Matejka & Fitzmaurice, 2017", vi: "Datasaurus Dozen · Matejka & Fitzmaurice, 2017" },
     shapes: {
       dino: { en: "Dino", vi: "Khủng long" },

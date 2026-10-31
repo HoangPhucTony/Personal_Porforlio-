@@ -29,21 +29,21 @@ This site is my portfolio for **Data Analyst** and **Business Analyst** roles at
 
 ## Highlights
 
-- **Two portfolios in one.** A Data Analyst / Business Analyst switch filters the projects, recolours the page (teal for DA, amber for BA) and can be linked directly, so each application gets the right view.
+- **Two portfolios in one.** A Data Analyst / Business Analyst switch filters the projects, recolors the page (teal for DA, amber for BA) and can be linked directly, so each application gets the right view.
 - **Case studies, not just cards.** Each project has its own page: context, step-by-step process, screenshots, outcome and lessons learned.
 - **Bilingual.** Every word exists in English and Vietnamese; the choice is remembered and can be set by link (`?lang=en` / `?lang=vi`).
 - **A cover that makes the point.** The opening screen animates the *Datasaurus Dozen*: datasets with identical mean, spread and correlation but completely different shapes. Summary numbers can hide the story.
 - **Experience as a timeline,** with a details pop-up for each role that links to the related case studies.
-- **Confidential by design.** Work done for real organisations is shown without their figures (see [Data & privacy](#data--privacy)).
+- **Confidential by design.** Work done for real organizations is shown without their figures (see [Data & privacy](#data--privacy)).
 - **Polished but accessible.** Smooth scrolling, magnetic buttons, cursor-lit cards and 3D tilt, all switched off when the visitor prefers reduced motion. One layout scales to every desktop size, with a dedicated mobile layout.
 
 ## Featured case studies
 
 | Case study | Track | What it shows |
 |---|---|---|
-| **What really moves imaging and lab revenue** | Data Analyst | Variance analysis by chain substitution: revenue split into six drivers, drilled down by specialty and doctor |
-| **Promotion analysis, hypothesis first** | Data Analyst | Structured, hypothesis-driven problem solving: audience first, MECE issue tree, then SQL and a Google Sheets dashboard |
-| **Corporate health checks, from contract to cash** | Business Analyst | End-to-end process across four departments, turned into a Google Apps Script web app for the CEO with email-based access |
+| **What really drives imaging and lab revenue** | Data Analyst | Variance analysis with the chain substitution method: revenue split into six drivers, drilled down by specialty and doctor |
+| **Promotion analysis, starting with hypotheses** | Data Analyst | Structured, hypothesis-driven problem solving: audience first, MECE issue tree, then SQL and a Google Sheets dashboard |
+| **Corporate health checks, from contract to payment** | Business Analyst | End-to-end process across four departments, turned into a Google Apps Script web app for the CEO with email-based access |
 | **Student mental health, from sensor data to decisions** · *University Project* | Data Analyst | Team coursework at UTH: my Power BI layer (star schema, 24 DAX measures, four dashboards) on a SQL Server warehouse, plus a QA pass that fixed six data errors |
 | **Retail purchasing, from store shortage to supplier order** · *University Project* | Business Analyst | Team coursework at UTH: BPMN AS-IS / TO-BE and fit-gap for a retail chain's purchasing, turned into three Odoo 19 modules with a live demo |
 
@@ -54,7 +54,7 @@ Each one lives at `/projects/<slug>` (`sig-revenue-drivers`, `sig-promotion-anal
 | Area | Tools |
 |---|---|
 | Framework | React 18, TypeScript, Vite 5 |
-| Styling | Tailwind CSS 3, custom design tokens (dark theme, role-based accent colours) |
+| Styling | Tailwind CSS 3, custom design tokens (dark theme, role-based accent colors) |
 | Motion | Framer Motion, Lenis smooth scrolling |
 | Routing | React Router 6 (home + one page per case study) |
 | Icons and type | Lucide, Playfair Display, Inter, JetBrains Mono |

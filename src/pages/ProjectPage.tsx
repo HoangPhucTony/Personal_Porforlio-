@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Github, GraduationCap, Info, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Github, GraduationCap, Info, TrendingUp, X } from "lucide-react";
 import { profile, projectBySlug, projectsByRole } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
@@ -122,51 +122,110 @@ export default function ProjectPage() {
           {t(p.summary)}
         </motion.p>
 
-        <motion.dl
+        {/* at a glance: role and what I did on the left, timeline / team / tools on the right */}
+        <motion.section
+          aria-label={t(ui.overview)}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 grid gap-6 border-y border-line py-6 sm:grid-cols-3"
+          className="tile mt-10 grid overflow-hidden lg:grid-cols-[1.35fr_1fr]"
         >
-          <div>
-            <dt className="label">{t(ui.myRole)}</dt>
-            <dd className="mt-1.5 text-sm">{t(p.myRole)}</dd>
+          <div className="p-6 sm:p-8">
+            <p className="label">{t(ui.myRole)}</p>
+            <p className="mt-2 font-display text-2xl font-semibold leading-snug">{t(p.myRole)}</p>
+            {p.contributions && p.contributions.length > 0 && (
+              <>
+                <p className="label mt-7">{t(ui.whatIDid)}</p>
+                <ul className="mt-3 space-y-2.5">
+                  {p.contributions.map((c, i) => (
+                    <li key={i} className="flex gap-3 text-[0.9375rem] leading-relaxed">
+                      <Check size={16} aria-hidden className="mt-1 shrink-0 text-accent" />
+                      <span>{t(c)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
-          <div>
-            <dt className="label">{t(ui.timeline)}</dt>
-            <dd className="mt-1.5 text-sm">{t(p.period)}</dd>
-          </div>
-          <div>
-            <dt className="label">{t(ui.tools)}</dt>
-            <dd className="mt-1.5 flex flex-wrap gap-1.5">
-              {p.stack.map((s) => (
-                <span key={s} className="chip">
-                  {s}
-                </span>
-              ))}
-            </dd>
-          </div>
-        </motion.dl>
 
-        {(p.source || p.demo) && (
-          <div className="mt-6 flex flex-wrap gap-3">
-            {p.demo && (
-              <Magnetic>
-                <a href={p.demo} target="_blank" rel="noreferrer" className="btn btn-accent">
-                  {t(p.demoLabel ?? ui.demo[p.role])} <ArrowUpRight size={14} />
-                </a>
-              </Magnetic>
+          <dl className="space-y-6 border-t border-line bg-fg/[0.02] p-6 sm:p-8 lg:border-l lg:border-t-0">
+            <div className={`grid gap-4 ${p.team ? "grid-cols-2" : ""}`}>
+              <div>
+                <dt className="label">{t(ui.timeline)}</dt>
+                <dd className="mt-1.5 text-sm">{t(p.period)}</dd>
+              </div>
+              {p.team && (
+                <div>
+                  <dt className="label">{t(ui.team)}</dt>
+                  <dd className="mt-1.5 text-sm">{t(p.team)}</dd>
+                </div>
+              )}
+            </div>
+            <div>
+              <dt className="label">{t(ui.tools)}</dt>
+              <dd className="mt-2 flex flex-wrap gap-1.5">
+                {p.stack.map((s) => (
+                  <span key={s} className="rounded-full border border-accent/50 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
+                    {s}
+                  </span>
+                ))}
+              </dd>
+            </div>
+            {p.methods && p.methods.length > 0 && (
+              <div>
+                <dt className="label">{t(ui.methods[p.role])}</dt>
+                <dd className="mt-2 flex flex-wrap gap-1.5">
+                  {p.methods.map((s) => (
+                    <span key={s} className="chip">
+                      {s}
+                    </span>
+                  ))}
+                </dd>
+              </div>
             )}
-            {p.source && (
-              <a href={p.source} target="_blank" rel="noreferrer" className="btn btn-ghost">
-                <Github size={14} /> {t(ui.source)}
-              </a>
+            {(p.source || p.demo) && (
+              <div className="flex flex-wrap gap-3 pt-1">
+                {p.demo && (
+                  <Magnetic>
+                    <a href={p.demo} target="_blank" rel="noreferrer" className="btn btn-accent">
+                      {t(p.demoLabel ?? ui.demo[p.role])} <ArrowUpRight size={14} />
+                    </a>
+                  </Magnetic>
+                )}
+                {p.source && (
+                  <a href={p.source} target="_blank" rel="noreferrer" className="btn btn-ghost">
+                    <Github size={14} /> {t(ui.source)}
+                  </a>
+                )}
+              </div>
             )}
-          </div>
-        )}
+          </dl>
+        </motion.section>
+
+        {/* key results: the numbers, then the impact / outcome fact */}
+        <Reveal className="mt-10">
+          <h2 className="label">{t(ui.keyResults)}</h2>
+          {p.metrics && p.metrics.length > 0 && (
+            <div className="mt-3 grid gap-4 sm:grid-cols-3">
+              {p.metrics.map((m) => (
+                <div key={m.value} className="tile p-5">
+                  <p className="heading text-4xl text-accent sm:text-5xl">{m.value}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-fg">{t(m.label)}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          <p className="mt-4 flex items-start gap-3 rounded-xl border border-accent/30 bg-accent/[0.06] px-5 py-4 text-[0.9375rem] leading-relaxed">
+            <TrendingUp size={18} aria-hidden className="mt-0.5 shrink-0 text-accent" />
+            <span>
+              <span className="label mr-2 !text-accent">{t(labels[3])}</span>
+              {t(p.facts[3])}
+            </span>
+          </p>
+        </Reveal>
 
         {p.note && (
-          <p className="mt-10 flex items-start gap-3 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm leading-relaxed text-fg/90">
+          <p className="mt-12 flex items-start gap-3 rounded-xl border border-accent/40 bg-accent/10 px-4 py-3 text-sm leading-relaxed text-fg/90">
             <Info size={16} className="mt-0.5 shrink-0 text-accent" />
             {t(p.note)}
           </p>
@@ -185,36 +244,24 @@ export default function ProjectPage() {
           )}
         </Reveal>
 
-        {/* facts */}
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {p.facts.map((f, i) => (
-            <Reveal key={i} delay={i * 0.06} className="tile p-5 hover:-translate-y-1">
-              <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent">{t(labels[i])}</p>
-              <p className="mt-2 text-sm leading-relaxed">{t(f)}</p>
+        {/* the details: section labels stay in view while their section scrolls */}
+        <div className="mt-20 grid gap-x-12 gap-y-10 md:grid-cols-[200px_1fr]">
+          <h2 className="label pt-1 md:sticky md:top-24 md:self-start">01 — {t(ui.context)}</h2>
+          <div className="space-y-6">
+            <div className="grid gap-4 sm:grid-cols-3">
+              {p.facts.slice(0, 3).map((f, i) => (
+                <Reveal key={i} delay={i * 0.06} className="tile p-5">
+                  <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent">{t(labels[i])}</p>
+                  <p className="mt-2 text-sm leading-relaxed">{t(f)}</p>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal>
+              <p className="text-lg leading-relaxed">{t(p.context)}</p>
             </Reveal>
-          ))}
-        </div>
+          </div>
 
-        {/* metrics */}
-        {p.metrics && p.metrics.length > 0 && (
-          <Reveal className="mt-16 grid gap-8 border-y border-line py-10 sm:grid-cols-3">
-            {p.metrics.map((m) => (
-              <div key={m.value}>
-                <p className="heading text-5xl text-accent">{m.value}</p>
-                <p className="mt-2 text-sm text-muted-fg">{t(m.label)}</p>
-              </div>
-            ))}
-          </Reveal>
-        )}
-
-        {/* context + process */}
-        <div className="mt-16 grid gap-12 md:grid-cols-[200px_1fr]">
-          <p className="label pt-1">01 — {t(ui.context)}</p>
-          <Reveal>
-            <p className="text-lg leading-relaxed">{t(p.context)}</p>
-          </Reveal>
-
-          <p className="label pt-1">02 — {t(ui.process)}</p>
+          <h2 className="label pt-1 md:sticky md:top-24 md:self-start">02 — {t(ui.process)}</h2>
           <ol className="relative space-y-6 border-l border-line pl-8">
             {p.process.map((s, i) => (
               <Reveal key={i} delay={i * 0.05}>
@@ -231,7 +278,7 @@ export default function ProjectPage() {
 
           {p.gallery.length > 0 && (
             <>
-              <p className="label pt-1">03 — {t(ui.gallery)}</p>
+              <h2 className="label pt-1 md:sticky md:top-24 md:self-start">03 — {t(ui.gallery)}</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 {p.gallery.map((g, i) => (
                   <Reveal key={g.src} delay={i * 0.05} className={p.gallery.length === 1 ? "sm:col-span-2" : ""}>
@@ -252,9 +299,9 @@ export default function ProjectPage() {
             </>
           )}
 
-          <p className="label pt-1">
+          <h2 className="label pt-1 md:sticky md:top-24 md:self-start">
             0{p.gallery.length > 0 ? 4 : 3} — {t(ui.outcome)}
-          </p>
+          </h2>
           <Reveal className="space-y-6">
             <p className="text-lg leading-relaxed">{t(p.outcome)}</p>
             {p.learnings && (
