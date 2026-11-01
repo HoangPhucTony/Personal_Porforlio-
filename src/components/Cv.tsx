@@ -144,7 +144,7 @@ function CvModal({ role, onClose }: { role: Role; onClose: () => void }) {
             <article className="mx-auto max-w-[48rem] rounded-sm bg-white px-6 py-8 text-[0.9375rem] leading-relaxed text-neutral-900 shadow-xl sm:px-14 sm:py-12">
               <header className="border-b border-neutral-900 pb-4 text-center">
                 <p className="font-display text-2xl font-bold uppercase tracking-wide sm:text-3xl">{t(profile.name)}</p>
-                <p className="mt-1 font-display italic">Business Analyst</p>
+                <p className="mt-1 font-display italic">{t(ui.roleLabel[role])}</p>
                 <p className="mt-2 text-xs text-neutral-700">
                   {profile.phone} · {profile.email} · dohoangphuc.vercel.app
                 </p>

@@ -71,16 +71,40 @@ export const profile = {
   // CV download buttons stay hidden until the PDF is in public/cv/ and its path is set here,
   // e.g. "/cv/CV_DoHoangPhuc_DA.pdf" (a missing file would download the site's HTML instead).
   cv: {
-    da: "",
+    da: "/cv/CV_DA_DoHoangPhuc.pdf",
     ba: "/cv/CV_BA_DoHoangPhuc.pdf",
   } as Record<Role, string>,
   // page images for the CV preview (rendered from the PDF at 150 dpi)
   cvPreview: {
-    da: [],
+    da: ["/cv/CV_DA_DoHoangPhuc-1.webp", "/cv/CV_DA_DoHoangPhuc-2.webp"],
     ba: ["/cv/CV_BA_DoHoangPhuc-1.webp", "/cv/CV_BA_DoHoangPhuc-2.webp"],
   } as Record<Role, string[]>,
-  // shown in the CV preview next to the CV; same text as public/cv/CoverLetter_DoHoangPhuc_{EN,VI}.pdf
+  // shown in the CV preview next to the CV; same text as the CoverLetter_*.pdf files in public/cv
   coverLetter: {
+    da: {
+      pdf: { en: "/cv/CoverLetter_DA_DoHoangPhuc_EN.pdf", vi: "/cv/CoverLetter_DA_DoHoangPhuc_VI.pdf" },
+      date: { en: "Ho Chi Minh City, 1 November 2026", vi: "TP. Hồ Chí Minh, ngày 01 tháng 11 năm 2026" },
+      greeting: { en: "Dear Hiring Manager,", vi: "Kính gửi Anh/Chị phụ trách tuyển dụng," },
+      paragraphs: [
+        {
+          en: "I am writing to apply for the Data Analyst position. I am a final-year Management Information Systems student at the University of Transport Ho Chi Minh City (GPA 3.64/4.0), and I am currently an intern at Saigon International General Hospital, where much of my work is data analysis and reporting.",
+          vi: "Em xin ứng tuyển vị trí Data Analyst. Em là sinh viên năm cuối ngành Hệ thống thông tin quản lý, Trường Đại học Giao thông Vận tải TP.HCM (GPA 3.64/4.0), hiện đang thực tập tại Bệnh viện Đa khoa Quốc tế Sài Gòn, nơi nhiều công việc của em liên quan đến phân tích dữ liệu và báo cáo.",
+        },
+        {
+          en: "At the hospital, I broke net revenue down into six drivers and measured how much each one changed, down to specialty and doctor level, which moved the discussion from patient volume to order rates. I also built the first dashboard for corporate health check contracts from scratch, with clear KPIs and data-quality checks, so the CEO and the FP&A team can see where each contract and payment is waiting. In my university projects, I built Power BI models with DAX and learned to check my own numbers carefully: re-running one project revealed a data leak that made a model look perfect.",
+          vi: "Tại bệnh viện, em tách doanh thu thuần thành sáu yếu tố và đo mức thay đổi của từng yếu tố, chi tiết đến cấp chuyên khoa và bác sĩ, giúp cuộc thảo luận chuyển từ lượng bệnh nhân sang tỷ lệ chỉ định. Em cũng tự xây dựng từ đầu dashboard đầu tiên theo dõi hợp đồng khám sức khỏe doanh nghiệp, với các KPI rõ ràng và bộ kiểm tra chất lượng dữ liệu, giúp CEO và bộ phận FP&A thấy từng hợp đồng, từng khoản thanh toán đang nằm ở khâu nào. Trong các đồ án ở trường, em xây dựng mô hình Power BI với DAX và học được cách tự kiểm tra kỹ số liệu của mình: khi chạy lại một dự án, em phát hiện lỗi rò rỉ dữ liệu khiến mô hình trông “hoàn hảo” một cách sai lệch.",
+        },
+        {
+          en: "I know that I still have a lot to learn, and that is exactly why I am applying. I hope to learn from experienced analysts, work with real data and real business questions, and grow step by step. I learn quickly, I am happy to start with small tasks, and I always try to finish what I start with care.",
+          vi: "Em biết mình vẫn còn nhiều điều phải học, và đó cũng chính là lý do em ứng tuyển. Em mong được học hỏi từ các anh chị đi trước, được làm việc với dữ liệu và bài toán kinh doanh thực tế, và trưởng thành từng bước. Em học nhanh, sẵn sàng bắt đầu từ những việc nhỏ và luôn cố gắng hoàn thành chu đáo những gì mình đã nhận.",
+        },
+        {
+          en: "If I am given the chance, I will do my very best to contribute to the team and to improve every day. My case studies are available at dohoangphuc.vercel.app. Thank you sincerely for your time and consideration. I would be grateful for the opportunity to talk with you.",
+          vi: "Nếu có cơ hội, em sẽ cố gắng hết sức để đóng góp cho đội ngũ và tiến bộ mỗi ngày. Anh/Chị có thể xem chi tiết các dự án của em tại dohoangphuc.vercel.app. Em xin chân thành cảm ơn Anh/Chị đã dành thời gian đọc thư và rất mong có dịp được trao đổi thêm.",
+        },
+      ],
+      closing: { en: "Sincerely,", vi: "Trân trọng," },
+    },
     ba: {
       pdf: { en: "/cv/CoverLetter_DoHoangPhuc_EN.pdf", vi: "/cv/CoverLetter_DoHoangPhuc_VI.pdf" },
       date: { en: "Ho Chi Minh City, 1 November 2026", vi: "TP. Hồ Chí Minh, ngày 01 tháng 11 năm 2026" },
