@@ -60,19 +60,32 @@ export function CvButton({
   );
 }
 
-/** "CV · DA · BA": the visitor picks which CV to open; the role being viewed is highlighted. */
+// sidebar CV buttons: same shape and hover lift as the social buttons; the role being viewed is tinted
+const CARD_ON: Record<Role, string> = { da: "border-da/60 bg-da/10 text-fg", ba: "border-ba/60 bg-ba/10 text-fg" };
+const CARD_OFF: Record<Role, string> = { da: "border-line text-muted-fg hover:border-da/60 hover:text-fg", ba: "border-line text-muted-fg hover:border-ba/60 hover:text-fg" };
+const ICON: Record<Role, string> = { da: "text-da", ba: "text-ba" };
+
+/** "View CV: DA / BA": the visitor picks which CV to open. */
 export function CvPicker({ current }: { current: Role }) {
   const { t } = useLang();
   return (
-    <div role="group" aria-label={t(ui.chooseCv)} className="inline-flex items-center gap-1 rounded-full border border-line bg-card/60 p-1 backdrop-blur">
-      <span aria-hidden className="flex items-center gap-1.5 pl-3 pr-1 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-fg">
-        <FileText size={13} /> CV
-      </span>
-      {ROLES.map((r) => (
-        <CvButton key={r} role={r} label={t(ui.viewCv, { role: r.toUpperCase() })} className={`${pill} ${r === current ? PILL_ON[r] : PILL_OFF[r]}`}>
-          {r.toUpperCase()}
-        </CvButton>
-      ))}
+    <div role="group" aria-label={t(ui.chooseCv)}>
+      <p className="label mb-2">{t(ui.viewCvShort)}</p>
+      <div className="flex gap-2">
+        {ROLES.map((r) => (
+          <CvButton
+            key={r}
+            role={r}
+            label={t(ui.viewCv, { role: r.toUpperCase() })}
+            className={`group/cv inline-flex h-10 cursor-pointer items-center gap-2 rounded-lg border px-4 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 ${
+              r === current ? CARD_ON[r] : CARD_OFF[r]
+            }`}
+          >
+            <FileText size={15} className={`${ICON[r]} transition-transform duration-300 group-hover/cv:-rotate-6`} />
+            {r.toUpperCase()}
+          </CvButton>
+        ))}
+      </div>
     </div>
   );
 }
