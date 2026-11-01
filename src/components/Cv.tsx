@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Download, Mail, MessageCircle, Phone, X } from "lucide-react";
+import { Download, FileText, Mail, MessageCircle, Phone, X } from "lucide-react";
 import { profile, type Role } from "../data/profile";
 import { ui } from "../data/ui";
 import { useLang } from "../i18n";
@@ -10,8 +10,26 @@ import { LangToggle } from "./ui";
 
 type Tab = "cv" | "letter";
 
+const ROLES: Role[] = ["da", "ba"];
+// role pills: filled in the role's colour when chosen, tinted on hover otherwise
+const PILL_ON: Record<Role, string> = { da: "bg-da/15 text-da ring-1 ring-da/40", ba: "bg-ba/15 text-ba ring-1 ring-ba/40" };
+const PILL_OFF: Record<Role, string> = { da: "text-muted-fg hover:text-da", ba: "text-muted-fg hover:text-ba" };
+const pill = "min-h-[2.25rem] min-w-[3rem] cursor-pointer rounded-full px-3 font-mono text-[0.6875rem] uppercase tracking-[0.15em] transition-colors duration-300";
+
 /** Opens the role's CV (and cover letter, if any) in a preview; with no CV for the role, says so for a few seconds. */
-export function CvButton({ role, className, wrapClassName = "", children }: { role: Role; className: string; wrapClassName?: string; children: ReactNode }) {
+export function CvButton({
+  role,
+  className,
+  wrapClassName = "",
+  label,
+  children,
+}: {
+  role: Role;
+  className: string;
+  wrapClassName?: string;
+  label?: string; // accessible name when the visible text is short, e.g. "DA"
+  children: ReactNode;
+}) {
   const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [missing, setMissing] = useState(false);
@@ -24,6 +42,7 @@ export function CvButton({ role, className, wrapClassName = "", children }: { ro
       <button
         type="button"
         className={className}
+        aria-label={missing ? undefined : label}
         aria-haspopup={has ? "dialog" : undefined}
         onClick={() => {
           if (has) return setOpen(true);
@@ -41,17 +60,32 @@ export function CvButton({ role, className, wrapClassName = "", children }: { ro
   );
 }
 
-/** The first role that has a CV, preferring the one being viewed. */
-export function cvRole(preferred: Role): Role {
-  if (profile.cv[preferred]) return preferred;
-  return (Object.keys(profile.cv) as Role[]).find((r) => profile.cv[r]) ?? preferred;
+/** "CV · DA · BA": the visitor picks which CV to open; the role being viewed is highlighted. */
+export function CvPicker({ current }: { current: Role }) {
+  const { t } = useLang();
+  return (
+    <div role="group" aria-label={t(ui.chooseCv)} className="inline-flex items-center gap-1 rounded-full border border-line bg-card/60 p-1 backdrop-blur">
+      <span aria-hidden className="flex items-center gap-1.5 pl-3 pr-1 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-fg">
+        <FileText size={13} /> CV
+      </span>
+      {ROLES.map((r) => (
+        <CvButton key={r} role={r} label={t(ui.viewCv, { role: r.toUpperCase() })} className={`${pill} ${r === current ? PILL_ON[r] : PILL_OFF[r]}`}>
+          {r.toUpperCase()}
+        </CvButton>
+      ))}
+    </div>
+  );
 }
 
-function CvModal({ role, onClose }: { role: Role; onClose: () => void }) {
+function CvModal({ role: initial, onClose }: { role: Role; onClose: () => void }) {
   const { t, lang } = useLang();
   useScrollLock(true);
+  // the preview can switch between roles, whichever button opened it
+  const [role, setRole] = useState(initial);
+  const roles = ROLES.filter((r) => profile.cv[r]);
   const letter = profile.coverLetter[role];
-  const [tab, setTab] = useState<Tab>("cv");
+  const [picked, setTab] = useState<Tab>("cv");
+  const tab: Tab = letter ? picked : "cv";
   const file = tab === "cv" || !letter ? profile.cv[role] : letter.pdf[lang];
 
   useEffect(() => {
@@ -90,8 +124,23 @@ function CvModal({ role, onClose }: { role: Role; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
         className="flex h-full max-h-[60rem] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-line bg-card shadow-2xl"
       >
-        {/* toolbar: tabs, language (cover letter only), download, close */}
+        {/* toolbar: role, tabs, language (cover letter only), download, close */}
         <div className="flex flex-wrap items-center gap-2 border-b border-line px-3 py-3 sm:gap-3 sm:px-5">
+          {roles.length > 1 && (
+            <div role="group" aria-label={t(ui.chooseCv)} className="flex rounded-full border border-line p-1">
+              {roles.map((r) => (
+                <button
+                  key={r}
+                  aria-pressed={role === r}
+                  title={t(ui.roleLabel[r])}
+                  onClick={() => setRole(r)}
+                  className={`${pill} ${role === r ? PILL_ON[r] : PILL_OFF[r]}`}
+                >
+                  {r.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          )}
           <div role="tablist" aria-label={t(ui.cvPreviewTitle, { role: role.toUpperCase() })} className="flex rounded-full border border-line p-1">
             {tabs.map((x) => (
               <button
@@ -125,7 +174,7 @@ function CvModal({ role, onClose }: { role: Role; onClose: () => void }) {
 
         {/* preview */}
         {/* keyed by tab so each tab opens at the top */}
-        <div key={tab} role="tabpanel" data-lenis-prevent className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-muted/50 p-3 sm:p-6">
+        <div key={`${role}-${tab}`} role="tabpanel" data-lenis-prevent className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-muted/50 p-3 sm:p-6">
           {tab === "cv" || !letter ? (
             <div className="mx-auto max-w-[48rem] space-y-4">
               {profile.cvPreview[role].map((src, i) => (

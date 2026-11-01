@@ -20,6 +20,7 @@ export const ui = {
   copied: { en: "Copied", vi: "Đã sao chép" },
   viewCv: { en: "View {role} CV", vi: "Xem CV {role}" },
   viewCvShort: { en: "View CV", vi: "Xem CV" },
+  chooseCv: { en: "Choose a CV", vi: "Chọn CV" },
   cvPreviewTitle: { en: "{role} CV and cover letter", vi: "CV và thư xin việc {role}" },
   cvTab: { en: "CV", vi: "CV" },
   coverLetter: { en: "Cover letter", vi: "Thư xin việc" },
