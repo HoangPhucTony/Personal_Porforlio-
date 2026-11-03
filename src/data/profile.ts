@@ -277,24 +277,24 @@ export const profile = {
           vi: "Tự xây dựng từ đầu dashboard Khám sức khỏe doanh nghiệp đầu tiên (trước đó chưa có) cho CEO và FP&A, với sự hỗ trợ của AI: web app Apps Script phân quyền theo email, theo dõi từng hợp đồng từ lúc ký đến lúc thu tiền qua các bộ phận Kinh doanh, Thư ký y khoa, Bác sĩ và Kế toán; có cảnh báo quá hạn, thời gian tồn đọng ở từng khâu và biểu đồ thác nước dòng tiền.",
         },
         {
-          en: "Automation and reporting: an Apps Script tool that extracts data from PDF files into the data-entry sheet, a Looker Studio report on surgery and inpatient activity, and weekly AMC contract updates for the management report.",
-          vi: "Tự động hóa và báo cáo: công cụ Apps Script trích xuất dữ liệu từ file PDF vào bảng nhập liệu, báo cáo Phẫu thuật – Nội trú trên Looker Studio, và cập nhật số liệu hợp đồng AMC hằng tuần cho báo cáo quản trị.",
+          en: "Automation and reporting: an Apps Script tool that extracts data from PDF files and maps names to the right columns with a dictionary, which cut entry time from over 20 minutes to 2–5 minutes per file (double-check included); a basic Looker Studio report on surgery and inpatient activity; and weekly AMC contract updates for the management report.",
+          vi: "Tự động hóa và báo cáo: công cụ Apps Script trích xuất dữ liệu từ file PDF và dùng từ điển để map tên đúng cột, rút thời gian nhập từ hơn 20 phút xuống còn 2–5 phút mỗi file (đã gồm bước kiểm tra lại); báo cáo Phẫu thuật – Nội trú cơ bản trên Looker Studio; và cập nhật số liệu hợp đồng AMC hằng tuần cho báo cáo quản trị.",
         },
       ] as L[],
       caseStudies: ["sig-revenue-drivers", "sig-promotion-analysis", "sig-kskdn-dashboard"],
-      tags: ["SQL", "Google Sheets", "Apps Script", "Looker Studio", "Business Analysis", "Healthcare"],
+      tags: ["SQL", "Google Sheets", "Apps Script", "Business Analysis", "Healthcare"],
       logo: "/images/work/sig-logo.png",
       photo: "/images/work/sig-lobby.webp",
     },
     {
-      title: { en: "Business Analyst Intern", vi: "Thực tập sinh Business Analyst" },
+      title: { en: "Business Analyst Intern & Project Lead", vi: "Thực tập sinh Business Analyst kiêm Project Lead" },
       org: { en: "Public Transport Management Center (MCPT)", vi: "Trung tâm Quản lý Giao thông Công cộng (MCPT)" },
       short: "MCPT",
       period: { en: "Aug – Nov 2026", vi: "T8 – T11/2026" },
       current: true,
       desc: {
-        en: "Lead Business Analyst and Project Manager for Ho Chi Minh City's bus card issuance system for citizens, from multi-channel application intake to batch Excel export for card printing. Led a 40-member team and worked directly with MCPT leadership.",
-        vi: "Lead Business Analyst kiêm Quản lý dự án (PM) cho hệ thống cấp thẻ xe buýt cho người dân TP.HCM — từ tiếp nhận hồ sơ đa kênh đến xuất file Excel hàng loạt cho đơn vị in thẻ. Điều phối đội ngũ 40 thành viên và làm việc trực tiếp với Ban Lãnh đạo MCPT.",
+        en: "Project Lead and Business Analyst for Ho Chi Minh City's bus card issuance system for citizens, from multi-channel application intake to batch Excel export for card printing. Led a 40-member team and worked directly with MCPT leadership.",
+        vi: "Project Lead kiêm Business Analyst cho hệ thống cấp thẻ xe buýt cho người dân TP.HCM — từ tiếp nhận hồ sơ đa kênh đến xuất file Excel hàng loạt cho đơn vị in thẻ. Điều phối đội ngũ 40 thành viên và làm việc trực tiếp với Ban Lãnh đạo MCPT.",
       },
       highlights: [
         {
@@ -844,12 +844,12 @@ export const profile = {
         { en: "Modeled the AS-IS and TO-BE purchasing processes in BPMN.", vi: "Mô hình hóa quy trình mua hàng AS-IS và TO-BE bằng BPMN." },
         { en: "Ran a fit-gap analysis of 9 areas against standard Odoo.", vi: "Phân tích fit-gap 9 hạng mục so với Odoo tiêu chuẩn." },
         { en: "Turned business rules into requirements: budget control, QC and near-expiry stock.", vi: "Chuyển quy tắc nghiệp vụ thành yêu cầu: kiểm soát ngân sách, QC và hàng cận hạn." },
-        { en: "Wrote about 70% of the code and set up the automated deployment.", vi: "Viết khoảng 70% mã nguồn và thiết lập triển khai tự động." },
+        { en: "Led the module development and set up the automated deployment.", vi: "Phụ trách chính phần phát triển module và thiết lập triển khai tự động." },
       ],
       metrics: [
         { value: "9", label: { en: "fit-gap areas covered: configured where Odoo fits, built where it does not", vi: "hạng mục fit-gap: cấu hình khi Odoo đã đáp ứng, tự phát triển khi còn thiếu" } },
         { value: "3", label: { en: "custom modules that extend 14 standard Odoo models without changing the core", vi: "module tự phát triển, mở rộng 14 model chuẩn của Odoo mà không sửa mã lõi" } },
-        { value: "~70%", label: { en: "of about 13,700 lines of code, written by me", vi: "trên tổng số khoảng 13.700 dòng mã do tôi viết" } },
+        { value: "1", label: { en: "purchase request shared by 3 roles, replacing long email chains", vi: "phiếu yêu cầu mua hàng dùng chung cho 3 vai trò, thay cho chuỗi email dài" } },
       ],
       context: {
         en: "Multi-store retail chains restock from two sources: the central warehouse and external suppliers. For the MIS Practical Project course, I prepared an interview guide and interviewed staff at a large retailer about how purchasing really works. The pain points were clear: requests were made by hand over email, there was no early warning for low or near-expiry stock, and budgets were only checked after the money was spent. Standard Odoo covers purchasing and inventory, but not the full flow from store to merchandising to supplier.",
@@ -1196,12 +1196,12 @@ export const profile = {
         { en: "Defined 3 user roles and a 6-state booking lifecycle.", vi: "Xác định 3 vai trò người dùng và vòng đời đặt sân 6 trạng thái." },
         { en: "Turned pricing and booking rules into clear requirements.", vi: "Chuyển quy tắc giá và đặt sân thành yêu cầu nghiệp vụ rõ ràng." },
         { en: "Ran a fit-gap analysis and reused standard POS, Inventory and Contacts.", vi: "Phân tích fit-gap, tận dụng POS, Inventory và Contacts có sẵn." },
-        { en: "Built 3 custom modules plus PayPal payment, about 23,000 lines of code.", vi: "Phát triển 3 module cùng thanh toán PayPal, khoảng 23.000 dòng mã." },
+        { en: "Built 3 custom modules plus PayPal payment.", vi: "Phát triển 3 module cùng thanh toán PayPal." },
       ],
       metrics: [
         { value: "6", label: { en: "booking states, from new request to paid", vi: "trạng thái đặt sân, từ yêu cầu mới đến đã thanh toán" } },
         { value: "3 + 1", label: { en: "custom modules, plus a PayPal payment add-on", vi: "module tự phát triển, cùng module thanh toán PayPal" } },
-        { value: "~23,000", label: { en: "lines of Python, JavaScript and XML, all written by me", vi: "dòng mã Python, JavaScript và XML do tôi tự viết" } },
+        { value: "1", label: { en: "POS order pays for a whole group's courts and hours", vi: "đơn POS thanh toán trọn các sân và khung giờ của cả nhóm" } },
       ],
       context: {
         en: "A badminton club runs on its schedule: each court-hour can be sold only once, prices change by court and time of day, and most visits end at the counter with drinks or shuttlecocks on the same bill. I studied how a court business handles bookings, walk-in customers, pricing and counter sales, then built the whole system on Odoo 19. Odoo's Appointments and Website Booking apps are not designed for selling by court and time slot, so the system uses its own booking models and a visual schedule grid.",
